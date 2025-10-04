@@ -1,0 +1,42 @@
+{
+  "type": "slashblade:shaped_blade",
+  "blade": "slashblade_fabric_addons:slashblade_addon/kamuy_lightning",
+  "category": "equipment",
+  "key": {
+    "A": {
+      "tag": "c:gold_blocks"
+    },
+    "B": {
+      "fabric:type": "slashblade:blade",
+      "type": "slashblade:blade",
+      "item": "slashblade:slashblade",
+      "request": {
+        "kill": 500,
+        "name": "slashblade_fabric_addons:slashblade_addon/kamuy_none",
+        "proud_soul": 5000,
+        "refine": 20
+      }
+    },
+    "D": {
+      "tag": "c:emerald_blocks"
+    },
+    "N": {
+      "tag": "c:iron_blocks"
+    },
+    "Q": {
+      "tag": "c:diamond_blocks"
+    },
+    "S": {
+      "item": "slashblade:proudsoul_sphere"
+    }
+  },
+  "pattern": [
+    "SNS",
+    "ABQ",
+    "SDS"
+  ],
+  "result": {
+    "item": "slashblade:slashblade"
+  },
+  "show_notification": true
+}

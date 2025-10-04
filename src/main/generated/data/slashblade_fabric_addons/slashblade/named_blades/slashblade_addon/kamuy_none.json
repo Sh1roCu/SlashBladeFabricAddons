@@ -1,0 +1,21 @@
+{
+  "creativeGroup": "slashblade_fabric_addons:slashblade_addon/sjap_tab",
+  "enchantments": [
+    {
+      "id": "minecraft:looting"
+    }
+  ],
+  "name": "slashblade_fabric_addons:slashblade_addon/kamuy_none",
+  "properties": {
+    "attack_base": 7.0,
+    "max_damage": 45,
+    "slash_art": "slashblade:circle_slash",
+    "sword_type": [
+      "bewitched"
+    ]
+  },
+  "render": {
+    "model": "slashblade_fabric_addons:slashblade_addon/model/kamuy/kamuy.obj",
+    "texture": "slashblade_fabric_addons:slashblade_addon/model/kamuy/kamuy.png"
+  }
+}

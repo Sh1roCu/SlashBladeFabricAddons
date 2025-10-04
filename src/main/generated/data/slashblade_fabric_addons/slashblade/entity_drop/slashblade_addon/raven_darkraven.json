@@ -1,0 +1,6 @@
+{
+  "blade": "slashblade_fabric_addons:slashblade_addon/dark_raven",
+  "drop_rate": 0.05,
+  "entity_type": "twilightforest:raven",
+  "request_slashblade": true
+}

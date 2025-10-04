@@ -1,0 +1,36 @@
+{
+  "type": "slashblade:shaped_blade",
+  "blade": "slashblade_fabric_addons:slashblade_addon/yukari",
+  "category": "equipment",
+  "key": {
+    "B": {
+      "fabric:type": "slashblade:blade",
+      "type": "slashblade:blade",
+      "item": "slashblade:slashblade",
+      "request": {
+        "enchantments": [
+          {
+            "id": "minecraft:fire_aspect"
+          }
+        ],
+        "kill": 1000,
+        "name": "slashblade:yuzukitukumo"
+      }
+    },
+    "I": {
+      "item": "slashblade:proudsoul_ingot"
+    },
+    "S": {
+      "item": "slashblade:proudsoul_sphere"
+    }
+  },
+  "pattern": [
+    "ISI",
+    "SBS",
+    "ISI"
+  ],
+  "result": {
+    "item": "slashblade:slashblade"
+  },
+  "show_notification": true
+}

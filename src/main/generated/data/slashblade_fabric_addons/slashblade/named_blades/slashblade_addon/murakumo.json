@@ -1,0 +1,21 @@
+{
+  "creativeGroup": "slashblade_fabric_addons:slashblade_addon/sjap_tab",
+  "enchantments": [
+    {
+      "id": "minecraft:smite"
+    }
+  ],
+  "name": "slashblade_fabric_addons:slashblade_addon/murakumo",
+  "properties": {
+    "attack_base": 9.0,
+    "max_damage": 80,
+    "slash_art": "slashblade:sakura_end",
+    "sword_type": [
+      "bewitched"
+    ]
+  },
+  "render": {
+    "model": "slashblade_fabric_addons:slashblade_addon/model/murakumo/model.obj",
+    "texture": "slashblade_fabric_addons:slashblade_addon/model/murakumo/texture.png"
+  }
+}

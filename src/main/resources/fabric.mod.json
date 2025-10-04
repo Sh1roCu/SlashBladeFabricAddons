@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "slashblade_fabric_addons",
+  "version": "${version}",
+  "name": "SlashBlade Refabricated Addons",
+  "description": "",
+  "authors": [
+    "Sh1roCu"
+  ],
+  "contact": {},
+  "license": "MIT",
+  "environment": "*",
+  "entrypoints": {
+    "fabric-datagen": [
+      "cn.sh1rocu.sfaddons.client.SFAddonsDataGenerator"
+    ],
+    "client": [
+      "cn.sh1rocu.sfaddons.client.SFAddonsClient"
+    ],
+    "main": [
+      "cn.sh1rocu.sfaddons.SFAddons"
+    ]
+  },
+  "mixins": [
+    "slashblade_fabric_addons.mixins.json"
+  ],
+  "accessWidener": "slashblade_fabric_addons.accesswidener",
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": [
+      "1.20",
+      "1.20.1"
+    ],
+    "slashblade": "*"
+  }
+}

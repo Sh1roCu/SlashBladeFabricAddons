@@ -1,0 +1,16 @@
+{
+  "creativeGroup": "slashblade_fabric_addons:slashblade_addon/sjap_tab",
+  "name": "slashblade_fabric_addons:slashblade_addon/katana",
+  "properties": {
+    "attack_base": 3.0,
+    "max_damage": 457,
+    "sword_type": [
+      "none"
+    ]
+  },
+  "render": {
+    "carry_type": "katana",
+    "model": "slashblade_fabric_addons:slashblade_addon/model/wa/wa.obj",
+    "texture": "slashblade_fabric_addons:slashblade_addon/model/wa/katana.png"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "energyblade"
+      ]
+    }
+  ],
+  "type": "slashblade:shaped_blade",
+  "blade": "slashblade_fabric_addons:slashblade_addon/wanderer_hf",
+  "category": "equipment",
+  "key": {
+    "B": {
+      "fabric:type": "slashblade:blade",
+      "type": "slashblade:blade",
+      "item": "slashblade:slashblade",
+      "request": {
+        "name": "slashblade_fabric_addons:slashblade_addon/wanderer"
+      }
+    },
+    "C": {
+      "item": "slashblade:proudsoul_trapezohedron"
+    },
+    "I": {
+      "tag": "c:redstone_dusts"
+    },
+    "Q": {
+      "tag": "c:quartz"
+    }
+  },
+  "pattern": [
+    "  I",
+    "QI ",
+    "BC "
+  ],
+  "result": {
+    "item": "slashblade:slashblade"
+  },
+  "show_notification": true
+}

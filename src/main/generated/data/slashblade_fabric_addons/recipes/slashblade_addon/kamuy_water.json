@@ -1,0 +1,42 @@
+{
+  "type": "slashblade:shaped_blade",
+  "blade": "slashblade_fabric_addons:slashblade_addon/kamuy_water",
+  "category": "equipment",
+  "key": {
+    "A": {
+      "item": "minecraft:packed_ice"
+    },
+    "B": {
+      "fabric:type": "slashblade:blade",
+      "type": "slashblade:blade",
+      "item": "slashblade:slashblade",
+      "request": {
+        "kill": 500,
+        "name": "slashblade_fabric_addons:slashblade_addon/kamuy_none",
+        "proud_soul": 5000,
+        "refine": 20
+      }
+    },
+    "D": {
+      "item": "minecraft:water_bucket"
+    },
+    "N": {
+      "tag": "c:lapis_blocks"
+    },
+    "Q": {
+      "item": "minecraft:snow_block"
+    },
+    "S": {
+      "item": "slashblade:proudsoul_sphere"
+    }
+  },
+  "pattern": [
+    "SNS",
+    "ABQ",
+    "SDS"
+  ],
+  "result": {
+    "item": "slashblade:slashblade"
+  },
+  "show_notification": true
+}

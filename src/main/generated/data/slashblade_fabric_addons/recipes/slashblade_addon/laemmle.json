@@ -1,0 +1,36 @@
+{
+  "type": "slashblade:shaped_blade",
+  "blade": "slashblade_fabric_addons:slashblade_addon/laemmle",
+  "category": "equipment",
+  "key": {
+    "B": {
+      "fabric:type": "slashblade:blade",
+      "type": "slashblade:blade",
+      "item": "slashblade:slashblade",
+      "request": {
+        "name": "slashblade:muramasa"
+      }
+    },
+    "G": {
+      "tag": "c:gold_ingots"
+    },
+    "O": {
+      "tag": "c:obsidian"
+    },
+    "Q": {
+      "tag": "c:quartz_blocks"
+    },
+    "X": {
+      "item": "minecraft:potion"
+    }
+  },
+  "pattern": [
+    "XGO",
+    "GBG",
+    "QGX"
+  ],
+  "result": {
+    "item": "slashblade:slashblade"
+  },
+  "show_notification": true
+}

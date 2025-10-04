@@ -1,0 +1,47 @@
+{
+  "type": "slashblade:shaped_blade",
+  "blade": "slashblade_fabric_addons:slashblade_addon/nihilbx",
+  "category": "equipment",
+  "key": {
+    "C": {
+      "fabric:type": "slashblade:blade",
+      "type": "slashblade:blade",
+      "item": "slashblade:slashblade",
+      "request": {
+        "kill": 3000,
+        "name": "slashblade_fabric_addons:slashblade_addon/crimsoncherry",
+        "proud_soul": 6500,
+        "refine": 3
+      }
+    },
+    "D": {
+      "item": "minecraft:diamond_block"
+    },
+    "S": {
+      "fabric:type": "slashblade:blade",
+      "type": "slashblade:blade",
+      "item": "slashblade:slashblade",
+      "request": {}
+    },
+    "U": {
+      "fabric:type": "slashblade:blade",
+      "type": "slashblade:blade",
+      "item": "slashblade:slashblade",
+      "request": {
+        "kill": 3000,
+        "name": "slashblade_fabric_addons:slashblade_addon/nihilul",
+        "proud_soul": 6500,
+        "refine": 3
+      }
+    }
+  },
+  "pattern": [
+    "DDD",
+    "CSU",
+    "DDD"
+  ],
+  "result": {
+    "item": "slashblade:slashblade"
+  },
+  "show_notification": true
+}

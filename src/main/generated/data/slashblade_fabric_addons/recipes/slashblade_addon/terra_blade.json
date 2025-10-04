@@ -1,0 +1,45 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "botania"
+      ]
+    }
+  ],
+  "type": "slashblade:shaped_blade",
+  "blade": "slashblade_fabric_addons:slashblade_addon/terra_blade",
+  "category": "equipment",
+  "key": {
+    "B": {
+      "item": "slashblade:slashblade"
+    },
+    "C": {
+      "item": "botania:thorn_chakram"
+    },
+    "G": {
+      "item": "slashblade:proudsoul"
+    },
+    "O": {
+      "item": "botania:gaia_ingot"
+    },
+    "Q": {
+      "item": "botania:terra_sword"
+    },
+    "X": {
+      "item": "slashblade:proudsoul_sphere"
+    },
+    "Z": {
+      "item": "botania:vine_ball"
+    }
+  },
+  "pattern": [
+    "ZCO",
+    " BG",
+    "Q X"
+  ],
+  "result": {
+    "item": "slashblade:slashblade"
+  },
+  "show_notification": true
+}
