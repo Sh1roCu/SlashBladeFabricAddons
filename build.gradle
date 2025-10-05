@@ -93,7 +93,7 @@ dependencies {
 
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-    modImplementation("cn.sh1rocu:slashblade-refabricated:1.20.1-0.0.9-Resharped-1.6.54")
+    modImplementation("cn.sh1rocu:slashblade-refabricated:1.20.1-1.0.0-Resharped-1.7.55")
     modImplementation "dev.onyxstudios.cardinal-components-api:cardinal-components-base:${project.cca_version}"
     modImplementation "dev.onyxstudios.cardinal-components-api:cardinal-components-item:${project.cca_version}"
 
@@ -105,6 +105,8 @@ dependencies {
 
     modImplementation('vazkii.botania:Botania:1.20.1-446-FABRIC')
     modImplementation('vazkii.patchouli:Patchouli:1.20.1-84-FABRIC')
+
+    modImplementation(include("io.github.fabricators_of_create.Porting-Lib:base:2.3.8+1.20.1"))
 }
 
 processResources {

@@ -1,4 +1,4 @@
-package cn.mmf.slashblade_addon.data;
+package cn.sh1rocu.sfaddons.data;
 
 import mods.flammpfeil.slashblade.event.drop.EntityDropEntry;
 import mods.flammpfeil.slashblade.registry.slashblade.SlashBladeDefinition;
@@ -8,8 +8,8 @@ import net.minecraft.core.HolderLookup;
 
 import java.util.concurrent.CompletableFuture;
 
-public class SlashAddonDataGen extends FabricDynamicRegistryProvider {
-    public SlashAddonDataGen(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
+public class DynamicRegistry extends FabricDynamicRegistryProvider {
+    public DynamicRegistry(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
         super(output, registriesFuture);
     }
 

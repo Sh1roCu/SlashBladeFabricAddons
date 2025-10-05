@@ -1,0 +1,7 @@
+{
+  "tip.slashblade_fabric_addons.energyblade.energy_info": "按住 %s键 以显示更多信息",
+  "tip.slashblade_fabric_addons.energyblade.forge_energy_info": "当前能量: %s E",
+  "item.slashblade_fabric_addons.energyblade.forge_energy_blade": "试作型高周波刀",
+  "item.slashblade_fabric_addons.energyblade.hf_blade": "高周波刀",
+  "key.slahblade_fabric_addons.energyblade.charge_switch": "切换充能状态"
+}

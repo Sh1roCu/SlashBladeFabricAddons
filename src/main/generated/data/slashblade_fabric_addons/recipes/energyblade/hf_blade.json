@@ -1,6 +1,6 @@
 {
   "type": "slashblade:shaped_blade",
-  "blade": "slashblade_fabric_addons:slashblade_addon/wanderer_hf",
+  "blade": "slashblade_fabric_addons:energyblade/hf_blade",
   "category": "equipment",
   "key": {
     "B": {
@@ -8,23 +8,23 @@
       "type": "slashblade:blade",
       "item": "slashblade:slashblade",
       "request": {
-        "name": "slashblade_fabric_addons:slashblade_addon/wanderer"
+        "refine": 10
       }
     },
-    "C": {
-      "item": "slashblade:proudsoul_trapezohedron"
+    "J": {
+      "tag": "c:redstone_blocks"
     },
-    "I": {
-      "tag": "c:redstone_dusts"
+    "L": {
+      "tag": "c:iron_blocks"
     },
-    "Q": {
-      "tag": "c:quartz"
+    "S": {
+      "item": "slashblade:proudsoul_sphere"
     }
   },
   "pattern": [
-    "  I",
-    "QI ",
-    "BC "
+    "SLJ",
+    "LBL",
+    "JLS"
   ],
   "result": {
     "item": "slashblade:slashblade"

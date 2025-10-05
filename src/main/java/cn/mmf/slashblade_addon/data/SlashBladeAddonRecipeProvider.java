@@ -1,6 +1,7 @@
 package cn.mmf.slashblade_addon.data;
 
 import cn.mmf.slashblade_addon.SlashBladeAddon;
+import cn.sh1rocu.sfaddons.data.SFAddonsRecipeProvider;
 import mods.flammpfeil.slashblade.data.SlashBladeRecipeProvider;
 import mods.flammpfeil.slashblade.data.builtin.SlashBladeBuiltInRegistry;
 import mods.flammpfeil.slashblade.init.SBItems;
@@ -28,14 +29,11 @@ import vazkii.botania.common.item.BotaniaItems;
 import java.util.function.Consumer;
 
 public class SlashBladeAddonRecipeProvider extends FabricRecipeProvider {
-
     public SlashBladeAddonRecipeProvider(FabricDataOutput output) {
         super(output);
     }
 
-    @Override
     public void buildRecipes(Consumer<FinishedRecipe> consumer) {
-        // TODO: EnergyBlade(HF Blade) Fabric移植
         SlashBladeShapedRecipeBuilder
                 .shaped(SlashBladeAddonBuiltInRegistry.HF_MURASAMA.location()).pattern(" RI").pattern("RBG")
                 .pattern("SL ").define('S', SBItems.proudsoul_trapezohedron).define('I', ConventionalItemTags.IRON_INGOTS)
@@ -45,7 +43,7 @@ public class SlashBladeAddonRecipeProvider extends FabricRecipeProvider {
                         SlashBladeIngredient.of(RequestDefinition.Builder.newInstance()
                                 .name(SlashBladeBuiltInRegistry.MURAMASA.location()).build()).toVanilla())
                 .unlockedBy(getHasName(SBItems.slashblade), has(SBItems.slashblade))
-                .save(withConditions(consumer, DefaultResourceConditions.allModsLoaded("energyblade")), SlashBladeAddon.prefix("murasama_blade"));
+                .save(consumer, SlashBladeAddon.prefix("murasama_blade"));
 
         SlashBladeShapedRecipeBuilder
                 .shaped(SlashBladeAddonBuiltInRegistry.WANDERER_HF.location())
@@ -59,7 +57,7 @@ public class SlashBladeAddonRecipeProvider extends FabricRecipeProvider {
                         SlashBladeIngredient.of(RequestDefinition.Builder.newInstance()
                                 .name(SlashBladeAddonBuiltInRegistry.WANDERER.location()).build()).toVanilla())
                 .unlockedBy(getHasName(SBItems.slashblade), has(SBItems.slashblade))
-                .save(withConditions(consumer, DefaultResourceConditions.allModsLoaded("energyblade")), SlashBladeAddon.prefix("wanderer_hf"));
+                .save(consumer, SlashBladeAddon.prefix("wanderer_hf"));
 
         SlashBladeShapedRecipeBuilder.shaped(SlashBladeAddonBuiltInRegistry.WANDERER.location())
                 .pattern("  I")

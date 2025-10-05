@@ -1,0 +1,18 @@
+{
+  "creativeGroup": "slashblade_fabric_addons:slashblade_addon/sjap_tab",
+  "item": "slashblade_fabric_addons:energyblade/forge_energy_blade",
+  "name": "slashblade_fabric_addons:slashblade_addon/hf_murasama",
+  "properties": {
+    "attack_base": 8.0,
+    "max_damage": 250,
+    "slash_art": "slashblade_fabric_addons:slashblade_addon/spiral_edge",
+    "sword_type": [
+      "bewitched"
+    ]
+  },
+  "render": {
+    "model": "slashblade_fabric_addons:slashblade_addon/model/murasama/murasama.obj",
+    "summon_sword_color": -55808,
+    "texture": "slashblade_fabric_addons:slashblade_addon/model/murasama/murasama.png"
+  }
+}

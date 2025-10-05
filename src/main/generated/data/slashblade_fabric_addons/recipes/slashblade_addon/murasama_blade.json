@@ -1,12 +1,4 @@
 {
-  "fabric:load_conditions": [
-    {
-      "condition": "fabric:all_mods_loaded",
-      "values": [
-        "energyblade"
-      ]
-    }
-  ],
   "type": "slashblade:shaped_blade",
   "blade": "slashblade_fabric_addons:slashblade_addon/hf_murasama",
   "category": "equipment",

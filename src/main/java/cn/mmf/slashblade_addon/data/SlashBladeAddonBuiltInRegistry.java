@@ -1,5 +1,6 @@
 package cn.mmf.slashblade_addon.data;
 
+import cn.mmf.energyblade.Energyblade;
 import cn.mmf.slashblade_addon.SlashBladeAddon;
 import cn.mmf.slashblade_addon.compat.botania.SBABotaniaCompat;
 import cn.mmf.slashblade_addon.registry.SBASlashArtsRegistry;
@@ -104,6 +105,10 @@ public class SlashBladeAddonBuiltInRegistry {
         public SJAPDefinition(ResourceLocation name, RenderDefinition renderDefinition, PropertiesDefinition stateDefinition, List<EnchantmentDefinition> enchantments) {
             super(name, renderDefinition, stateDefinition, enchantments, BuiltInRegistries.CREATIVE_MODE_TAB.getKey(SlashBladeAddon.SJAP_TAB));
         }
+
+        public SJAPDefinition(ResourceLocation item, ResourceLocation name, RenderDefinition renderDefinition, PropertiesDefinition stateDefinition, List<EnchantmentDefinition> enchantments) {
+            super(item, name, renderDefinition, stateDefinition, enchantments, BuiltInRegistries.CREATIVE_MODE_TAB.getKey(SlashBladeAddon.SJAP_TAB));
+        }
     }
 
     public static void registerAll(BootstapContext<SlashBladeDefinition> bootstrap) {
@@ -123,30 +128,29 @@ public class SlashBladeAddonBuiltInRegistry {
                                 .maxDamage(80).build(),
                         List.of(new EnchantmentDefinition(getEnchantmentID(Enchantments.SMITE), 1))));
 
-        // TODO: EnergyBlade(HF Blade) Fabric移植
-//		bootstrap.register(HF_MURASAMA, new SJAPDefinition(Energyblade.FORGE_ENERGY_BLADE,
-//				SlashBladeAddon.prefix("hf_murasama"),
-//				RenderDefinition.Builder.newInstance()
-//						.textureName(SlashBladeAddon.prefix("model/murasama/murasama.png"))
-//						.modelName(SlashBladeAddon.prefix("model/murasama/murasama.obj"))
-//						.effectColor(0xFFFF2600)
-//						.standbyRenderType(CarryType.PSO2).build(),
-//				PropertiesDefinition.Builder.newInstance().baseAttackModifier(8.0F).maxDamage(250)
-//						.defaultSwordType(List.of(SwordType.BEWITCHED))
-//						.slashArtsType(SlashArtsRegistry.SLASH_ARTS.getKey(SBASlashArtsRegistry.SPIRAL_EDGE)).build(),
-//				List.of()));
-//        bootstrap.register(WANDERER_HF, new SJAPDefinition(Energyblade.FORGE_ENERGY_BLADE,
-//                SlashBladeAddon.prefix("wanderer_hf"),
-//                RenderDefinition.Builder.newInstance()
-//                        .textureName(SlashBladeAddon.prefix("model/wanderer/wanderer.png"))
-//                        .modelName(SlashBladeAddon.prefix("model/wanderer/wanderer.obj"))
-//                        .standbyRenderType(CarryType.NINJA).build(),
-//                PropertiesDefinition.Builder.newInstance().baseAttackModifier(7.0F).maxDamage(70)
-//                        .defaultSwordType(List.of(SwordType.BEWITCHED))
-//                        .slashArtsType(SlashArtsRegistry.SLASH_ARTS.getKey(SBASlashArtsRegistry.RAPID_BLISTERING_SWORDS)).build(),
-//                List.of()));
-//        addConditions(WANDERER_HF, DefaultResourceConditions.itemsRegistered(Energyblade.FORGE_ENERGY_BLADE));
-//        addConditions(HF_MURASAMA, DefaultResourceConditions.itemsRegistered(Energyblade.FORGE_ENERGY_BLADE));
+        bootstrap.register(HF_MURASAMA, new SJAPDefinition(BuiltInRegistries.ITEM.getKey(Energyblade.FORGE_ENERGY_BLADE),
+                SlashBladeAddon.prefix("hf_murasama"),
+                RenderDefinition.Builder.newInstance()
+                        .textureName(SlashBladeAddon.prefix("model/murasama/murasama.png"))
+                        .modelName(SlashBladeAddon.prefix("model/murasama/murasama.obj"))
+                        .effectColor(0xFFFF2600)
+                        .standbyRenderType(CarryType.PSO2).build(),
+                PropertiesDefinition.Builder.newInstance().baseAttackModifier(8.0F).maxDamage(250)
+                        .defaultSwordType(List.of(SwordType.BEWITCHED))
+                        .slashArtsType(SlashArtsRegistry.SLASH_ARTS.getKey(SBASlashArtsRegistry.SPIRAL_EDGE)).build(),
+                List.of()));
+        bootstrap.register(WANDERER_HF, new SJAPDefinition(BuiltInRegistries.ITEM.getKey(Energyblade.FORGE_ENERGY_BLADE),
+                SlashBladeAddon.prefix("wanderer_hf"),
+                RenderDefinition.Builder.newInstance()
+                        .textureName(SlashBladeAddon.prefix("model/wanderer/wanderer.png"))
+                        .modelName(SlashBladeAddon.prefix("model/wanderer/wanderer.obj"))
+                        .standbyRenderType(CarryType.NINJA).build(),
+                PropertiesDefinition.Builder.newInstance().baseAttackModifier(7.0F).maxDamage(70)
+                        .defaultSwordType(List.of(SwordType.BEWITCHED))
+                        .slashArtsType(SlashArtsRegistry.SLASH_ARTS.getKey(SBASlashArtsRegistry.RAPID_BLISTERING_SWORDS)).build(),
+                List.of()));
+        addConditions(WANDERER_HF, DefaultResourceConditions.itemsRegistered(Energyblade.FORGE_ENERGY_BLADE));
+        addConditions(HF_MURASAMA, DefaultResourceConditions.itemsRegistered(Energyblade.FORGE_ENERGY_BLADE));
 
         bootstrap.register(WANDERER, new SJAPDefinition(
                 SlashBladeAddon.prefix("wanderer"),

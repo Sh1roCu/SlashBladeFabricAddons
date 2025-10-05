@@ -12,13 +12,16 @@
   "environment": "*",
   "entrypoints": {
     "fabric-datagen": [
-      "cn.sh1rocu.sfaddons.client.SFAddonsDataGenerator"
+      "cn.sh1rocu.sfaddons.data.SFAddonsDataGenerator"
     ],
     "client": [
       "cn.sh1rocu.sfaddons.client.SFAddonsClient"
     ],
     "main": [
       "cn.sh1rocu.sfaddons.SFAddons"
+    ],
+    "jei_mod_plugin": [
+      "cn.mmf.energyblade.compat.JEICompat"
     ]
   },
   "mixins": [
