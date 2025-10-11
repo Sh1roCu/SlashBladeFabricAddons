@@ -5,6 +5,7 @@ import mods.flammpfeil.slashblade.capability.concentrationrank.CapabilityConcent
 import mods.flammpfeil.slashblade.capability.slashblade.CapabilitySlashBlade;
 import mods.flammpfeil.slashblade.entity.EntitySlashEffect;
 import mods.flammpfeil.slashblade.event.SlashBladeEvent;
+import mods.flammpfeil.slashblade.init.SBEntityTypes;
 import mods.flammpfeil.slashblade.util.KnockBacks;
 import mods.flammpfeil.slashblade.util.VectorHelper;
 import net.minecraft.core.particles.ParticleOptions;
@@ -68,7 +69,7 @@ public class FireSpiral {
                 .add(VectorHelper.getVectorForRotation(0, living.getViewYRot(0) + 90).scale(Vec3.ZERO.z))
                 .add(living.getLookAngle().scale(Vec3.ZERO.z));
 
-        EntitySlashEffect jc = new EntitySlashEffect(SlashBlade.RegistryEvents.SlashEffect, living.level()) {
+        EntitySlashEffect jc = new EntitySlashEffect(SBEntityTypes.SlashEffect, living.level()) {
 
             @Override
             public SoundEvent getSlashSound() {

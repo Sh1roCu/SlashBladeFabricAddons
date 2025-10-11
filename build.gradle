@@ -93,7 +93,7 @@ dependencies {
 
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-    modImplementation("cn.sh1rocu:slashblade-refabricated:1.20.1-1.0.0-Resharped-1.7.55")
+    modImplementation("cn.sh1rocu:slashblade-refabricated:1.20.1-1.0.1-Resharped-1.7.55")
     modImplementation "dev.onyxstudios.cardinal-components-api:cardinal-components-base:${project.cca_version}"
     modImplementation "dev.onyxstudios.cardinal-components-api:cardinal-components-item:${project.cca_version}"
 
