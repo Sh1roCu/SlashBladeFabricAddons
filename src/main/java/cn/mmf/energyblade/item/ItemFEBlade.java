@@ -12,6 +12,7 @@ import mods.flammpfeil.slashblade.event.SlashBladeEvent;
 import mods.flammpfeil.slashblade.item.ItemSlashBlade;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
+import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.fabricmc.fabric.api.transfer.v1.transaction.Transaction;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.KeyMapping;
@@ -161,7 +162,7 @@ public class ItemFEBlade extends ItemSlashBlade implements IDamageable {
     private boolean isShiftKeyDown() {
         Minecraft mc = Minecraft.getInstance();
         KeyMapping shift = mc.options.keyShift;
-        InputConstants.Key key = shift.key;
+        InputConstants.Key key = KeyBindingHelper.getBoundKeyOf(shift);
         long window = mc.getWindow().getWindow();
         if (key.getType() == InputConstants.Type.KEYSYM) {
             return GLFW.glfwGetKey(window, key.getValue()) == GLFW.GLFW_PRESS;
