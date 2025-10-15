@@ -7,9 +7,9 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 
 public class SBATofuCraftItems {
-    public static final ResourceLocation TOFUISHI_SLASHBLADE = new ResourceLocation(SlashBladeAddon.MODID, "slashblade_tofu_ishi");
-    public static final ResourceLocation TOFUMETAL_SLASHBLADE = new ResourceLocation(SlashBladeAddon.MODID, "slashblade_tofu_metal");
-    public static final ResourceLocation TOFUDIAMOND_SLASHBLADE = new ResourceLocation(SlashBladeAddon.MODID, "slashblade_tofu_diamond");
+    public static final ResourceLocation TOFUISHI_SLASHBLADE = SlashBladeAddon.prefix("slashblade_tofu_ishi");
+    public static final ResourceLocation TOFUMETAL_SLASHBLADE = SlashBladeAddon.prefix("slashblade_tofu_metal");
+    public static final ResourceLocation TOFUDIAMOND_SLASHBLADE = SlashBladeAddon.prefix("slashblade_tofu_diamond");
 
     public static void init() {
         // TODO: TofuCraft Fabric移植
