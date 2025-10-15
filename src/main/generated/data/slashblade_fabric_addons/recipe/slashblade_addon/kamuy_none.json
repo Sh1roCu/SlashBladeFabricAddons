@@ -1,0 +1,63 @@
+{
+  "type": "slashblade:shaped_blade",
+  "blade": "slashblade_fabric_addons:slashblade_addon/kamuy_none",
+  "category": "equipment",
+  "key": {
+    "B": {
+      "fabric:type": "slashblade:blade",
+      "items": "slashblade:slashblade",
+      "request": {
+        "kill": 100,
+        "refine": 1
+      }
+    },
+    "D": {
+      "item": "minecraft:book"
+    },
+    "I": {
+      "item": "slashblade:proudsoul_ingot"
+    },
+    "N": {
+      "tag": "c:ores/quartz"
+    },
+    "S": {
+      "item": "slashblade:proudsoul_sphere"
+    }
+  },
+  "pattern": [
+    "SNS",
+    "IBI",
+    "SDS"
+  ],
+  "result": {
+    "components": {
+      "minecraft:attribute_modifiers": {
+        "modifiers": [
+          {
+            "type": "minecraft:generic.attack_speed",
+            "amount": 0.0,
+            "id": "minecraft:base_attack_speed",
+            "operation": "add_value",
+            "slot": "mainhand"
+          },
+          {
+            "type": "minecraft:player.entity_interaction_range",
+            "amount": 2.5,
+            "id": "slashblade:player_reach_amplifier",
+            "operation": "add_value",
+            "slot": "mainhand"
+          },
+          {
+            "type": "minecraft:generic.attack_damage",
+            "amount": 3.0,
+            "id": "minecraft:base_attack_damage",
+            "operation": "add_value",
+            "slot": "mainhand"
+          }
+        ]
+      }
+    },
+    "count": 1,
+    "id": "slashblade:slashblade"
+  }
+}

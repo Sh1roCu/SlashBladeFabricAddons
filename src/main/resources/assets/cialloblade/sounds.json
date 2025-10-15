@@ -1,0 +1,34 @@
+{
+  "dociallo": {
+    "sounds": [
+      {
+        "name": "cialloblade:dociallo",
+        "type": "file"
+      }
+    ]
+  },
+  "doslash": {
+    "sounds": [
+      {
+        "name": "cialloblade:doslash",
+        "type": "file"
+      }
+    ]
+  },
+  "dociallo2": {
+    "sounds": [
+      {
+        "name": "cialloblade:dociallo2",
+        "type": "file"
+      }
+    ]
+  },
+  "senpai": {
+    "sounds": [
+      {
+        "name": "cialloblade:senpai",
+        "type": "file"
+      }
+    ]
+  }
+}

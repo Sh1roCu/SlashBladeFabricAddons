@@ -1,0 +1,18 @@
+{
+  "creativeGroup": "slashblade_fabric_addons:slashblade_addon/sjap_tab",
+  "enchantments": [
+    {
+      "id": "minecraft:sharpness",
+      "lvl": 3
+    }
+  ],
+  "name": "slashblade_fabric_addons:slashblade_addon/laemmle",
+  "properties": {
+    "attack_base": 7.0,
+    "max_damage": 80
+  },
+  "render": {
+    "model": "slashblade_fabric_addons:slashblade_addon/model/laemmle/blade.obj",
+    "texture": "slashblade_fabric_addons:slashblade_addon/model/laemmle/lem.png"
+  }
+}

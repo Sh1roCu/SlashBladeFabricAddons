@@ -1,0 +1,30 @@
+{
+  "creativeGroup": "slashblade_fabric_addons:slashblade_addon/sjap_tab",
+  "enchantments": [
+    {
+      "id": "minecraft:unbreaking",
+      "lvl": 3
+    },
+    {
+      "id": "minecraft:power",
+      "lvl": 5
+    }
+  ],
+  "name": "slashblade_fabric_addons:slashblade_addon/kirisaya",
+  "properties": {
+    "attack_base": 3.0,
+    "max_damage": 11,
+    "slash_art": "slashblade:drive_horizontal",
+    "special_effects": [
+      "slashblade_fabric_addons:slashblade_addon/burst_drive"
+    ],
+    "sword_type": [
+      "bewitched"
+    ]
+  },
+  "render": {
+    "carry_type": "katana",
+    "model": "slashblade_fabric_addons:slashblade_addon/model/kirisaya/kirisaya.obj",
+    "texture": "slashblade_fabric_addons:slashblade_addon/model/kirisaya/kirisaya.png"
+  }
+}

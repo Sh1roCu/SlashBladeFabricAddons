@@ -1,0 +1,49 @@
+{
+  "type": "slashblade:shaped_blade",
+  "blade": "slashblade_fabric_addons:cialloblade/ciallo",
+  "category": "equipment",
+  "key": {
+    "E": {
+      "type": "slashblade:blade",
+      "item": "slashblade:slashblade",
+      "request": {
+        "kill": 10,
+        "name": "slashblade:doutanuki",
+        "refine": 20
+      }
+    },
+    "A": {
+      "item": "minecraft:beetroot_soup"
+    },
+    "B": {
+      "item": "minecraft:heart_of_the_sea"
+    },
+    "C": {
+      "item": "minecraft:beetroot_soup"
+    },
+    "D": {
+      "item": "minecraft:rabbit_stew"
+    },
+    "G": {
+      "item": "minecraft:cake"
+    },
+    "H": {
+      "item": "minecraft:salmon_bucket"
+    },
+    "K": {
+      "item": "minecraft:cod_bucket"
+    },
+    "F": {
+      "item": "minecraft:tropical_fish_bucket"
+    }
+  },
+  "pattern": [
+    "ABH",
+    "DEF",
+    "CGK"
+  ],
+  "result": {
+    "id": "slashblade:slashblade"
+  },
+  "show_notification": true
+}

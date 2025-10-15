@@ -1,0 +1,7 @@
+{
+  "tip.slashblade_fabric_addons.energyblade.energy_info": "Hold down the %s key to display more information.",
+  "tip.slashblade_fabric_addons.energyblade.forge_energy_info": "Current Energy: %s E",
+  "item.slashblade_fabric_addons.energyblade.forge_energy_blade": "Prototype HF SlashBlade",
+  "item.slashblade_fabric_addons.energyblade.hf_blade": "HF Blade",
+  "key.slahblade_fabric_addons.energyblade.charge_switch": "Switch charging state"
+}

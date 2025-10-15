@@ -1,0 +1,16 @@
+{
+  "creativeGroup": "slashblade_fabric_addons:slashblade_addon/sjap_tab",
+  "name": "slashblade_fabric_addons:slashblade_addon/yukari",
+  "properties": {
+    "attack_base": 8.0,
+    "max_damage": 50,
+    "slash_art": "slashblade:drive_horizontal",
+    "sword_type": [
+      "none"
+    ]
+  },
+  "render": {
+    "model": "slashblade_fabric_addons:slashblade_addon/model/yukari/model.obj",
+    "texture": "slashblade_fabric_addons:slashblade_addon/model/yukari/texture.png"
+  }
+}
