@@ -21,6 +21,6 @@ public class DynamicRegistry extends FabricDynamicRegistryProvider {
 
     @Override
     public String getName() {
-        return "SJAP dynamic registry";
+        return "SFAddons dynamic registry";
     }
 }
