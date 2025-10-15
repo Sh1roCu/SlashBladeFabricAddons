@@ -190,12 +190,9 @@ public class ItemFEBlade extends ItemSlashBlade implements IDamageable {
                                     .ifPresent(cap -> cap.addRankPoint(living, cap.getMaxCapacity()));
                             tx.commit();
                         } else {
-                            try (Transaction tx2 = Transaction.openNested(tx)) {
-                                bladeFE.setPowered(false);
-                                event.getEntity().playSound(SoundEvents.EXPERIENCE_ORB_PICKUP, 1F, 1F);
-                                // 用于调用onFinalCommit，更新nbt
-                                tx2.commit();
-                            }
+                            bladeFE.setPowered(false);
+                            event.getBlade().getOrCreateTagElement("bladeState").getCompound("Energy").putBoolean("isPowered", false);
+                            event.getEntity().playSound(SoundEvents.EXPERIENCE_ORB_PICKUP, 1F, 1F);
                         }
                     }
                 }
@@ -211,12 +208,9 @@ public class ItemFEBlade extends ItemSlashBlade implements IDamageable {
                         if (bladeFE.extract(bladeFE.getStandbyExtract(), tx) == bladeFE.getStandbyExtract()) {
                             tx.commit();
                         } else {
-                            try (Transaction tx2 = Transaction.openNested(tx)) {
-                                bladeFE.setPowered(false);
-                                event.getUser().playSound(SoundEvents.EXPERIENCE_ORB_PICKUP, 1F, 1F);
-                                // 用于调用onFinalCommit，更新nbt
-                                tx2.commit();
-                            }
+                            bladeFE.setPowered(false);
+                            event.getBlade().getOrCreateTagElement("bladeState").getCompound("Energy").putBoolean("isPowered", false);
+                            event.getUser().playSound(SoundEvents.EXPERIENCE_ORB_PICKUP, 1F, 1F);
                         }
                     }
                 }
