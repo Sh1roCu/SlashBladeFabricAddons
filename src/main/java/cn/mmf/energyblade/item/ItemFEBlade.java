@@ -148,10 +148,7 @@ public class ItemFEBlade extends ItemSlashBlade implements IDamageable {
     @Environment(EnvType.CLIENT)
     @Override
     public BlockEntityWithoutLevelRenderer getCustomRenderer() {
-        BlockEntityWithoutLevelRenderer renderer = new EnergyBladeBEWLR(
-                Minecraft.getInstance().getBlockEntityRenderDispatcher(),
-                Minecraft.getInstance().getEntityModels());
-        return renderer;
+        return EnergyBladeBEWLR.INSTANCE;
     }
 
     @Override

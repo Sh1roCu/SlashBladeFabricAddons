@@ -31,7 +31,7 @@ public class VillagerSlashBladeListing extends BasicItemListing {
     @Override
     public @Nullable MerchantOffer getOffer(Entity entity, RandomSource random) {
         Level level = entity.level();
-        ItemStack blade = SlashBlade.getSlashBladeDefinitionRegistry(level).get(this.getBladeName()).getBlade();
+        ItemStack blade = SlashBlade.getSlashBladeDefinitionRegistry(level).get(this.getBladeName()).getBlade(entity.registryAccess());
         ItemCost cost = new ItemCost(price.getItemHolder(), price.getCount(), DataComponentPredicate.EMPTY, price);
 
         return new MerchantOffer(cost, Optional.empty(), blade, maxTrades, xp, priceMult);
