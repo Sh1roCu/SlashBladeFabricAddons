@@ -18,6 +18,8 @@ public class SFAddonsDataGenerator implements DataGeneratorEntrypoint {
 
         // Recipe
         pack.addProvider(SFAddonsRecipeProvider::new);
+        // Tag
+        pack.addProvider(SFAddonsItemTagProvider::new);
     }
 
     @Override

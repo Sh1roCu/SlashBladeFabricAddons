@@ -94,7 +94,7 @@ dependencies {
 
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-    modImplementation("cn.sh1rocu:slashblade-refabricated:1.21.1-1.1.1-Resharped-1.8.57")
+    modImplementation("cn.sh1rocu:slashblade-refabricated:1.21.1-1.1.2-Resharped-1.8.57")
     modImplementation "org.ladysnake.cardinal-components-api:cardinal-components-base:${project.cca_version}"
     modImplementation "org.ladysnake.cardinal-components-api:cardinal-components-entity:${project.cca_version}"
     modImplementation("io.github.fabricators_of_create.Porting-Lib:items:3.1.0-beta.75+1.21.1")
@@ -116,6 +116,8 @@ dependencies {
     include modApi('teamreborn:energy:4.1.0') {
         exclude(group: "net.fabricmc.fabric-api")
     }
+
+    modRuntimeOnly "curse.maven:modernfix-790626:6766123"
 }
 
 processResources {
