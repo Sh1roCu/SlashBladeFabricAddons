@@ -110,6 +110,8 @@ dependencies {
     include modApi('teamreborn:energy:3.0.0') {
         exclude(group: "net.fabricmc.fabric-api")
     }
+
+    modRuntimeOnly "curse.maven:modernfix-790626:6837712"
 }
 
 processResources {
