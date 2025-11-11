@@ -27,10 +27,10 @@ public class SlashBladeRecipeProvider extends FabricRecipeProvider {
                 .define('B',
                         SlashBladeIngredient
                                 .of(RequestDefinition.Builder.newInstance().refineCount(10).build()).toVanilla())
-                .define('S', Ingredient.of(SBItems.proudsoul_sphere))
+                .define('S', Ingredient.of(SBItems.PROUDSOUL_SPHERE))
                 .define('J', Ingredient.of(ConventionalItemTags.STORAGE_BLOCKS_REDSTONE))
                 .define('L', Ingredient.of(ConventionalItemTags.STORAGE_BLOCKS_IRON))
-                .unlockedBy(getHasName(SBItems.slashblade), has(SBItems.slashblade)).save(consumer);
+                .unlockedBy(getHasName(SBItems.SLASHBLADE), has(SBItems.SLASHBLADE)).save(consumer);
 
     }
 

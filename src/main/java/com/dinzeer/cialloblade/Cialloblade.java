@@ -29,7 +29,7 @@ public class Cialloblade {
                     .title(Component.translatable("itemGroup.cialloblade.ciallo_tab"))
                     .icon(
                             () -> {
-                                ItemStack stack = new ItemStack(SBItems.slashblade);
+                                ItemStack stack = new ItemStack(SBItems.SLASHBLADE);
                                 CapabilitySlashBlade.getBladeState(stack).ifPresent(s -> {
                                     s.setModel(prefix("model/ciallo/blademaster.obj"));
                                     s.setTexture(prefix("model/ciallo/ciallo.png"));

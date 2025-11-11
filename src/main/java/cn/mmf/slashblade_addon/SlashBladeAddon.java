@@ -29,7 +29,7 @@ public class SlashBladeAddon {
                     .title(Component.translatable("itemGroup.slashblade_addon.sjap_tab"))
                     .icon(
                             () -> {
-                                ItemStack stack = new ItemStack(SBItems.slashblade);
+                                ItemStack stack = new ItemStack(SBItems.SLASHBLADE);
                                 CapabilitySlashBlade.getBladeState(stack).ifPresent(s -> {
                                     s.setModel(prefix("model/murakumo/model.obj"));
                                     s.setTexture(prefix("model/murakumo/texture.png"));
