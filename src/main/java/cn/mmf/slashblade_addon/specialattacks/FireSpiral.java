@@ -69,7 +69,7 @@ public class FireSpiral {
                 .add(VectorHelper.getVectorForRotation(0, living.getViewYRot(0) + 90).scale(Vec3.ZERO.z))
                 .add(living.getLookAngle().scale(Vec3.ZERO.z));
 
-        EntitySlashEffect jc = new EntitySlashEffect(SBEntityTypes.SlashEffect, living.level()) {
+        EntitySlashEffect jc = new EntitySlashEffect(SBEntityTypes.SLASH_EFFECT, living.level()) {
 
             @Override
             public SoundEvent getSlashSound() {

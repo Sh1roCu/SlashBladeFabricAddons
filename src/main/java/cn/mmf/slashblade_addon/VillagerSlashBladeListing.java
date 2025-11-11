@@ -16,7 +16,7 @@ public class VillagerSlashBladeListing extends BasicItemListing {
     private final ResourceLocation bladeName;
 
     public VillagerSlashBladeListing(int emeralds, ResourceLocation bladeName, int maxTrades, int xp, float mult) {
-        super(emeralds, SBItems.slashblade.getDefaultInstance(), maxTrades, xp, mult);
+        super(emeralds, SBItems.SLASHBLADE.getDefaultInstance(), maxTrades, xp, mult);
         this.bladeName = bladeName;
     }
 
