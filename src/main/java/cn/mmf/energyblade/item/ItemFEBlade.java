@@ -148,7 +148,7 @@ public class ItemFEBlade extends ItemSlashBlade implements IDamageable {
     @Environment(EnvType.CLIENT)
     @Override
     public BlockEntityWithoutLevelRenderer getCustomRenderer() {
-        return EnergyBladeBEWLR.INSTANCE;
+        return EnergyBladeBEWLR.INSTANCE.get();
     }
 
     @Override
