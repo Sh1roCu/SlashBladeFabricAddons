@@ -2,6 +2,7 @@ package cn.mmf.energyblade.client.render;
 
 import cn.mmf.energyblade.energy.FEBladeStorage;
 import cn.sh1rocu.sfaddons.util.ItemEnergyStorageHelper;
+import com.google.common.base.Suppliers;
 import com.mojang.blaze3d.vertex.PoseStack;
 import mods.flammpfeil.slashblade.capability.slashblade.CapabilitySlashBlade;
 import mods.flammpfeil.slashblade.client.renderer.SlashBladeTEISR;
@@ -11,7 +12,6 @@ import mods.flammpfeil.slashblade.client.renderer.util.BladeRenderState;
 import mods.flammpfeil.slashblade.init.DefaultResources;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.geom.EntityModelSet;
-import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderDispatcher;
 import net.minecraft.resources.ResourceLocation;
@@ -23,12 +23,12 @@ import java.util.function.Supplier;
 
 public class EnergyBladeBEWLR extends SlashBladeTEISR {
 
-    public static final Supplier<EnergyBladeBEWLR> INSTANCE = () -> {
+    public static final Supplier<EnergyBladeBEWLR> INSTANCE = Suppliers.memoize(() -> {
         Minecraft client = Minecraft.getInstance();
         return new EnergyBladeBEWLR(
                 client.getBlockEntityRenderDispatcher(),
                 client.getEntityModels());
-    };
+    });
 
     public EnergyBladeBEWLR(BlockEntityRenderDispatcher p_172550_, EntityModelSet p_172551_) {
         super(p_172550_, p_172551_);
