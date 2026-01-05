@@ -1,0 +1,34 @@
+{
+  "creativeGroup": "slashblade_fabric_addons:yakumoblade/yakumoblade_slashblade_star",
+  "enchantments": [
+    {
+      "id": "minecraft:power",
+      "lvl": 3
+    },
+    {
+      "id": "minecraft:smite",
+      "lvl": 5
+    }
+  ],
+  "item": "slashblade_fabric_addons:yakumoblade/slashblade",
+  "name": "slashblade_fabric_addons:yakumoblade/red_fox_star",
+  "properties": {
+    "attack_base": 20.0,
+    "max_damage": 200,
+    "slash_art": "slashblade_fabric_addons:yakumoblade/fire_boost",
+    "special_effects": [
+      "slashblade_fabric_addons:yakumoblade/foxsoul",
+      "slashblade_fabric_addons:yakumoblade/star_soul",
+      "slashblade_fabric_addons:yakumoblade/sharpness_blade"
+    ],
+    "sword_type": [
+      "bewitched"
+    ]
+  },
+  "render": {
+    "carry_type": "default",
+    "model": "slashblade_fabric_addons:yakumoblade/model/named/sange/sange.obj",
+    "summon_sword_color": 16711680,
+    "texture": "slashblade_fabric_addons:yakumoblade/model/star/red_fox_star.png"
+  }
+}

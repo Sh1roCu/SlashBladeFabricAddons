@@ -1,0 +1,55 @@
+{
+  "type": "slashblade:shaped_blade",
+  "blade": "slashblade_fabric_addons:yakumoblade/red_fox_star_soul",
+  "category": "equipment",
+  "key": {
+    "A": {
+      "item": "slashblade:proudsoul_trapezohedron"
+    },
+    "B": {
+      "fabric:type": "slashblade:blade",
+      "type": "slashblade:blade",
+      "item": "slashblade_fabric_addons:yakumoblade/slashblade",
+      "request": {
+        "kill": 1000,
+        "name": "slashblade_fabric_addons:yakumoblade/red_sun",
+        "proud_soul": 17000
+      }
+    },
+    "C": {
+      "item": "slashblade_fabric_addons:yakumoblade/star_treasure_scripture"
+    },
+    "D": {
+      "fabric:type": "slashblade:blade",
+      "type": "slashblade:blade",
+      "item": "slashblade:slashblade",
+      "request": {
+        "kill": 1000,
+        "name": "slashblade:fox_black",
+        "proud_soul": 17000
+      }
+    },
+    "E": {
+      "item": "slashblade_fabric_addons:yakumoblade/star_soul_crystal"
+    },
+    "F": {
+      "fabric:type": "slashblade:blade",
+      "type": "slashblade:blade",
+      "item": "slashblade_fabric_addons:yakumoblade/slashblade",
+      "request": {
+        "kill": 1000,
+        "name": "slashblade_fabric_addons:yakumoblade/red_fox_star",
+        "proud_soul": 17000
+      }
+    }
+  },
+  "pattern": [
+    "ABA",
+    "CDE",
+    "AFA"
+  ],
+  "result": {
+    "item": "slashblade:slashblade"
+  },
+  "show_notification": true
+}

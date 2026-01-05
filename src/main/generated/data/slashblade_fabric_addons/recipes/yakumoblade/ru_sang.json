@@ -1,0 +1,40 @@
+{
+  "type": "slashblade:shaped_blade",
+  "blade": "slashblade_fabric_addons:yakumoblade/ru_sang",
+  "category": "equipment",
+  "key": {
+    "A": {
+      "item": "minecraft:blaze_powder"
+    },
+    "B": {
+      "item": "minecraft:nether_quartz_ore"
+    },
+    "C": {
+      "item": "slashblade_fabric_addons:yakumoblade/umle"
+    },
+    "D": {
+      "item": "minecraft:nether_brick"
+    },
+    "E": {
+      "item": "minecraft:blaze_rod"
+    },
+    "F": {
+      "fabric:type": "slashblade:blade",
+      "type": "slashblade:blade",
+      "item": "slashblade:slashblade",
+      "request": {
+        "name": "slashblade:yuzukitukumo",
+        "refine": 20
+      }
+    }
+  },
+  "pattern": [
+    "ABC",
+    "DEB",
+    "FDA"
+  ],
+  "result": {
+    "item": "slashblade:slashblade"
+  },
+  "show_notification": true
+}

@@ -1,0 +1,43 @@
+{
+  "type": "slashblade:shaped_blade",
+  "blade": "slashblade_fabric_addons:yakumoblade/red_sun",
+  "category": "equipment",
+  "key": {
+    "B": {
+      "fabric:type": "slashblade:blade",
+      "type": "slashblade:blade",
+      "item": "slashblade_fabric_addons:yakumoblade/slashblade",
+      "request": {
+        "kill": 1000,
+        "name": "slashblade_fabric_addons:yakumoblade/star",
+        "refine": 20
+      }
+    },
+    "P": {
+      "item": "slashblade_fabric_addons:yakumoblade/star_soul_crystal"
+    },
+    "S": {
+      "item": "minecraft:nether_star"
+    },
+    "V": {
+      "tag": "c:redstone_blocks"
+    },
+    "Z": {
+      "fabric:type": "slashblade:blade",
+      "type": "slashblade:blade",
+      "item": "slashblade_fabric_addons:yakumoblade/slashblade",
+      "request": {
+        "name": "slashblade_fabric_addons:yakumoblade/ru_sang"
+      }
+    }
+  },
+  "pattern": [
+    "VVZ",
+    "VPV",
+    "BSV"
+  ],
+  "result": {
+    "item": "slashblade:slashblade"
+  },
+  "show_notification": true
+}

@@ -25,14 +25,14 @@
     ]
   },
   "mixins": [
-    "slashblade_fabric_addons.mixins.json"
+    "slashblade_fabric_addons.mixins.json",
+    "yakumoblade.mixins.json"
   ],
   "accessWidener": "slashblade_fabric_addons.accesswidener",
   "depends": {
     "fabricloader": ">=${loader_version}",
     "fabric": "*",
     "minecraft": [
-      "1.20",
       "1.20.1"
     ],
     "slashblade": "*"

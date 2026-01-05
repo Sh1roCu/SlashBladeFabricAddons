@@ -1,0 +1,31 @@
+{
+  "type": "slashblade:shaped_blade",
+  "blade": "slashblade_fabric_addons:yakumoblade/green_yamato",
+  "category": "equipment",
+  "key": {
+    "A": {
+      "tag": "c:green_dyes"
+    },
+    "B": {
+      "item": "slashblade:slashblade"
+    },
+    "C": {
+      "item": "minecraft:ender_eye"
+    },
+    "V": {
+      "item": "minecraft:emerald_block"
+    },
+    "Z": {
+      "tag": "c:helmets"
+    }
+  },
+  "pattern": [
+    "CZA",
+    "VBV",
+    "AVC"
+  ],
+  "result": {
+    "item": "slashblade:slashblade"
+  },
+  "show_notification": true
+}

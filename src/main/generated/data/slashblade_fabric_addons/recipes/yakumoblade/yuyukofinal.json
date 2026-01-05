@@ -1,0 +1,41 @@
+{
+  "type": "slashblade:shaped_blade",
+  "blade": "slashblade_fabric_addons:yakumoblade/yuyukofinal",
+  "category": "equipment",
+  "key": {
+    "D": {
+      "item": "minecraft:recovery_compass"
+    },
+    "E": {
+      "item": "minecraft:pink_petals"
+    },
+    "F": {
+      "item": "minecraft:cherry_sapling"
+    },
+    "G": {
+      "item": "minecraft:totem_of_undying"
+    },
+    "I": {
+      "fabric:type": "slashblade:blade",
+      "type": "slashblade:blade",
+      "item": "slashblade_fabric_addons:yakumoblade/slashblade",
+      "request": {
+        "kill": 1000,
+        "name": "slashblade_fabric_addons:yakumoblade/yuyuko3",
+        "proud_soul": 10000
+      }
+    },
+    "S": {
+      "item": "minecraft:end_crystal"
+    }
+  },
+  "pattern": [
+    "SEF",
+    "GDE",
+    "IGS"
+  ],
+  "result": {
+    "item": "slashblade:slashblade"
+  },
+  "show_notification": true
+}

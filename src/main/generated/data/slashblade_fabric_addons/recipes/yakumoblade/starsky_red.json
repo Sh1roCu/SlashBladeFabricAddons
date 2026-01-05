@@ -1,0 +1,41 @@
+{
+  "type": "slashblade:shaped_blade",
+  "blade": "slashblade_fabric_addons:yakumoblade/starsky_red",
+  "category": "equipment",
+  "key": {
+    "A": {
+      "item": "minecraft:redstone_block"
+    },
+    "B": {
+      "item": "minecraft:iron_ingot"
+    },
+    "C": {
+      "fabric:type": "slashblade:blade",
+      "type": "slashblade:blade",
+      "item": "slashblade_fabric_addons:yakumoblade/slashblade",
+      "request": {
+        "kill": 100,
+        "name": "slashblade_fabric_addons:yakumoblade/star",
+        "proud_soul": 1700
+      }
+    },
+    "D": {
+      "item": "minecraft:gunpowder"
+    },
+    "E": {
+      "item": "slashblade:proudsoul_tiny"
+    },
+    "F": {
+      "item": "slashblade:proudsoul_sphere"
+    }
+  },
+  "pattern": [
+    " AB",
+    "ACD",
+    "FE "
+  ],
+  "result": {
+    "item": "slashblade:slashblade"
+  },
+  "show_notification": true
+}

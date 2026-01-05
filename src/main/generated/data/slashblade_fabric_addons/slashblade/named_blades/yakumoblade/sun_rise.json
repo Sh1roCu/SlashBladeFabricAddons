@@ -1,0 +1,41 @@
+{
+  "creativeGroup": "slashblade_fabric_addons:yakumoblade/yakumoblade_slashblade_star",
+  "enchantments": [
+    {
+      "id": "minecraft:power",
+      "lvl": 10
+    },
+    {
+      "id": "minecraft:unbreaking",
+      "lvl": 10
+    },
+    {
+      "id": "minecraft:fire_aspect"
+    },
+    {
+      "id": "minecraft:sharpness",
+      "lvl": 10
+    }
+  ],
+  "item": "slashblade_fabric_addons:yakumoblade/slashblade",
+  "name": "slashblade_fabric_addons:yakumoblade/sun_rise",
+  "properties": {
+    "attack_base": 32.0,
+    "max_damage": 180,
+    "slash_art": "slashblade_fabric_addons:yakumoblade/ten_drive_ex",
+    "special_effects": [
+      "slashblade_fabric_addons:yakumoblade/sharpness_blade",
+      "slashblade_fabric_addons:yakumoblade/great_sun_soul",
+      "slashblade_fabric_addons:yakumoblade/exmode"
+    ],
+    "sword_type": [
+      "bewitched"
+    ]
+  },
+  "render": {
+    "carry_type": "default",
+    "model": "slashblade_fabric_addons:yakumoblade/model/relicofstar/sun/sun_god.obj",
+    "summon_sword_color": 12013391,
+    "texture": "slashblade_fabric_addons:yakumoblade/model/relicofpaseone/red_sun.png"
+  }
+}

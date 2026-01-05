@@ -1,0 +1,35 @@
+{
+  "creativeGroup": "slashblade_fabric_addons:yakumoblade/yakumoblade_slashblade",
+  "enchantments": [
+    {
+      "id": "minecraft:power",
+      "lvl": 3
+    },
+    {
+      "id": "minecraft:sharpness",
+      "lvl": 3
+    },
+    {
+      "id": "minecraft:looting",
+      "lvl": 3
+    }
+  ],
+  "item": "slashblade_fabric_addons:yakumoblade/slashblade",
+  "name": "slashblade_fabric_addons:yakumoblade/double_yamato",
+  "properties": {
+    "attack_base": 22.0,
+    "max_damage": 180,
+    "special_effects": [
+      "slashblade_fabric_addons:yakumoblade/very_green"
+    ],
+    "sword_type": [
+      "bewitched"
+    ]
+  },
+  "render": {
+    "carry_type": "default",
+    "model": "slashblade_fabric_addons:yakumoblade/model/relicofpaseone/double.obj",
+    "summon_sword_color": 3729097,
+    "texture": "slashblade_fabric_addons:yakumoblade/model/relicofpaseone/yamato.png"
+  }
+}

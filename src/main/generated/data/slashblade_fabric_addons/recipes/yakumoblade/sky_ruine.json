@@ -1,0 +1,39 @@
+{
+  "type": "slashblade:shaped_blade",
+  "blade": "slashblade_fabric_addons:yakumoblade/sky_ruine",
+  "category": "equipment",
+  "key": {
+    "A": {
+      "item": "slashblade_fabric_addons:yakumoblade/star_soul_crystal"
+    },
+    "B": {
+      "item": "minecraft:nether_star"
+    },
+    "C": {
+      "item": "minecraft:feather"
+    },
+    "D": {
+      "fabric:type": "slashblade:blade",
+      "type": "slashblade:blade",
+      "item": "slashblade_fabric_addons:yakumoblade/slashblade",
+      "request": {
+        "name": "slashblade_fabric_addons:yakumoblade/star"
+      }
+    },
+    "E": {
+      "item": "minecraft:lightning_rod"
+    },
+    "F": {
+      "item": "minecraft:elytra"
+    }
+  },
+  "pattern": [
+    "ABA",
+    "CDC",
+    "EFE"
+  ],
+  "result": {
+    "item": "slashblade:slashblade"
+  },
+  "show_notification": true
+}

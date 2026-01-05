@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ABA",
+    "BCB",
+    "ABA"
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:nether_star"
+    },
+    "B": {
+      "item": "minecraft:amethyst_shard"
+    },
+    "C": {
+      "item": "slashblade_fabric_addons:yakumoblade/powercore"
+    }
+  },
+  "result": {
+    "item": "yakumoblade:powercoreex",
+    "count": 2
+  }
+}

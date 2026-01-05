@@ -1,0 +1,30 @@
+{
+  "creativeGroup": "slashblade_fabric_addons:yakumoblade/yakumoblade_slashblade_touhou",
+  "enchantments": [
+    {
+      "id": "minecraft:sharpness",
+      "lvl": 3
+    },
+    {
+      "id": "minecraft:unbreaking",
+      "lvl": 3
+    },
+    {
+      "id": "minecraft:thorns",
+      "lvl": 3
+    }
+  ],
+  "item": "slashblade_fabric_addons:yakumoblade/slashblade",
+  "name": "slashblade_fabric_addons:yakumoblade/nieblade_yukari",
+  "properties": {
+    "attack_base": 12.0,
+    "max_damage": 180,
+    "slash_art": "slashblade_fabric_addons:yakumoblade/retreat_flying_knife"
+  },
+  "render": {
+    "carry_type": "default",
+    "model": "slashblade_fabric_addons:yakumoblade/model/touhou/dream/dream.obj",
+    "summon_sword_color": 4260050,
+    "texture": "slashblade_fabric_addons:yakumoblade/model/touhou/yukari/nieblade_yukari.png"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "creativeGroup": "slashblade_fabric_addons:yakumoblade/yakumoblade_slashblade_touhou",
+  "item": "slashblade_fabric_addons:yakumoblade/slashblade",
+  "name": "slashblade_fabric_addons:yakumoblade/blademaster_yukari",
+  "properties": {
+    "attack_base": 7.0,
+    "max_damage": 180,
+    "slash_art": "slashblade:drive_vertical"
+  },
+  "render": {
+    "carry_type": "default",
+    "model": "slashblade_fabric_addons:yakumoblade/model/touhou/yukari/blademaster_yukari.obj",
+    "summon_sword_color": 16737792,
+    "texture": "slashblade_fabric_addons:yakumoblade/model/touhou/yukari/blademaster_yukari.png"
+  }
+}

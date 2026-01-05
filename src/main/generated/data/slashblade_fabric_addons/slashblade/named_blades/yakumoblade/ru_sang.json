@@ -1,0 +1,15 @@
+{
+  "creativeGroup": "slashblade_fabric_addons:yakumoblade/yakumoblade_slashblade",
+  "item": "slashblade_fabric_addons:yakumoblade/slashblade",
+  "name": "slashblade_fabric_addons:yakumoblade/ru_sang",
+  "properties": {
+    "attack_base": 13.0,
+    "max_damage": 180
+  },
+  "render": {
+    "carry_type": "default",
+    "model": "slashblade_fabric_addons:yakumoblade/model/relicofpaseone/ru_sang.obj",
+    "summon_sword_color": 12013391,
+    "texture": "slashblade_fabric_addons:yakumoblade/model/relicofpaseone/ru_sang.png"
+  }
+}

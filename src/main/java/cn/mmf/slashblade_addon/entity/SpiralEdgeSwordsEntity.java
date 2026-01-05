@@ -62,7 +62,7 @@ public class SpiralEdgeSwordsEntity extends EntityAbstractSummonedSword {
 
     @Override
     public void tick() {
-        if (!itFired() && level().isClientSide() && getVehicle() == null) {
+        if (!itFired() && level().isClientSide() && getVehicle() == null && getOwner() != null) {
             startRiding(this.getOwner(), true);
         }
 

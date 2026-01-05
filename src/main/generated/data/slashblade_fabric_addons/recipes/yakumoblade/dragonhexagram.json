@@ -1,0 +1,54 @@
+{
+  "type": "slashblade:shaped_blade",
+  "blade": "slashblade_fabric_addons:yakumoblade/dragonhexagram",
+  "category": "equipment",
+  "key": {
+    "A": {
+      "fabric:type": "slashblade:blade",
+      "type": "slashblade:blade",
+      "item": "slashblade_fabric_addons:yakumoblade/slashblade",
+      "request": {
+        "name": "slashblade_fabric_addons:yakumoblade/ice_dragon"
+      }
+    },
+    "B": {
+      "item": "minecraft:sea_lantern"
+    },
+    "C": {
+      "item": "minecraft:netherite_block"
+    },
+    "D": {
+      "item": "minecraft:nether_star"
+    },
+    "E": {
+      "fabric:type": "slashblade:blade",
+      "type": "slashblade:blade",
+      "item": "slashblade_fabric_addons:yakumoblade/slashblade",
+      "request": {
+        "kill": 1000,
+        "name": "slashblade_fabric_addons:yakumoblade/hexagram",
+        "proud_soul": 17000
+      }
+    },
+    "F": {
+      "item": "slashblade_fabric_addons:yakumoblade/powercoreex"
+    },
+    "G": {
+      "fabric:type": "slashblade:blade",
+      "type": "slashblade:blade",
+      "item": "slashblade_fabric_addons:yakumoblade/slashblade",
+      "request": {
+        "name": "slashblade_fabric_addons:yakumoblade/fire_dragon"
+      }
+    }
+  },
+  "pattern": [
+    "ABC",
+    "DEB",
+    "FDG"
+  ],
+  "result": {
+    "item": "slashblade:slashblade"
+  },
+  "show_notification": true
+}

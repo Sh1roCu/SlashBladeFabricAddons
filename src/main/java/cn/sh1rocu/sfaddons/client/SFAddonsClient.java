@@ -5,13 +5,20 @@ import cn.mmf.energyblade.client.InputHandler;
 import cn.mmf.slashblade_addon.client.SJAPClientHandler;
 import cn.mmf.slashblade_addon.compat.PlayerAnimationRegisterEvent;
 import cn.mmf.slashblade_addon.registry.SBAEntitiesRegistry;
+import com.exfantasycode.mclib.Utils.Dash.DashMessage;
+import com.yakumosakura.yakumoblade.client.ClientHandler;
+import com.yakumosakura.yakumoblade.client.YakumoBladeCilent;
+import com.yakumosakura.yakumoblade.registry.YAModKeyMappings;
 import io.github.fabricators_of_create.porting_lib.event.client.KeyInputCallback;
 import mods.flammpfeil.slashblade.client.renderer.entity.DriveRenderer;
 import mods.flammpfeil.slashblade.client.renderer.entity.SummonedSwordRenderer;
 import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.model.loading.v1.ModelLoadingPlugin;
+import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.minecraft.resources.ResourceLocation;
 
 public class SFAddonsClient implements ClientModInitializer, ModelLoadingPlugin {
 
@@ -24,19 +31,29 @@ public class SFAddonsClient implements ClientModInitializer, ModelLoadingPlugin 
         PlayerAnimationRegisterEvent.onRegisterPlayerAnim();
         SJAPClientHandler.doClientStuff();
         ItemGroupEvents.MODIFY_ENTRIES_ALL.register(SJAPClientHandler::addCreative);
+
         // EnergyBlade(HF Blade)
         ClientSetupHandler.setModelUser();
         ClientSetupHandler.registerKeyMapping();
 
+        // YakumoBlade
+        ClientHandler.doClientStuff();
+        YAModKeyMappings.registerKeyMappings();
+
+        registerS2CPackets();
         subscribeEvents();
     }
 
     @Override
     public void onInitializeModelLoader(Context plugin) {
         // SJAP
-        SJAPClientHandler.Baked(plugin);
+        SJAPClientHandler.baked(plugin);
+
         // EnergyBlade(HF Blade)
         ClientSetupHandler.baked(plugin);
+
+        // YakumoBlade
+        ClientHandler.baked(plugin);
     }
 
     private static void onRegisterRenderers() {
@@ -46,10 +63,26 @@ public class SFAddonsClient implements ClientModInitializer, ModelLoadingPlugin 
         EntityRendererRegistry.register(SBAEntitiesRegistry.GaleSwords, SummonedSwordRenderer::new);
         EntityRendererRegistry.register(SBAEntitiesRegistry.LightingSwords, SummonedSwordRenderer::new);
         EntityRendererRegistry.register(SBAEntitiesRegistry.WaterDrive, DriveRenderer::new);
+
+        // YakumoBlade
+        YakumoBladeCilent.registerEntityRenderers();
     }
 
     private static void subscribeEvents() {
         // EnergyBlade(HF Blade)
         KeyInputCallback.EVENT.register(InputHandler::onPlayerPostTick);
+
+        // YakumoBlade
+        ClientTickEvents.START_CLIENT_TICK.register(YAModKeyMappings.KeyEventListener::onClientTick);
+        ClientTickEvents.END_CLIENT_TICK.register(YAModKeyMappings.KeyEventListener::onClientTick);
+    }
+
+    private static void registerS2CPackets() {
+        // YakumoBlade
+        registerS2CPacket(DashMessage.ID, DashMessage::handle);
+    }
+
+    public static void registerS2CPacket(ResourceLocation id, ClientPlayNetworking.PlayChannelHandler handler) {
+        ClientPlayNetworking.registerGlobalReceiver(id, handler);
     }
 }

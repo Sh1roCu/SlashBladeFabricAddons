@@ -1,0 +1,41 @@
+{
+  "type": "slashblade:shaped_blade",
+  "blade": "slashblade_fabric_addons:yakumoblade/yukari_blade",
+  "category": "equipment",
+  "key": {
+    "A": {
+      "item": "minecraft:pink_petals"
+    },
+    "B": {
+      "item": "minecraft:cherry_sapling"
+    },
+    "C": {
+      "item": "minecraft:cherry_log"
+    },
+    "D": {
+      "item": "slashblade:proudsoul_trapezohedron"
+    },
+    "E": {
+      "item": "minecraft:cherry_log"
+    },
+    "F": {
+      "fabric:type": "slashblade:blade",
+      "type": "slashblade:blade",
+      "item": "slashblade:slashblade_wood",
+      "request": {
+        "kill": 100,
+        "proud_soul": 2000,
+        "refine": 50
+      }
+    }
+  },
+  "pattern": [
+    "ABC",
+    "DEB",
+    "FDA"
+  ],
+  "result": {
+    "item": "slashblade:slashblade"
+  },
+  "show_notification": true
+}

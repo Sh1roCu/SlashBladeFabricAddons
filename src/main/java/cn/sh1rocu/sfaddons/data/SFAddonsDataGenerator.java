@@ -3,6 +3,10 @@ package cn.sh1rocu.sfaddons.data;
 import cn.mmf.energyblade.data.BuiltInSlashBladeRegistry;
 import cn.mmf.slashblade_addon.data.SBAEntityDropRegistry;
 import cn.mmf.slashblade_addon.data.SlashBladeAddonBuiltInRegistry;
+import com.yakumosakura.yakumoblade.data.YakumoBladeBuiltInRegsitry;
+import com.yakumosakura.yakumoblade.data.YakumoBladeBuiltInRegsitryHexGram;
+import com.yakumosakura.yakumoblade.data.YakumoBladeBuiltInRegsitryStar;
+import com.yakumosakura.yakumoblade.data.YakumoBladeBuiltInRegsitryTouHou;
 import mods.flammpfeil.slashblade.event.drop.EntityDropEntry;
 import mods.flammpfeil.slashblade.registry.slashblade.SlashBladeDefinition;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
@@ -25,7 +29,17 @@ public class SFAddonsDataGenerator implements DataGeneratorEntrypoint {
         // SJAP
         registrySetBuilder.add(SlashBladeDefinition.REGISTRY_KEY, SlashBladeAddonBuiltInRegistry::registerAll);
         registrySetBuilder.add(EntityDropEntry.REGISTRY_KEY, SBAEntityDropRegistry::registerAll);
+
         // EnergyBlade(HF Blade)
         registrySetBuilder.add(SlashBladeDefinition.REGISTRY_KEY, BuiltInSlashBladeRegistry::registerAll);
+
+        // YakumoBlade
+        registrySetBuilder.add(SlashBladeDefinition.REGISTRY_KEY,
+                context -> {
+                    YakumoBladeBuiltInRegsitry.registerAll(context);
+                    YakumoBladeBuiltInRegsitryStar.registerAll(context);
+                    YakumoBladeBuiltInRegsitryTouHou.registerAll(context);
+                    YakumoBladeBuiltInRegsitryHexGram.registerAll(context);
+                });
     }
 }

@@ -1,0 +1,31 @@
+{
+  "creativeGroup": "slashblade_fabric_addons:yakumoblade/yakumoblade_slashblade_star",
+  "enchantments": [
+    {
+      "id": "minecraft:power",
+      "lvl": 3
+    },
+    {
+      "id": "minecraft:unbreaking",
+      "lvl": 3
+    }
+  ],
+  "item": "slashblade_fabric_addons:yakumoblade/slashblade",
+  "name": "slashblade_fabric_addons:yakumoblade/star_muasum",
+  "properties": {
+    "attack_base": 20.0,
+    "max_damage": 180,
+    "slash_art": "slashblade_fabric_addons:yakumoblade/high_slash",
+    "special_effects": [
+      "slashblade_fabric_addons:yakumoblade/star_soul",
+      "slashblade_fabric_addons:yakumoblade/exmode",
+      "slashblade_fabric_addons:yakumoblade/sharpness_blade"
+    ]
+  },
+  "render": {
+    "carry_type": "default",
+    "model": "slashblade_fabric_addons:yakumoblade/model/named/murasama/murasama.obj",
+    "summon_sword_color": 2003199,
+    "texture": "slashblade_fabric_addons:yakumoblade/model/named/murasama/z.png"
+  }
+}

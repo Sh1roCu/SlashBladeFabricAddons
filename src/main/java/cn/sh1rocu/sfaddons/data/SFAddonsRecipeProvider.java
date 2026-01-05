@@ -2,6 +2,7 @@ package cn.sh1rocu.sfaddons.data;
 
 import cn.mmf.energyblade.data.SlashBladeRecipeProvider;
 import cn.mmf.slashblade_addon.data.SlashBladeAddonRecipeProvider;
+import com.yakumosakura.yakumoblade.data.YakumoBladeRecipeProvioder;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.data.recipes.FinishedRecipe;
@@ -17,7 +18,11 @@ public class SFAddonsRecipeProvider extends FabricRecipeProvider {
     public void buildRecipes(Consumer<FinishedRecipe> consumer) {
         // SJAP
         new SlashBladeAddonRecipeProvider(output).buildRecipes(consumer);
+
         // EnergyBlade(HF Blade)
         new SlashBladeRecipeProvider(output).buildRecipes(consumer);
+
+        // YakumoBlade
+        new YakumoBladeRecipeProvioder(output).buildRecipes(consumer);
     }
 }

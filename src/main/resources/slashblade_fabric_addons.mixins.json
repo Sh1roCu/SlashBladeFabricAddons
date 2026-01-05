@@ -4,9 +4,15 @@
   "package": "cn.sh1rocu.sfaddons.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "ItemStackMixin"
+    "common.EntityMixin",
+    "common.ItemStackMixin",
+    "common.PersistentEntitySectionManagerMixin",
+    "common.ServerLevelMixin",
+    "common.ServerLevelMixin$EntityCallbacksMixin"
   ],
   "client": [
+    "client.ClientLevelMixin",
+    "client.ClientLevelMixin$EntityCallbacksMixin"
   ],
   "injectors": {
     "defaultRequire": 1

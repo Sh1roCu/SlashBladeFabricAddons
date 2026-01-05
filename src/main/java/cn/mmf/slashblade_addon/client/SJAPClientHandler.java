@@ -49,14 +49,14 @@ public class SJAPClientHandler {
         add(SBATofuCraftItems.getItem(SBATofuCraftItems.TOFUDIAMOND_SLASHBLADE));
     }};
 
-    public static void Baked(ModelLoadingPlugin.Context plugin) {
+    public static void baked(ModelLoadingPlugin.Context plugin) {
         if (FabricLoader.getInstance().isModLoaded("tofucraft")) {
-            plugin.modifyModelAfterBake().register((SJAPClientHandler::Baked));
+            plugin.modifyModelAfterBake().register((SJAPClientHandler::baked));
         }
 
     }
 
-    private static BakedModel Baked(BakedModel bakedModel, ModelModifier.AfterBake.Context context) {
+    private static BakedModel baked(BakedModel bakedModel, ModelModifier.AfterBake.Context context) {
         for (Item blade : blades) {
             ModelResourceLocation modelLoc = new ModelResourceLocation(BuiltInRegistries.ITEM.getKey(blade), "inventory");
             if (context.id() instanceof ModelResourceLocation contextModelId && contextModelId.equals(modelLoc)) {
