@@ -14,7 +14,7 @@ public class JEICompat implements IModPlugin {
 
 
     public ResourceLocation getPluginUid() {
-        return new ResourceLocation(Yakumoblade.MODID, "slashblade");
+        return Yakumoblade.prefix("slashblade");
     }
 
     public void registerItemSubtypes(ISubtypeRegistration registration) {

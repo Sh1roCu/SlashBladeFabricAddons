@@ -67,7 +67,7 @@ public class YakumBladeSlashItem extends ItemSlashBlade {
                         .withStyle(style -> style.withColor(ChatFormatting.GOLD)));
 
                 if (Screen.hasShiftDown()) {
-                    tooltip.add(Component.translatable("se." + se.toLanguageKey().replace("/",".") + ".desc")
+                    tooltip.add(Component.translatable("se." + se.toLanguageKey().replace("/", ".") + ".desc")
                             .withStyle(style -> style.withColor(ChatFormatting.LIGHT_PURPLE)));
                     for (int i = 0; i < 300; i++) {
                         String subKey = "se." + se.toLanguageKey().replace("/", ".") + ".desc_" + (i + 1);
@@ -274,4 +274,5 @@ public class YakumBladeSlashItem extends ItemSlashBlade {
 
         }
     }
+
 }

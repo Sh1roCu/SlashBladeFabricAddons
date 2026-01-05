@@ -13,7 +13,7 @@ public class JEICompat implements IModPlugin {
 
     @Override
     public ResourceLocation getPluginUid() {
-        return new ResourceLocation(Energyblade.MODID, Energyblade.MODID);
+        return Energyblade.prefix(Energyblade.MODID);
     }
 
     @Override
