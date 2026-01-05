@@ -1,10 +1,10 @@
 package com.yakumosakura.yakumoblade.blade;
 
+import com.yakumosakura.yakumoblade.Yakumoblade;
 import com.yakumosakura.yakumoblade.registry.slashblade.YAItem;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.registration.ISubtypeRegistration;
-import mods.flammpfeil.slashblade.SlashBlade;
 import net.minecraft.resources.ResourceLocation;
 
 @JeiPlugin
@@ -14,7 +14,7 @@ public class JEICompat implements IModPlugin {
 
 
     public ResourceLocation getPluginUid() {
-        return SlashBlade.prefix("slashblade");
+        return new ResourceLocation(Yakumoblade.MODID, "slashblade");
     }
 
     public void registerItemSubtypes(ISubtypeRegistration registration) {

@@ -21,7 +21,8 @@
       "cn.sh1rocu.sfaddons.SFAddons"
     ],
     "jei_mod_plugin": [
-      "cn.mmf.energyblade.compat.JEICompat"
+      "cn.mmf.energyblade.compat.JEICompat",
+      "com.yakumosakura.yakumoblade.blade.JEICompat"
     ]
   },
   "mixins": [
