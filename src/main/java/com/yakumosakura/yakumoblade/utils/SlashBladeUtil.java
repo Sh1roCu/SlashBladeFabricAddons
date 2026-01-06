@@ -1,22 +1,16 @@
 package com.yakumosakura.yakumoblade.utils;
 
 
-import com.yakumosakura.yakumoblade.Yakumoblade;
 import mods.flammpfeil.slashblade.capability.slashblade.CapabilitySlashBlade;
 import mods.flammpfeil.slashblade.capability.slashblade.ISlashBladeState;
 import mods.flammpfeil.slashblade.registry.SpecialEffectsRegistry;
 import mods.flammpfeil.slashblade.registry.specialeffects.SpecialEffect;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.ListTag;
-import net.minecraft.nbt.Tag;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 
 import java.util.Optional;
-import java.util.stream.IntStream;
-
-import static com.yakumosakura.yakumoblade.Yakumoblade.MODID;
 
 public class SlashBladeUtil {
     public static Optional<ISlashBladeState> getState(ItemStack stack) {
@@ -26,19 +20,12 @@ public class SlashBladeUtil {
     //获取玩家手中刀的SE
     //需要传SE的注册变量
     public static boolean hasSpecialEffect(Player player, SpecialEffect effect) {
-        String effect2 = effect.getDescriptionId();
-        String[] effects = effect2.split("\\.");
         ItemStack stack = player.getMainHandItem();
-        final String fullEffectId = MODID + ":" + effects[2]; // 提前拼接常量
 
-        CompoundTag bladeState = stack.getTag() != null ? stack.getTag().getCompound("bladeState") : null;
-        if (bladeState == null || !bladeState.contains("SpecialEffects")) return false;
-
-        ListTag specialEffects = bladeState.getList("SpecialEffects", Tag.TAG_STRING);
-        return IntStream.range(0, specialEffects.size())
-                .mapToObj(specialEffects::getString)
-                .anyMatch(fullEffectId::equals)
-                && SpecialEffect.isEffective(Yakumoblade.prefix(effects[2]), player.experienceLevel);
+        var bladeState = getState(stack);
+        ResourceLocation id = SpecialEffectsRegistry.SPECIAL_EFFECT.getKey(effect);
+        return bladeState.isPresent() && bladeState.get().hasSpecialEffect(id)
+                && SpecialEffect.isEffective(id, player.experienceLevel);
     }
 
     public static boolean hasSpecialEffect(ItemStack stack, SpecialEffect effect) {
