@@ -232,7 +232,7 @@ public class YakumBladeSlashItem extends ItemSlashBlade {
     @Override
     public void appendKillCount(List<Component> tooltip, @NotNull ItemStack stack, ISlashBladeState state) {
 
-        int killCount = stack.getOrCreateTagElement("bladeState").getInt("killCount");
+        int killCount = state.getKillCount();
         if (killCount > 0) {
             MutableComponent killCountComponent = Component.translatable("slashblade.tooltip.killcount", killCount).withStyle(ChatFormatting.DARK_PURPLE);
             if (killCount > 1000) {
@@ -246,7 +246,7 @@ public class YakumBladeSlashItem extends ItemSlashBlade {
 
     @Override
     public void appendProudSoulCount(List<Component> tooltip, @NotNull ItemStack stack, ISlashBladeState state) {
-        int proudsoul = stack.getOrCreateTagElement("bladeState").getInt("proudSoul");
+        int proudsoul = state.getProudSoulCount();
         if (proudsoul > 0) {
             MutableComponent countComponent = Component.translatable("slashblade.tooltip.proud_soul", proudsoul).withStyle(ChatFormatting.DARK_PURPLE);
             if (proudsoul > 1000) {
