@@ -35,8 +35,7 @@ public class TouHouMaid extends ItemSlashBlade {
 
     @Override
     public void appendKillCount(List<Component> tooltip, @NotNull ItemStack stack, ISlashBladeState state) {
-
-        int killCount = stack.getOrCreateTagElement("bladeState").getInt("killCount");
+        int killCount = state.getKillCount();
         if (killCount > 0) {
             MutableComponent killCountComponent = Component.translatable("slashblade.tooltip.killcount", killCount).withStyle(ChatFormatting.GOLD);
             if (killCount > 1000) {
@@ -50,7 +49,7 @@ public class TouHouMaid extends ItemSlashBlade {
 
     @Override
     public void appendProudSoulCount(List<Component> tooltip, @NotNull ItemStack stack, ISlashBladeState state) {
-        int proudsoul = stack.getOrCreateTagElement("bladeState").getInt("proudSoul");
+        int proudsoul = state.getProudSoulCount();
         if (proudsoul > 0) {
             MutableComponent countComponent = Component.translatable("slashblade.tooltip.proud_soul", proudsoul).withStyle(ChatFormatting.GOLD);
             if (proudsoul > 1000) {
