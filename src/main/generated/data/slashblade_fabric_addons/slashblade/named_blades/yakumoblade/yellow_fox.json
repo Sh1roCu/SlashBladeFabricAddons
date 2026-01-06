@@ -1,0 +1,38 @@
+{
+  "creativeGroup": "slashblade_fabric_addons:yakumoblade/yakumoblade_slashblade",
+  "enchantments": [
+    {
+      "id": "minecraft:power",
+      "lvl": 6
+    },
+    {
+      "id": "minecraft:smite",
+      "lvl": 10
+    },
+    {
+      "id": "minecraft:fire_aspect"
+    },
+    {
+      "id": "minecraft:thorns",
+      "lvl": 3
+    }
+  ],
+  "item": "slashblade_fabric_addons:yakumoblade/slashblade_yellowfox",
+  "name": "slashblade_fabric_addons:yakumoblade/yellowfox",
+  "properties": {
+    "attack_base": 25.0,
+    "max_damage": 180,
+    "special_effects": [
+      "slashblade_fabric_addons:yakumoblade/foxblade"
+    ],
+    "sword_type": [
+      "bewitched"
+    ]
+  },
+  "render": {
+    "carry_type": "default",
+    "model": "slashblade_fabric_addons:yakumoblade/model/named/sange/sange.obj",
+    "summon_sword_color": 16754944,
+    "texture": "slashblade_fabric_addons:yakumoblade/model/named/sange/yellow_fox.png"
+  }
+}

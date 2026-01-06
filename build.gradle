@@ -45,6 +45,10 @@ repositories {
         url = "https://raw.github.com/Sh1roCu/Sh1roCu_MCRepo/master/repository"
     }
     maven {
+        name = "Progwml6's maven"
+        url = "https://dvs1.progwml6.com/files/maven/"
+    }
+    maven {
         // location of the maven that hosts JEI files since January 2023
         name = "Jared's maven"
         url = "https://maven.blamejared.com/"
@@ -63,11 +67,8 @@ repositories {
         url = 'https://maven.ladysnake.org/releases'
     }
     maven {
-        name = "TerraformersMC"
+        name = "Terraformers"
         url = "https://maven.terraformersmc.com/"
-        content {
-            includeGroup "dev.emi"
-        }
     }
     maven {
         url "https://maven.jamieswhiteshirt.com/libs-release"
@@ -80,6 +81,29 @@ repositories {
     maven {
         name = "Fuzs Mod Resources"
         url = "https://raw.githubusercontent.com/Fuzss/modresources/main/maven/"
+    }
+    maven {
+        name = "IPN-Releases"
+        mavenContent {
+            releasesOnly()
+        }
+        content {
+            includeGroup("org.anti_ad.mc")
+            includeGroup("ca.solo-studios")
+        }
+        url = uri("https://maven.ipn-mod.org/releases")
+    }
+    maven { url "https://maven.shedaniel.me/" }
+    maven { url = "https://maven.createmod.net" }
+    maven { url = "https://maven.architectury.dev/" }
+    maven { url = "https://maven.latvian.dev/releases" }
+    maven {
+        name = "CottonMC"
+        url = "https://server.bbkr.space/artifactory/libs-release"
+    }
+    maven {
+        name "reposiliteRepositoryArtifacts"
+        url "https://maven.conczin.net/Artifacts"
     }
 }
 
@@ -94,10 +118,17 @@ dependencies {
 
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-    modImplementation("cn.sh1rocu:slashblade-refabricated:1.21.1-1.1.5-Resharped-1.8.60")
+    modCompileOnly 'com.google.code.findbugs:jsr305:3.0.2'
+    annotationProcessor 'com.google.code.findbugs:jsr305:3.0.2'
+
+    modImplementation("cn.sh1rocu:slashblade-refabricated:1.21.1-1.3.0-Resharped-1.8.61")
     modImplementation "org.ladysnake.cardinal-components-api:cardinal-components-base:${project.cca_version}"
     modImplementation "org.ladysnake.cardinal-components-api:cardinal-components-entity:${project.cca_version}"
     modImplementation("io.github.fabricators_of_create.Porting-Lib:items:3.1.0-beta.75+1.21.1")
+    modImplementation("cn.sh1rocu:touhoulittlemaid-fabric-1.21.1:0.5.1-neo1.4.6") {
+        exclude(group: "libs")
+        exclude(group: "net.conczin")
+    }
 
     modCompileOnlyApi("mezz.jei:jei-${minecraft_version}-common-api:${jei_version}")
     modCompileOnlyApi("mezz.jei:jei-${minecraft_version}-fabric-api:${jei_version}")
@@ -118,6 +149,16 @@ dependencies {
     }
 
     modRuntimeOnly "curse.maven:modernfix-790626:6766123"
+
+    // 暂无1.21
+//    // 暮色森林
+//    // TODO
+//    // 运行runDatagen时需要改成modImplementation，并去除依赖的注释
+//    modCompileOnly "libs:twilightforest-fabric-1.20.1:1.4.7"
+////    modImplementation("io.github.fabricators_of_create.Porting-Lib:networking:2.3.8+1.20.1")
+////    modImplementation("io.github.fabricators_of_create.Porting-Lib:loot:2.3.8+1.20.1")
+////    modImplementation("io.github.fabricators_of_create.Porting-Lib:registries:2.3.8+1.20.1")
+////    modImplementation("com.github.Chocohead:Fabric-ASM:v2.3")
 }
 
 processResources {

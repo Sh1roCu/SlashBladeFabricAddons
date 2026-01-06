@@ -1,0 +1,73 @@
+{
+  "type": "slashblade:shaped_blade",
+  "blade": "slashblade_fabric_addons:yakumoblade/starstr",
+  "category": "equipment",
+  "key": {
+    "A": {
+      "item": "slashblade_fabric_addons:yakumoblade/star_soul_crystal"
+    },
+    "B": {
+      "item": "slashblade_fabric_addons:yakumoblade/star_treasure_scripture"
+    },
+    "C": {
+      "fabric:type": "slashblade:blade",
+      "items": "slashblade_fabric_addons:yakumoblade/slashblade",
+      "request": {
+        "name": "slashblade_fabric_addons:yakumoblade/green_inflammation_star"
+      }
+    },
+    "D": {
+      "fabric:type": "slashblade:blade",
+      "items": "slashblade_fabric_addons:yakumoblade/slashblade",
+      "request": {
+        "name": "slashblade_fabric_addons:yakumoblade/ye_soul"
+      }
+    },
+    "E": {
+      "fabric:type": "slashblade:blade",
+      "items": "slashblade_fabric_addons:yakumoblade/slashblade",
+      "request": {
+        "name": "slashblade_fabric_addons:yakumoblade/sun_rise"
+      }
+    },
+    "F": {
+      "item": "slashblade_fabric_addons:yakumoblade/umle"
+    }
+  },
+  "pattern": [
+    "ABA",
+    "CDE",
+    "AFA"
+  ],
+  "result": {
+    "components": {
+      "minecraft:attribute_modifiers": {
+        "modifiers": [
+          {
+            "type": "minecraft:generic.attack_speed",
+            "amount": 0.0,
+            "id": "minecraft:base_attack_speed",
+            "operation": "add_value",
+            "slot": "mainhand"
+          },
+          {
+            "type": "minecraft:player.entity_interaction_range",
+            "amount": 2.5,
+            "id": "slashblade:player_reach_amplifier",
+            "operation": "add_value",
+            "slot": "mainhand"
+          },
+          {
+            "type": "minecraft:generic.attack_damage",
+            "amount": 3.0,
+            "id": "minecraft:base_attack_damage",
+            "operation": "add_value",
+            "slot": "mainhand"
+          }
+        ]
+      }
+    },
+    "count": 1,
+    "id": "slashblade:slashblade"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "creativeGroup": "slashblade_fabric_addons:yakumoblade/yakumoblade_slashblade_star",
+  "enchantments": [
+    {
+      "id": "minecraft:power",
+      "lvl": 3
+    },
+    {
+      "id": "minecraft:unbreaking",
+      "lvl": 3
+    },
+    {
+      "id": "minecraft:fire_aspect"
+    },
+    {
+      "id": "minecraft:sharpness",
+      "lvl": 3
+    }
+  ],
+  "item": "slashblade_fabric_addons:yakumoblade/slashblade",
+  "name": "slashblade_fabric_addons:yakumoblade/red_sun",
+  "properties": {
+    "attack_base": 17.0,
+    "max_damage": 180,
+    "slash_art": "slashblade_fabric_addons:yakumoblade/ten_drive",
+    "special_effects": [
+      "slashblade_fabric_addons:yakumoblade/star_soul",
+      "slashblade_fabric_addons:yakumoblade/sun_soul",
+      "slashblade_fabric_addons:yakumoblade/sharpness_blade"
+    ],
+    "sword_type": [
+      "bewitched"
+    ]
+  },
+  "render": {
+    "carry_type": "default",
+    "model": "slashblade_fabric_addons:yakumoblade/model/relicofpaseone/ru_sang.obj",
+    "summon_sword_color": 12013391,
+    "texture": "slashblade_fabric_addons:yakumoblade/model/relicofpaseone/red_sun.png"
+  }
+}

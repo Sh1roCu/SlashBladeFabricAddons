@@ -1,0 +1,37 @@
+{
+  "creativeGroup": "slashblade_fabric_addons:yakumoblade/yakumoblade_slashblade_touhou",
+  "enchantments": [
+    {
+      "id": "minecraft:smite",
+      "lvl": 5
+    },
+    {
+      "id": "minecraft:knockback",
+      "lvl": 2
+    },
+    {
+      "id": "minecraft:fire_aspect",
+      "lvl": 2
+    }
+  ],
+  "item": "slashblade_fabric_addons:yakumoblade/slashblade",
+  "name": "slashblade_fabric_addons:yakumoblade/yuyuko_beyond",
+  "properties": {
+    "attack_base": 35.0,
+    "max_damage": 180,
+    "slash_art": "slashblade:wave_edge",
+    "special_effects": [
+      "slashblade_fabric_addons:yakumoblade/beyond_yuyuko",
+      "slashblade_fabric_addons:yakumoblade/ghost_blade"
+    ],
+    "sword_type": [
+      "bewitched"
+    ]
+  },
+  "render": {
+    "carry_type": "default",
+    "model": "slashblade_fabric_addons:yakumoblade/model/touhou/yuyuko/yuyuko_beyond.obj",
+    "summon_sword_color": 10492369,
+    "texture": "slashblade_fabric_addons:yakumoblade/model/touhou/yuyuko/yuyuko_beyond.png"
+  }
+}

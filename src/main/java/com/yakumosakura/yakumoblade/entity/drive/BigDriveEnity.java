@@ -1,0 +1,383 @@
+package com.yakumosakura.yakumoblade.entity.drive;
+
+
+import cn.sh1rocu.slashblade.util.PotionUtils;
+import com.google.common.collect.Lists;
+import com.yakumosakura.yakumoblade.entity.exer.absNeoSummonSword;
+import io.github.fabricators_of_create.porting_lib.entity.PartEntity;
+import mods.flammpfeil.slashblade.ability.StunManager;
+import mods.flammpfeil.slashblade.capability.concentrationrank.IConcentrationRank;
+import mods.flammpfeil.slashblade.entity.Projectile;
+import mods.flammpfeil.slashblade.util.AttackManager;
+import mods.flammpfeil.slashblade.util.EnumSetConverter;
+import mods.flammpfeil.slashblade.util.KnockBacks;
+import mods.flammpfeil.slashblade.util.NBTHelper;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.syncher.EntityDataAccessor;
+import net.minecraft.network.syncher.EntityDataSerializers;
+import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.Mth;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.damagesource.DamageTypes;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.monster.EnderMan;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.projectile.ProjectileUtil;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.AABB;
+import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.EntityHitResult;
+import net.minecraft.world.phys.Vec3;
+
+import javax.annotation.Nullable;
+import java.util.List;
+
+public class BigDriveEnity extends absNeoSummonSword {
+    private static final EntityDataAccessor<Integer> COLOR;
+    private static final EntityDataAccessor<Integer> FLAGS;
+    private static final EntityDataAccessor<Float> RANK;
+    private static final EntityDataAccessor<Float> ROTATION_OFFSET;
+    private static final EntityDataAccessor<Float> ROTATION_ROLL;
+    private static final EntityDataAccessor<Float> BASESIZE;
+    private static final EntityDataAccessor<Float> SPEED;
+    private static final EntityDataAccessor<Float> LIFETIME;
+    private KnockBacks action;
+    private double damage;
+    private final List<Entity> alreadyHits;
+    private int lastHitTick = 0; // 记录上次造成伤害的时间
+    private static final int HIT_COOLDOWN = 10; // 冷却时间（20 ticks = 1秒）
+
+    public KnockBacks getKnockBack() {
+        return this.action;
+    }
+
+    public void setKnockBack(KnockBacks action) {
+        this.action = action;
+    }
+
+    public void setKnockBackOrdinal(int ordinal) {
+        if (0 <= ordinal && ordinal < KnockBacks.values().length) {
+            this.action = KnockBacks.values()[ordinal];
+        } else {
+            this.action = KnockBacks.cancel;
+        }
+
+    }
+
+
+    public BigDriveEnity(EntityType<? extends Projectile> entityTypeIn, Level worldIn) {
+        super(entityTypeIn, worldIn);
+        this.action = KnockBacks.cancel;
+        this.damage = 7.0;
+        this.alreadyHits = Lists.newArrayList();
+        this.setNoGravity(true);
+    }
+
+    protected void defineSynchedData(SynchedEntityData.Builder builder) {
+        super.defineSynchedData(builder);
+        builder.define(COLOR, 3355647);
+        builder.define(FLAGS, 0);
+        builder.define(RANK, 0.0F);
+        builder.define(LIFETIME, 10.0F);
+        builder.define(ROTATION_OFFSET, 0.0F);
+        builder.define(ROTATION_ROLL, 0.0F);
+        builder.define(BASESIZE, 1.0F);
+        builder.define(SPEED, 0.5F);
+    }
+
+    public void addAdditionalSaveData(CompoundTag compound) {
+        super.addAdditionalSaveData(compound);
+        NBTHelper.getNBTCoupler(compound).put("RotationOffset", new Float[]{this.getRotationOffset()}).put("RotationRoll", new Float[]{this.getRotationRoll()}).put("BaseSize", new Float[]{this.getBaseSize()}).put("Speed", new Float[]{this.getSpeed()}).put("Color", new Integer[]{this.getColor()}).put("Rank", new Float[]{this.getRank()}).put("damage", new Double[]{this.damage}).put("crit", new Boolean[]{this.getIsCritical()}).put("clip", new Boolean[]{this.isNoClip()}).put("Lifetime", new Float[]{this.getLifetime()}).put("Knockback", this.getKnockBack().ordinal());
+    }
+
+    public void readAdditionalSaveData(CompoundTag compound) {
+        super.readAdditionalSaveData(compound);
+        NBTHelper.getNBTCoupler(compound).get("RotationOffset", this::setRotationOffset, new Float[0]).get("RotationRoll", this::setRotationRoll, new Float[0]).get("BaseSize", this::setBaseSize, new Float[0]).get("Speed", this::setSpeed, new Float[0]).get("Color", this::setColor, new Integer[0]).get("Rank", this::setRank, new Float[0]).get("damage", (v) -> {
+            this.damage = v;
+        }, new Double[]{this.damage}).get("crit", this::setIsCritical, new Boolean[0]).get("clip", this::setNoClip, new Boolean[0]).get("Lifetime", this::setLifetime, new Float[0]).get("Knockback", this::setKnockBackOrdinal);
+    }
+
+    @Environment(EnvType.CLIENT)
+    public boolean shouldRenderAtSqrDistance(double distance) {
+        double d0 = this.getBoundingBox().getSize() * 10.0;
+        if (Double.isNaN(d0)) {
+            d0 = 1.0;
+        }
+
+        d0 = d0 * 64.0 * getViewScale();
+        return distance < d0 * d0;
+    }
+
+
+    private void refreshFlags() {
+        int newValue;
+        if (this.level().isClientSide()) {
+            newValue = this.entityData.get(FLAGS);
+            if (this.intFlags != newValue) {
+                this.intFlags = newValue;
+
+            }
+        } else {
+            newValue = EnumSetConverter.convertToInt(this.flags);
+            if (this.intFlags != newValue) {
+                this.entityData.set(FLAGS, newValue);
+                this.intFlags = newValue;
+            }
+        }
+
+    }
+
+    public void tick() {
+        super.tick();
+        if (this.getShooter() != null && this.tickCount % 2 == 0) {
+            boolean forceHit = true;
+            Entity var4 = this.getShooter();
+            List hits;
+            if (var4 instanceof LivingEntity shooter) {
+                float ratio = (float) this.damage * (this.getIsCritical() ? 1.1F : 1.0F);
+                hits = AttackManager.areaAttack(shooter, this.action.action, ratio, forceHit, false, true, this.alreadyHits);
+            } else {
+                hits = AttackManager.areaAttack(this, this.action.action, 4.0, forceHit, false, this.alreadyHits);
+            }
+
+            this.alreadyHits.addAll(hits);
+        }
+        if (super.tickCount > 5 && this.tickCount - lastHitTick >= HIT_COOLDOWN) {
+            lastHitTick = this.tickCount;
+
+            float radius = 2F;
+            if (getOwner() instanceof Player owner) {
+                this.level().getEntitiesOfClass(
+                        LivingEntity.class,
+                        this.getBoundingBox().inflate(radius)).forEach(livingEntity -> {
+                    if (livingEntity != owner) {
+                        livingEntity.knockback(1, 1, 1);
+                        StunManager.setStun(livingEntity, 20);
+                        var damageSource = new DamageSource(owner.level().registryAccess()
+                                .registryOrThrow(net.minecraft.core.registries.Registries.DAMAGE_TYPE)
+                                .getHolderOrThrow(DamageTypes.MAGIC), this, owner);
+                        livingEntity.invulnerableTime = 0;
+                        livingEntity.hurt(damageSource, (float) ((float) getDamage() * owner.getAttribute(Attributes.ATTACK_DAMAGE).getValue() / 50));
+                        onHitEntity(new EntityHitResult(livingEntity));
+
+                    }
+                });
+
+
+            }
+
+        }
+
+        this.tryDespawn();
+    }
+
+    public List<Entity> getAlreadyHits() {
+        return this.alreadyHits;
+    }
+
+    protected void tryDespawn() {
+        if (!this.level().isClientSide() && this.getLifetime() < (float) this.tickCount) {
+            this.remove(RemovalReason.DISCARDED);
+        }
+
+    }
+
+    public int getColor() {
+        return this.getEntityData().get(COLOR);
+    }
+
+    public void setColor(int value) {
+        this.getEntityData().set(COLOR, value);
+    }
+
+    public float getRank() {
+        return this.getEntityData().get(RANK);
+    }
+
+    public void setRank(float value) {
+        this.getEntityData().set(RANK, value);
+    }
+
+    public IConcentrationRank.ConcentrationRanks getRankCode() {
+        return IConcentrationRank.ConcentrationRanks.getRankFromLevel(this.getRank());
+    }
+
+    public float getRotationOffset() {
+        return this.getEntityData().get(ROTATION_OFFSET);
+    }
+
+    public void setRotationOffset(float value) {
+        this.getEntityData().set(ROTATION_OFFSET, value);
+    }
+
+    public float getRotationRoll() {
+        return this.getEntityData().get(ROTATION_ROLL);
+    }
+
+    public void setRotationRoll(float value) {
+        this.getEntityData().set(ROTATION_ROLL, value);
+    }
+
+    public float getBaseSize() {
+        return this.getEntityData().get(BASESIZE);
+    }
+
+    public void setBaseSize(float value) {
+        this.getEntityData().set(BASESIZE, value);
+    }
+
+    public float getSpeed() {
+        return this.getEntityData().get(SPEED);
+    }
+
+    public void setSpeed(float value) {
+        this.getEntityData().set(SPEED, value);
+    }
+
+    public float getLifetime() {
+        return this.getEntityData().get(LIFETIME);
+    }
+
+    public void setLifetime(float value) {
+        this.getEntityData().set(LIFETIME, value);
+    }
+
+    @Nullable
+    public Entity getShooter() {
+        return this.getOwner();
+    }
+
+    public void setShooter(Entity shooter) {
+        this.setOwner(shooter);
+    }
+
+    public List<MobEffectInstance> getPotionEffects() {
+        List<MobEffectInstance> effects = PotionUtils.getAllEffects(this.sb$getPersistentData());
+        if (effects.isEmpty()) {
+            effects.add(new MobEffectInstance(MobEffects.POISON, 1, 1));
+        }
+
+        return effects;
+    }
+
+
+    protected void onHitEntity(EntityHitResult p_213868_1_) {
+        Entity targetEntity = p_213868_1_.getEntity();
+        int i = Mth.ceil(this.getDamage());
+        if (this.getIsCritical()) {
+            i += this.random.nextInt(i / 2 + 2);
+        }
+
+        Entity shooter = this.getShooter();
+        DamageSource damagesource;
+        if (shooter == null) {
+            damagesource = this.damageSources().indirectMagic(this, this);
+        } else {
+            damagesource = this.damageSources().indirectMagic(this, shooter);
+            if (shooter instanceof LivingEntity) {
+                Entity hits = targetEntity;
+                if (targetEntity instanceof PartEntity<?>) {
+                    hits = ((PartEntity) targetEntity).getParent();
+                }
+
+                ((LivingEntity) shooter).setLastHurtMob(hits);
+            }
+        }
+
+        int fireTime = targetEntity.getRemainingFireTicks();
+        if (this.isOnFire() && !(targetEntity instanceof EnderMan)) {
+            targetEntity.setRemainingFireTicks(5 * 20);
+        }
+
+        targetEntity.invulnerableTime = 0;
+
+
+        Vec3 pos = this.position();
+        AABB attackRange = new AABB(
+                pos.x - 1,  // 宽度方向左右各1格
+                pos.y - 1,  // 高度方向上下各1格
+                pos.z - 5,  // 长度方向向后5格
+                pos.x + 1,
+                pos.y + 1,
+                pos.z + 5   // 长度方向向前5格
+        );
+
+        // 获取范围内所有生物实体
+        List<LivingEntity> targets = this.level().getEntitiesOfClass(
+                LivingEntity.class,
+                attackRange,
+                e -> e != this.getShooter() && e.isAlive()
+        );
+
+        // 应用伤害
+        double damage = this.getDamage();
+        DamageSource damageSource = this.damageSources().mobAttack(
+                (LivingEntity) this.getShooter()
+        );
+
+        targets.forEach(target -> {
+            if (!this.alreadyHits.contains(target)) {
+                target.hurt(damageSource, (float) damage);
+                this.alreadyHits.add(target);
+            }
+        });
+
+
+        if (targetEntity.hurt(damagesource, (float) i)) {
+            Entity hits = targetEntity;
+            if (targetEntity instanceof PartEntity) {
+                hits = ((PartEntity) targetEntity).getParent();
+            }
+
+            if (hits instanceof LivingEntity targetLivingEntity) {
+                StunManager.setStun(targetLivingEntity);
+                if (this.level() instanceof ServerLevel serverLevel && shooter instanceof LivingEntity) {
+                    EnchantmentHelper.doPostAttackEffects(serverLevel, targetLivingEntity, damagesource);
+                }
+
+                this.affectEntity(targetLivingEntity, this.getPotionEffects(), 1.0);
+                if (shooter != null && targetLivingEntity != shooter && targetLivingEntity instanceof Player && shooter instanceof ServerPlayer) {
+                    ((ServerPlayer) shooter).playNotifySound(this.getHitEntityPlayerSound(), SoundSource.PLAYERS, 0.18F, 0.45F);
+                }
+            }
+
+            this.playSound(this.getHitEntitySound(), 1.0F, 1.2F / (this.random.nextFloat() * 0.2F + 0.9F));
+        } else {
+            targetEntity.setRemainingFireTicks(fireTime);
+        }
+
+    }
+
+    protected void onHitBlock(BlockHitResult blockraytraceresult) {
+        this.setRemoved(RemovalReason.DISCARDED);
+    }
+
+    @Nullable
+    public EntityHitResult getRayTrace(Vec3 p_213866_1_, Vec3 p_213866_2_) {
+        return ProjectileUtil.getEntityHitResult(this.level(), this, p_213866_1_, p_213866_2_, this.getBoundingBox().expandTowards(this.getDeltaMovement()).inflate(1.0), (entity) -> {
+            return !entity.isSpectator() && entity.isAlive() && entity.isPickable() && entity != this.getShooter();
+        });
+    }
+
+    static {
+        COLOR = SynchedEntityData.defineId(BigDriveEnity.class, EntityDataSerializers.INT);
+        FLAGS = SynchedEntityData.defineId(BigDriveEnity.class, EntityDataSerializers.INT);
+        RANK = SynchedEntityData.defineId(BigDriveEnity.class, EntityDataSerializers.FLOAT);
+        ROTATION_OFFSET = SynchedEntityData.defineId(BigDriveEnity.class, EntityDataSerializers.FLOAT);
+        ROTATION_ROLL = SynchedEntityData.defineId(BigDriveEnity.class, EntityDataSerializers.FLOAT);
+        BASESIZE = SynchedEntityData.defineId(BigDriveEnity.class, EntityDataSerializers.FLOAT);
+        SPEED = SynchedEntityData.defineId(BigDriveEnity.class, EntityDataSerializers.FLOAT);
+        LIFETIME = SynchedEntityData.defineId(BigDriveEnity.class, EntityDataSerializers.FLOAT);
+    }
+}

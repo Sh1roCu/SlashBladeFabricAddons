@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "slashblade_fabric_addons:item/yakumoblade/ark_metal_ingot"
+  }
+}

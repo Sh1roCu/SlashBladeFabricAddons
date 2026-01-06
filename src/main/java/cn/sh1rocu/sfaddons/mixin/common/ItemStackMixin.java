@@ -1,4 +1,4 @@
-package cn.sh1rocu.sfaddons.mixin;
+package cn.sh1rocu.sfaddons.mixin.common;
 
 import cn.sh1rocu.sfaddons.api.extension.IDamageable;
 import net.minecraft.world.item.Item;

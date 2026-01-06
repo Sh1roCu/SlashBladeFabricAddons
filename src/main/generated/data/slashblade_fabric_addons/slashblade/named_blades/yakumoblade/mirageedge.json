@@ -1,0 +1,30 @@
+{
+  "creativeGroup": "slashblade_fabric_addons:yakumoblade/yakumoblade_slashblade",
+  "enchantments": [
+    {
+      "id": "minecraft:power",
+      "lvl": 10
+    }
+  ],
+  "item": "slashblade_fabric_addons:yakumoblade/slashblade",
+  "name": "slashblade_fabric_addons:yakumoblade/mirageedge",
+  "properties": {
+    "attack_base": 10.0,
+    "max_damage": 120,
+    "slash_art": "slashblade_fabric_addons:yakumoblade/tho2",
+    "special_effects": [
+      "slashblade_fabric_addons:yakumoblade/proud_soul_drive",
+      "slashblade_fabric_addons:yakumoblade/lost_heart",
+      "legendblade:eternal"
+    ],
+    "sword_type": [
+      "bewitched"
+    ]
+  },
+  "render": {
+    "carry_type": "default",
+    "model": "slashblade_fabric_addons:yakumoblade/model/named/custom/vergil/mirageedge.obj",
+    "summon_sword_color": 2003199,
+    "texture": "slashblade_fabric_addons:yakumoblade/model/named/custom/vergil/mirageedge.png"
+  }
+}

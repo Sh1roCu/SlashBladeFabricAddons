@@ -1,5 +1,7 @@
 {
   "values": [
-    "slashblade_fabric_addons:energyblade/forge_energy_blade"
+    "slashblade_fabric_addons:energyblade/forge_energy_blade",
+    "slashblade_fabric_addons:yakumoblade/slashblade",
+    "slashblade_fabric_addons:yakumoblade/slashblade_yellowfox"
   ]
 }

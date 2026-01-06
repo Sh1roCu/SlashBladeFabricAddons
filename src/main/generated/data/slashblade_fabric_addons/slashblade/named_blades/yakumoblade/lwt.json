@@ -1,0 +1,44 @@
+{
+  "creativeGroup": "slashblade_fabric_addons:yakumoblade/yakumoblade_slashblade_touhou",
+  "enchantments": [
+    {
+      "id": "minecraft:power",
+      "lvl": 5
+    },
+    {
+      "id": "minecraft:smite",
+      "lvl": 5
+    },
+    {
+      "id": "minecraft:unbreaking",
+      "lvl": 5
+    },
+    {
+      "id": "minecraft:thorns",
+      "lvl": 3
+    },
+    {
+      "id": "minecraft:fire_aspect",
+      "lvl": 2
+    }
+  ],
+  "item": "slashblade_fabric_addons:yakumoblade/slashblade",
+  "name": "slashblade_fabric_addons:yakumoblade/lwt",
+  "properties": {
+    "attack_base": 40.0,
+    "max_damage": 180,
+    "slash_art": "slashblade_fabric_addons:yakumoblade/hot_drive",
+    "special_effects": [
+      "slashblade_fabric_addons:yakumoblade/lwt"
+    ],
+    "sword_type": [
+      "bewitched"
+    ]
+  },
+  "render": {
+    "carry_type": "default",
+    "model": "slashblade_fabric_addons:yakumoblade/model/touhou/lwt/lwt.obj",
+    "summon_sword_color": 13924864,
+    "texture": "slashblade_fabric_addons:yakumoblade/model/touhou/lwt/lwt.png"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "creativeGroup": "slashblade_fabric_addons:yakumoblade/yakumoblade_slashblade_hexgram",
+  "enchantments": [
+    {
+      "id": "minecraft:smite",
+      "lvl": 5
+    },
+    {
+      "id": "minecraft:knockback",
+      "lvl": 2
+    },
+    {
+      "id": "minecraft:fire_aspect",
+      "lvl": 2
+    }
+  ],
+  "item": "slashblade_fabric_addons:yakumoblade/slashblade",
+  "name": "slashblade_fabric_addons:yakumoblade/fire_dragon",
+  "properties": {
+    "attack_base": 7.0,
+    "max_damage": 180,
+    "sword_type": [
+      "bewitched"
+    ]
+  },
+  "render": {
+    "carry_type": "default",
+    "model": "slashblade_fabric_addons:yakumoblade/model/hexgram/dragon/sange.obj",
+    "summon_sword_color": 16711680,
+    "texture": "slashblade_fabric_addons:yakumoblade/model/hexgram/dragon/red.png"
+  }
+}

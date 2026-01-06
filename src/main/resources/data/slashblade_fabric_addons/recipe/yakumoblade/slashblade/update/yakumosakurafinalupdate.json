@@ -1,0 +1,26 @@
+{
+  "type": "slashblade:shaped_blade",
+  "blade": "slashblade_fabric_addons:yakumoblade/yakumosakurafinal",
+  "category": "equipment",
+  "key": {
+    "B": {
+      "type": "slashblade:blade",
+      "item": "slashblade:slashblade",
+      "request": {
+        "name": "slashblade_fabric_addons:yakumoblade/yakumosakurafinal"
+      }
+    },
+    "Z": {
+      "item": "slashblade:proudsoul_ingot"
+    }
+  },
+  "pattern": [
+    " Z ",
+    " B ",
+    " Z "
+  ],
+  "result": {
+    "id": "slashblade:slashblade"
+  },
+  "show_notification": true
+}

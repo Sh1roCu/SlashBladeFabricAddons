@@ -1,0 +1,38 @@
+{
+  "creativeGroup": "slashblade_fabric_addons:yakumoblade/yakumoblade_slashblade_star",
+  "enchantments": [
+    {
+      "id": "minecraft:power",
+      "lvl": 3
+    },
+    {
+      "id": "minecraft:smite",
+      "lvl": 5
+    },
+    {
+      "id": "minecraft:sharpness",
+      "lvl": 5
+    }
+  ],
+  "item": "slashblade_fabric_addons:yakumoblade/slashblade",
+  "name": "slashblade_fabric_addons:yakumoblade/sky_ruine",
+  "properties": {
+    "attack_base": 20.0,
+    "max_damage": 200,
+    "slash_art": "slashblade_fabric_addons:yakumoblade/sword_rain_lightning",
+    "special_effects": [
+      "slashblade_fabric_addons:yakumoblade/star_soul",
+      "slashblade_fabric_addons:yakumoblade/thundersoul",
+      "slashblade_fabric_addons:yakumoblade/lost_heart"
+    ],
+    "sword_type": [
+      "bewitched"
+    ]
+  },
+  "render": {
+    "carry_type": "default",
+    "model": "slashblade_fabric_addons:yakumoblade/model/star/model/sky_ruine.obj",
+    "summon_sword_color": 3071,
+    "texture": "slashblade_fabric_addons:yakumoblade/model/star/sky_ruine.png"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "creativeGroup": "slashblade_fabric_addons:yakumoblade/yakumoblade_slashblade_touhou",
+  "item": "slashblade_fabric_addons:yakumoblade/slashblade",
+  "name": "slashblade_fabric_addons:yakumoblade/yuyuko",
+  "properties": {
+    "attack_base": 16.0,
+    "max_damage": 180,
+    "slash_art": "slashblade:void_slash",
+    "special_effects": [
+      "slashblade_fabric_addons:yakumoblade/ghost_blade"
+    ],
+    "sword_type": [
+      "bewitched"
+    ]
+  },
+  "render": {
+    "carry_type": "default",
+    "model": "slashblade_fabric_addons:yakumoblade/model/named/sange/sange.obj",
+    "summon_sword_color": 16722600,
+    "texture": "slashblade_fabric_addons:yakumoblade/model/named/sange/yuyuko.png"
+  }
+}

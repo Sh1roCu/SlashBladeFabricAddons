@@ -1,0 +1,39 @@
+{
+  "creativeGroup": "slashblade_fabric_addons:yakumoblade/yakumoblade_slashblade_hexgram",
+  "enchantments": [
+    {
+      "id": "minecraft:power",
+      "lvl": 10
+    },
+    {
+      "id": "minecraft:sharpness",
+      "lvl": 6
+    },
+    {
+      "id": "minecraft:unbreaking",
+      "lvl": 5
+    },
+    {
+      "id": "minecraft:mending"
+    }
+  ],
+  "item": "slashblade_fabric_addons:yakumoblade/slashblade",
+  "name": "slashblade_fabric_addons:yakumoblade/godbladehexagram",
+  "properties": {
+    "attack_base": 20.0,
+    "max_damage": 180,
+    "slash_art": "slashblade_fabric_addons:yakumoblade/ten_drive",
+    "special_effects": [
+      "slashblade_fabric_addons:yakumoblade/star_soul"
+    ],
+    "sword_type": [
+      "bewitched"
+    ]
+  },
+  "render": {
+    "carry_type": "default",
+    "model": "slashblade_fabric_addons:yakumoblade/model/named/custom/hexagram/godbladehexagram.obj",
+    "summon_sword_color": 8126719,
+    "texture": "slashblade_fabric_addons:yakumoblade/model/named/custom/hexagram/godbladehexagram.png"
+  }
+}

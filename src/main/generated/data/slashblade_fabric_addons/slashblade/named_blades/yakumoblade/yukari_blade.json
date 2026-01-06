@@ -1,0 +1,17 @@
+{
+  "creativeGroup": "slashblade_fabric_addons:yakumoblade/yakumoblade_slashblade_touhou",
+  "item": "slashblade_fabric_addons:yakumoblade/slashblade",
+  "name": "slashblade_fabric_addons:yakumoblade/yukari_blade",
+  "properties": {
+    "max_damage": 180,
+    "special_effects": [
+      "slashblade_fabric_addons:yakumoblade/youkai"
+    ]
+  },
+  "render": {
+    "carry_type": "default",
+    "model": "slashblade_fabric_addons:yakumoblade/model/touhou/yukari/blade.obj",
+    "summon_sword_color": 4260050,
+    "texture": "slashblade_fabric_addons:yakumoblade/model/touhou/yukari/blade.png"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "creativeGroup": "slashblade_fabric_addons:yakumoblade/yakumoblade_slashblade_hexgram",
+  "enchantments": [
+    {
+      "id": "minecraft:soul_speed",
+      "lvl": 4
+    },
+    {
+      "id": "minecraft:power",
+      "lvl": 10
+    },
+    {
+      "id": "minecraft:unbreaking",
+      "lvl": 5
+    },
+    {
+      "id": "minecraft:looting",
+      "lvl": 3
+    }
+  ],
+  "item": "slashblade_fabric_addons:yakumoblade/slashblade",
+  "name": "slashblade_fabric_addons:yakumoblade/dragonhexagram",
+  "properties": {
+    "attack_base": 39.0,
+    "max_damage": 180,
+    "slash_art": "slashblade_fabric_addons:yakumoblade/dragon_justices",
+    "special_effects": [
+      "slashblade_fabric_addons:yakumoblade/sword_art_on_dragon",
+      "slashblade_fabric_addons:yakumoblade/hexgamdragon",
+      "slashblade_fabric_addons:yakumoblade/exmode"
+    ],
+    "sword_type": [
+      "bewitched"
+    ]
+  },
+  "render": {
+    "carry_type": "default",
+    "model": "slashblade_fabric_addons:yakumoblade/model/hexgram/dragon_six/dragonhexagram.obj",
+    "summon_sword_color": 16722600,
+    "texture": "slashblade_fabric_addons:yakumoblade/model/hexgram/dragon_six/dragonhexagram.png"
+  }
+}

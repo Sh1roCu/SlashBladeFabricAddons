@@ -1,0 +1,40 @@
+{
+  "creativeGroup": "slashblade_fabric_addons:yakumoblade/yakumoblade_slashblade",
+  "enchantments": [
+    {
+      "id": "minecraft:power",
+      "lvl": 5
+    },
+    {
+      "id": "minecraft:sharpness",
+      "lvl": 5
+    },
+    {
+      "id": "minecraft:unbreaking",
+      "lvl": 3
+    },
+    {
+      "id": "minecraft:looting",
+      "lvl": 10
+    }
+  ],
+  "item": "slashblade_fabric_addons:yakumoblade/slashblade",
+  "name": "slashblade_fabric_addons:yakumoblade/green_inflammation",
+  "properties": {
+    "attack_base": 22.0,
+    "max_damage": 180,
+    "special_effects": [
+      "slashblade_fabric_addons:yakumoblade/very_green",
+      "slashblade_fabric_addons:yakumoblade/sharpness_blade"
+    ],
+    "sword_type": [
+      "bewitched"
+    ]
+  },
+  "render": {
+    "carry_type": "default",
+    "model": "slashblade_fabric_addons:yakumoblade/model/relicofpaseone/green_inflammation.obj",
+    "summon_sword_color": 2424576,
+    "texture": "slashblade_fabric_addons:yakumoblade/model/relicofpaseone/green_inflammation.png"
+  }
+}
