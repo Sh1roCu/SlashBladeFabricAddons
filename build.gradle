@@ -105,6 +105,9 @@ repositories {
         name "reposiliteRepositoryArtifacts"
         url "https://maven.conczin.net/Artifacts"
     }
+    flatDir {
+        dir "libs"
+    }
 }
 
 dependencies {
@@ -121,10 +124,10 @@ dependencies {
     modCompileOnly 'com.google.code.findbugs:jsr305:3.0.2'
     annotationProcessor 'com.google.code.findbugs:jsr305:3.0.2'
 
-    modImplementation("cn.sh1rocu:slashblade-refabricated:1.21.1-1.3.1-Resharped-1.8.61")
+    modImplementation("cn.sh1rocu:slashblade-refabricated:1.21.1-1.3.2-Resharped-1.8.61")
+    modImplementation("io.github.fabricators_of_create.Porting-Lib:all:3.1.0-beta.79-fix+1.21.1")
     modImplementation "org.ladysnake.cardinal-components-api:cardinal-components-base:${project.cca_version}"
     modImplementation "org.ladysnake.cardinal-components-api:cardinal-components-entity:${project.cca_version}"
-    modImplementation("io.github.fabricators_of_create.Porting-Lib:items:3.1.0-beta.79+1.21.1")
     modImplementation("cn.sh1rocu:touhoulittlemaid-fabric-1.21.1:0.5.1-neo1.4.6") {
         exclude(group: "libs")
         exclude(group: "net.conczin")
@@ -143,7 +146,6 @@ dependencies {
 
     modImplementation('vazkii.patchouli:Patchouli:1.21-87-FABRIC')
 
-    modImplementation(include("io.github.fabricators_of_create.Porting-Lib:base:3.1.0-beta.79+1.21.1"))
     include modApi('teamreborn:energy:4.1.0') {
         exclude(group: "net.fabricmc.fabric-api")
     }
@@ -151,14 +153,8 @@ dependencies {
     modRuntimeOnly "curse.maven:modernfix-790626:6766123"
 
     // 暂无1.21
-//    // 暮色森林
-//    // TODO
-//    // 运行runDatagen时需要改成modImplementation，并去除依赖的注释
-//    modCompileOnly "libs:twilightforest-fabric-1.20.1:1.4.7"
-////    modImplementation("io.github.fabricators_of_create.Porting-Lib:networking:2.3.8+1.20.1")
-////    modImplementation("io.github.fabricators_of_create.Porting-Lib:loot:2.3.8+1.20.1")
-////    modImplementation("io.github.fabricators_of_create.Porting-Lib:registries:2.3.8+1.20.1")
-////    modImplementation("com.github.Chocohead:Fabric-ASM:v2.3")
+    // 暮色森林
+    // TODO
 }
 
 processResources {
