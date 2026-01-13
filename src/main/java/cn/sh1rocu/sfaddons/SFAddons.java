@@ -12,6 +12,7 @@ import com.yakumosakura.yakumoblade.event.ChangeTypeEvent;
 import com.yakumosakura.yakumoblade.event.StarSoulEvent;
 import com.yakumosakura.yakumoblade.event.TypeMakerCanChange;
 import com.yakumosakura.yakumoblade.event.WitherDrop;
+import com.yakumosakura.yakumoblade.network.MakeGapMessage;
 import com.yakumosakura.yakumoblade.network.TypeMakerMessage;
 import com.yakumosakura.yakumoblade.specialeffects.SEEventBus;
 import com.yakumosakura.yakumoblade.specialeffects.compat.YellowFoxBoost;
@@ -101,6 +102,7 @@ public class SFAddons implements ModInitializer {
 
     private static void registerC2SPackets() {
         registerC2SPacket(TypeMakerMessage.ID, TypeMakerMessage::handler);
+        registerC2SPacket(MakeGapMessage.ID, MakeGapMessage::handler);
     }
 
     public static void registerC2SPacket(ResourceLocation id, ServerPlayNetworking.PlayChannelHandler handler) {

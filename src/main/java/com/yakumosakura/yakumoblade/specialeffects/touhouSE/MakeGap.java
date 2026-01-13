@@ -1,5 +1,6 @@
 package com.yakumosakura.yakumoblade.specialeffects.touhouSE;
 
+import com.yakumosakura.yakumoblade.network.MakeGapMessage;
 import com.yakumosakura.yakumoblade.utils.SlashBladeUtil;
 import io.github.fabricators_of_create.porting_lib.entity.events.living.LivingHurtEvent;
 import mods.flammpfeil.slashblade.capability.slashblade.CapabilitySlashBlade;
@@ -8,6 +9,9 @@ import mods.flammpfeil.slashblade.client.SlashBladeKeyMappings;
 import mods.flammpfeil.slashblade.event.SlashBladeEvent;
 import mods.flammpfeil.slashblade.registry.SpecialEffectsRegistry;
 import mods.flammpfeil.slashblade.registry.specialeffects.SpecialEffect;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
+import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.resources.ResourceLocation;
@@ -74,7 +78,7 @@ public class MakeGap extends SpecialEffect {
 
 
     public static void handleSpecialMove(Player player) {
-        if (HasMakeGap(player) && IsSpecialMove() && !player.isShiftKeyDown()) {
+        if (HasMakeGap(player) && !player.isShiftKeyDown()) {
             // 向前瞬移10格，但检测路径上的方块
             Vec3 look = player.getLookAngle();
             Vec3 startPos = player.position();
@@ -120,15 +124,17 @@ public class MakeGap extends SpecialEffect {
     }
 
 
+    @Environment(EnvType.CLIENT)
     public static void onUpdate(SlashBladeEvent.UpdateEvent event) {
         if (event.getEntity() instanceof Player player) {
-            if (HasMakeGap(player)) {
-                handleSpecialMove(player);
+            if (IsSpecialMove()) {
+                ClientPlayNetworking.send(MakeGapMessage.ID, MakeGapMessage.DUMMY);
             }
         }
     }
 
 
+    @Environment(EnvType.CLIENT)
     public static Boolean IsSpecialMove() {
         return SlashBladeKeyMappings.KEY_SPECIAL_MOVE.isDown();
     }

@@ -40,5 +40,8 @@ public class YakumoBladeCilent {
         EntityRendererRegistry.register(YAEntitiesRegistry.DragonHexGramEntitys, DragonHexGramRender::new);
         EntityRendererRegistry.register(YAEntitiesRegistry.LaserCircle, LaserCircleRender::new);
         EntityRendererRegistry.register(YAEntitiesRegistry.StarRider, StarRideRender::new);
+
+        // TODO: 暂时随便注册一个渲染器，防止部分SE调用未注册渲染器的实体导致的崩溃，等原版幻想之刃做完这些实体的渲染器再同步
+        EntityRendererRegistry.register(YAEntitiesRegistry.swordRainFire, SummonedSwordRenderer::new);
     }
 }
