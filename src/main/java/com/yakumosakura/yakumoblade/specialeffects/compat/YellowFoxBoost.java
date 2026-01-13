@@ -4,8 +4,8 @@ import com.exfantasycode.mclib.Utils.RandomUtil.RandomNumber;
 import com.yakumosakura.yakumoblade.compat.YATouHouMaidItem;
 import com.yakumosakura.yakumoblade.entity.SummonSwordEntity;
 import com.yakumosakura.yakumoblade.registry.slashblade.YAEntitiesRegistry;
+import com.yakumosakura.yakumoblade.specialattacks.v2.SlashEffect;
 import mods.flammpfeil.slashblade.event.SlashBladeEvent;
-import mods.flammpfeil.slashblade.slasharts.SakuraEnd;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.MobCategory;
@@ -28,7 +28,7 @@ public class YellowFoxBoost {
         if (user.getMainHandItem().getItem() == YATouHouMaidItem.getItem(YATouHouMaidItem.YELLOW_FOX)) {
             if (RANDOM.nextFloat() < 0.3f) {
                 for (int i = 0; i < 7; i++) {
-                    SakuraEnd.doSlash(
+                    SlashEffect.SakuraEnd.doSlash(
                             user,
                             RandomNumber.randomint(360),
                             Vec3.ZERO,

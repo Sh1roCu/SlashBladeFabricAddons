@@ -16,7 +16,9 @@ import com.yakumosakura.yakumoblade.specialeffects.touhouSE.*;
 import com.yakumosakura.yakumoblade.specialeffects.xross.DualSoul;
 import io.github.fabricators_of_create.porting_lib.entity.events.living.LivingHurtEvent;
 import mods.flammpfeil.slashblade.event.SlashBladeEvent;
+import net.fabricmc.api.EnvType;
 import net.fabricmc.fabric.api.entity.event.v1.ServerLivingEntityEvents;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.world.entity.player.Player;
 
 public class SEEventBus {
@@ -36,7 +38,9 @@ public class SEEventBus {
         HexGam.onSlashBladeUpdate(event);
         FinalAllMake.Update(event);
         YouKai.onSlashBladeUpdate(event);
-        MakeGap.onUpdate(event);
+        if (FabricLoader.getInstance().getEnvironmentType() == EnvType.CLIENT) {
+            MakeGap.onUpdate(event);
+        }
         YuyukoSe.onLivingUpdate(event);
         GreatSunSoul.UpdateEvent(event);
     }
