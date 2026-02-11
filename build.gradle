@@ -124,7 +124,7 @@ dependencies {
     modCompileOnly 'com.google.code.findbugs:jsr305:3.0.2'
     annotationProcessor 'com.google.code.findbugs:jsr305:3.0.2'
 
-    modImplementation("cn.sh1rocu:slashblade-refabricated:1.21.1-1.3.2-Resharped-1.8.61")
+    modImplementation("cn.sh1rocu:slashblade-refabricated:1.21.1-1.3.3-Resharped-1.8.61")
     modImplementation("io.github.fabricators_of_create.Porting-Lib:all:3.1.0-beta.79-fix+1.21.1")
     modImplementation "org.ladysnake.cardinal-components-api:cardinal-components-base:${project.cca_version}"
     modImplementation "org.ladysnake.cardinal-components-api:cardinal-components-entity:${project.cca_version}"
