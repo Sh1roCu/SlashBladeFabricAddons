@@ -11,7 +11,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
 
-public class BigDriveEntitySun extends BigDriveEnity {
+public class BigDriveEntitySun extends BigDriveEntity {
     public BigDriveEntitySun(EntityType<? extends Projectile> entityTypeIn, Level worldIn) {
         super(entityTypeIn, worldIn);
     }

@@ -1,6 +1,6 @@
 package com.yakumosakura.yakumoblade.specialeffects.starSE.re;
 
-import com.yakumosakura.yakumoblade.entity.drive.StarDriveEnity;
+import com.yakumosakura.yakumoblade.entity.drive.StarDriveEntity;
 import com.yakumosakura.yakumoblade.registry.slashblade.YAEntitiesRegistry;
 import com.yakumosakura.yakumoblade.registry.slashblade.YASpecialEffectsRegistry;
 import com.yakumosakura.yakumoblade.utils.SlashBladeUtil;
@@ -79,7 +79,7 @@ public class StarDriveEdge extends SpecialEffect {
                         playerIn.getViewYRot(0.0F)).scale(centerOffset.y))
                 .add(VectorHelper.getVectorForRotation(0.0F, playerIn.getViewYRot(0.0F) + 90.0F)
                         .scale(centerOffset.z)).add(lookAngle.scale(centerOffset.z));
-        StarDriveEnity drive = new StarDriveEnity(YAEntitiesRegistry.StarDrive, playerIn.level());
+        StarDriveEntity drive = new StarDriveEntity(YAEntitiesRegistry.StarDrive, playerIn.level());
         drive.setPos(pos.x, pos.y, pos.z);
         drive.setDamage(2.0f + (float) Math.sqrt(Refine) * 0.125f);
         drive.setSpeed(1f);

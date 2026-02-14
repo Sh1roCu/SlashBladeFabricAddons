@@ -21,9 +21,9 @@ import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
 
-public class StarDriveEnitySon extends StarDriveEnity {
+public class StarDriveEntitySon extends StarDriveEntity {
 
-    public StarDriveEnitySon(EntityType<? extends Projectile> entityTypeIn, Level worldIn) {
+    public StarDriveEntitySon(EntityType<? extends Projectile> entityTypeIn, Level worldIn) {
         super(entityTypeIn, worldIn);
 
     }

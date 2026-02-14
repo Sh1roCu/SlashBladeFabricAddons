@@ -8,6 +8,7 @@ import mods.flammpfeil.slashblade.capability.slashblade.ISlashBladeState;
 import mods.flammpfeil.slashblade.entity.EntityDrive;
 import mods.flammpfeil.slashblade.entity.Projectile;
 import mods.flammpfeil.slashblade.util.AttackManager;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundSource;
@@ -22,9 +23,9 @@ import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
 
-public class StarDriveEnity extends EntityDrive {
+public class StarDriveEntity extends EntityDrive {
 
-    public StarDriveEnity(EntityType<? extends Projectile> entityTypeIn, Level worldIn) {
+    public StarDriveEntity(EntityType<? extends Projectile> entityTypeIn, Level worldIn) {
         super(entityTypeIn, worldIn);
 
     }
@@ -45,13 +46,13 @@ public class StarDriveEnity extends EntityDrive {
         Entity shooter = this.getShooter();
         DamageSource damagesource;
         if (shooter == null) {
-            damagesource = new DamageSource(getOwner().level().registryAccess()
-                    .registryOrThrow(net.minecraft.core.registries.Registries.DAMAGE_TYPE)
+            damagesource = new DamageSource(this.level().registryAccess()
+                    .registryOrThrow(Registries.DAMAGE_TYPE)
                     .getHolderOrThrow(DamageTypes.WITHER), this, this);
         } else {
-            damagesource = new DamageSource(getOwner().level().registryAccess()
-                    .registryOrThrow(net.minecraft.core.registries.Registries.DAMAGE_TYPE)
-                    .getHolderOrThrow(DamageTypes.WITHER), this, getOwner());
+            damagesource = new DamageSource(shooter.level().registryAccess()
+                    .registryOrThrow(Registries.DAMAGE_TYPE)
+                    .getHolderOrThrow(DamageTypes.WITHER), this, shooter);
             if (shooter instanceof LivingEntity) {
                 Entity hits = targetEntity;
                 if (targetEntity instanceof PartEntity) {

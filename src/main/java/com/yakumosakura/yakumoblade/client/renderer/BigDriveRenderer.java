@@ -3,7 +3,7 @@ package com.yakumosakura.yakumoblade.client.renderer;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
 import com.yakumosakura.yakumoblade.Yakumoblade;
-import com.yakumosakura.yakumoblade.entity.drive.BigDriveEnity;
+import com.yakumosakura.yakumoblade.entity.drive.BigDriveEntity;
 import mods.flammpfeil.slashblade.client.renderer.model.BladeModelManager;
 import mods.flammpfeil.slashblade.client.renderer.model.obj.WavefrontObject;
 import mods.flammpfeil.slashblade.client.renderer.util.BladeRenderState;
@@ -21,7 +21,7 @@ import org.jetbrains.annotations.NotNull;
 import javax.annotation.Nullable;
 
 @Environment(EnvType.CLIENT)
-public class BigDriveRenderer<T extends BigDriveEnity> extends EntityRenderer<T> {
+public class BigDriveRenderer<T extends BigDriveEntity> extends EntityRenderer<T> {
     private static final ResourceLocation TEXTURE = Yakumoblade.prefix("model/util/big_drive.png");
     private static final ResourceLocation MODEL = Yakumoblade.prefix("model/util/big_drive.obj");
 

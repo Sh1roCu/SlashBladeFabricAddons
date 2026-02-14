@@ -1,6 +1,6 @@
 package com.yakumosakura.yakumoblade.specialattacks.v1;
 
-import com.yakumosakura.yakumoblade.entity.drive.StarDriveEnity;
+import com.yakumosakura.yakumoblade.entity.drive.StarDriveEntity;
 import com.yakumosakura.yakumoblade.registry.slashblade.YAEntitiesRegistry;
 import mods.flammpfeil.slashblade.capability.concentrationrank.CapabilityConcentrationRank;
 import mods.flammpfeil.slashblade.capability.slashblade.CapabilitySlashBlade;
@@ -36,7 +36,7 @@ public class ReincarnationHeaven {
             double offsetZ = Math.sin(angleRad);
 
             // 创建新的剑气实体
-            StarDriveEnity drive = new StarDriveEnity(YAEntitiesRegistry.StarDrive, playerIn.level());
+            StarDriveEntity drive = new StarDriveEntity(YAEntitiesRegistry.StarDrive, playerIn.level());
             drive.setPos(pos.x, pos.y, pos.z);
             drive.setDamage(3f);
             drive.setSpeed(2f);

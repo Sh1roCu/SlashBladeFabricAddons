@@ -2,8 +2,8 @@ package com.yakumosakura.yakumoblade.registry.slashblade;
 
 import com.google.common.base.CaseFormat;
 import com.yakumosakura.yakumoblade.entity.*;
-import com.yakumosakura.yakumoblade.entity.drive.BigDriveEnity;
-import com.yakumosakura.yakumoblade.entity.drive.StarDriveEnity;
+import com.yakumosakura.yakumoblade.entity.drive.BigDriveEntity;
+import com.yakumosakura.yakumoblade.entity.drive.StarDriveEntity;
 import com.yakumosakura.yakumoblade.entity.exer.EntityNRBlisteringSword;
 import com.yakumosakura.yakumoblade.entity.exer.EntitySpiralSwords;
 import com.yakumosakura.yakumoblade.entity.exer.SwordRainEntityFire;
@@ -42,11 +42,11 @@ public class YAEntitiesRegistry {
     public static final ResourceLocation SwordRainEntityDragonLoc = ResourceLocation.fromNamespaceAndPath(MODID, classToString(SwordRainEntityDragon.class));
     public static final ResourceLocation StarEntityDragonLoc = ResourceLocation.fromNamespaceAndPath(MODID, classToString(DragonHexGramStar.class));
     public static final ResourceLocation getSummonSwordLoc = ResourceLocation.fromNamespaceAndPath(MODID, classToString(SummonSwordEntity.class));
-    public static final ResourceLocation BigDriveEnityLoc = ResourceLocation.fromNamespaceAndPath(MODID, classToString(BigDriveEnity.class));
+    public static final ResourceLocation BigDriveEnityLoc = ResourceLocation.fromNamespaceAndPath(MODID, classToString(BigDriveEntity.class));
     public static final ResourceLocation SwordRainEntityFireLoc = ResourceLocation.fromNamespaceAndPath(MODID, classToString(SwordRainEntityFire.class));
     public static final ResourceLocation BlueFoxLoc = ResourceLocation.fromNamespaceAndPath(MODID, classToString(EntitySpiralSwords.class));
     public static final ResourceLocation HexGramSumonSwordLoc = ResourceLocation.fromNamespaceAndPath(MODID, classToString(HexGramSumonSwordEntity.class));
-    public static final ResourceLocation StarDriveLoc = ResourceLocation.fromNamespaceAndPath(MODID, classToString(StarDriveEnity.class));
+    public static final ResourceLocation StarDriveLoc = ResourceLocation.fromNamespaceAndPath(MODID, classToString(StarDriveEntity.class));
     public static final ResourceLocation EntityNRBlisteringSwordLoc = ResourceLocation.fromNamespaceAndPath(MODID, classToString(EntityNRBlisteringSword.class));
     public static final ResourceLocation YuYuKoSpiralSwordsEntityLoc = ResourceLocation.fromNamespaceAndPath(MODID, classToString(YuYuKoSpiralSwordsEntity.class));
     public static final ResourceLocation FoxHexGramExEntityLoc = ResourceLocation.fromNamespaceAndPath(MODID, classToString(FoxHexGramExEntity.class));
@@ -128,8 +128,8 @@ public class YAEntitiesRegistry {
             .clientTrackingRange(4)
             .updateInterval(20)
             .build(getSummonSwordLoc.toString()));
-    public static EntityType<BigDriveEnity> BigDrive = register(BigDriveEnityLoc, EntityType.Builder
-            .of(BigDriveEnity::new, MobCategory.MISC)
+    public static EntityType<BigDriveEntity> BigDrive = register(BigDriveEnityLoc, EntityType.Builder
+            .of(BigDriveEntity::new, MobCategory.MISC)
             .sized(0.9F, 0.9F)
             .clientTrackingRange(4)
             .updateInterval(20)
@@ -152,8 +152,8 @@ public class YAEntitiesRegistry {
             .clientTrackingRange(4)
             .updateInterval(20)
             .build(HexGramSumonSwordLoc.toString()));
-    public static EntityType<StarDriveEnity> StarDrive = register(StarDriveLoc, EntityType.Builder
-            .of(StarDriveEnity::new, MobCategory.MISC)
+    public static EntityType<StarDriveEntity> StarDrive = register(StarDriveLoc, EntityType.Builder
+            .of(StarDriveEntity::new, MobCategory.MISC)
             .sized(0.9F, 0.9F)
             .clientTrackingRange(4)
             .updateInterval(20)
