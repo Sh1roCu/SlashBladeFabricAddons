@@ -45,7 +45,7 @@ import net.minecraft.world.phys.Vec3;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class BigDriveEnity extends absNeoSummonSword {
+public class BigDriveEntity extends absNeoSummonSword {
     private static final EntityDataAccessor<Integer> COLOR;
     private static final EntityDataAccessor<Integer> FLAGS;
     private static final EntityDataAccessor<Float> RANK;
@@ -78,7 +78,7 @@ public class BigDriveEnity extends absNeoSummonSword {
     }
 
 
-    public BigDriveEnity(EntityType<? extends Projectile> entityTypeIn, Level worldIn) {
+    public BigDriveEntity(EntityType<? extends Projectile> entityTypeIn, Level worldIn) {
         super(entityTypeIn, worldIn);
         this.action = KnockBacks.cancel;
         this.damage = 7.0;
@@ -378,13 +378,13 @@ public class BigDriveEnity extends absNeoSummonSword {
     }
 
     static {
-        COLOR = SynchedEntityData.defineId(BigDriveEnity.class, EntityDataSerializers.INT);
-        FLAGS = SynchedEntityData.defineId(BigDriveEnity.class, EntityDataSerializers.INT);
-        RANK = SynchedEntityData.defineId(BigDriveEnity.class, EntityDataSerializers.FLOAT);
-        ROTATION_OFFSET = SynchedEntityData.defineId(BigDriveEnity.class, EntityDataSerializers.FLOAT);
-        ROTATION_ROLL = SynchedEntityData.defineId(BigDriveEnity.class, EntityDataSerializers.FLOAT);
-        BASESIZE = SynchedEntityData.defineId(BigDriveEnity.class, EntityDataSerializers.FLOAT);
-        SPEED = SynchedEntityData.defineId(BigDriveEnity.class, EntityDataSerializers.FLOAT);
-        LIFETIME = SynchedEntityData.defineId(BigDriveEnity.class, EntityDataSerializers.FLOAT);
+        COLOR = SynchedEntityData.defineId(BigDriveEntity.class, EntityDataSerializers.INT);
+        FLAGS = SynchedEntityData.defineId(BigDriveEntity.class, EntityDataSerializers.INT);
+        RANK = SynchedEntityData.defineId(BigDriveEntity.class, EntityDataSerializers.FLOAT);
+        ROTATION_OFFSET = SynchedEntityData.defineId(BigDriveEntity.class, EntityDataSerializers.FLOAT);
+        ROTATION_ROLL = SynchedEntityData.defineId(BigDriveEntity.class, EntityDataSerializers.FLOAT);
+        BASESIZE = SynchedEntityData.defineId(BigDriveEntity.class, EntityDataSerializers.FLOAT);
+        SPEED = SynchedEntityData.defineId(BigDriveEntity.class, EntityDataSerializers.FLOAT);
+        LIFETIME = SynchedEntityData.defineId(BigDriveEntity.class, EntityDataSerializers.FLOAT);
     }
 }

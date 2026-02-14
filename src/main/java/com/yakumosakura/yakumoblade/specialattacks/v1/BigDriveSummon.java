@@ -1,7 +1,7 @@
 package com.yakumosakura.yakumoblade.specialattacks.v1;
 
 
-import com.yakumosakura.yakumoblade.entity.drive.BigDriveEnity;
+import com.yakumosakura.yakumoblade.entity.drive.BigDriveEntity;
 import com.yakumosakura.yakumoblade.registry.slashblade.YAEntitiesRegistry;
 import mods.flammpfeil.slashblade.capability.concentrationrank.CapabilityConcentrationRank;
 import mods.flammpfeil.slashblade.capability.slashblade.CapabilitySlashBlade;
@@ -12,13 +12,13 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.phys.Vec3;
 
 public class BigDriveSummon {
-    public static BigDriveEnity doSlash(LivingEntity playerIn, float roll, int lifetime, Vec3 centerOffset,
-                                        boolean critical, double damage, float speed) {
+    public static BigDriveEntity doSlash(LivingEntity playerIn, float roll, int lifetime, Vec3 centerOffset,
+                                         boolean critical, double damage, float speed) {
         return doSlash(playerIn, roll, lifetime, centerOffset, critical, damage, KnockBacks.cancel, speed);
     }
 
-    public static BigDriveEnity doSlash(LivingEntity playerIn, float roll, int lifetime, Vec3 centerOffset,
-                                        boolean critical, double damage, KnockBacks knockback, float speed) {
+    public static BigDriveEntity doSlash(LivingEntity playerIn, float roll, int lifetime, Vec3 centerOffset,
+                                         boolean critical, double damage, KnockBacks knockback, float speed) {
 
         int colorCode = CapabilitySlashBlade.BLADESTATE.maybeGet(playerIn.getMainHandItem())
                 .map(ISlashBladeState::getColorCode).orElse(0xFF3333FF);
@@ -28,8 +28,8 @@ public class BigDriveSummon {
         return doSlash(playerIn, roll, lifetime, colorCode, centerOffset, critical, damage, knockback, speed);
     }
 
-    public static BigDriveEnity doSlash(LivingEntity playerIn, float roll, int lifetime, int colorCode, Vec3 centerOffset,
-                                        boolean critical, double damage, KnockBacks knockback, float speed) {
+    public static BigDriveEntity doSlash(LivingEntity playerIn, float roll, int lifetime, int colorCode, Vec3 centerOffset,
+                                         boolean critical, double damage, KnockBacks knockback, float speed) {
 
         if (playerIn.level().isClientSide())
             return null;
@@ -41,7 +41,7 @@ public class BigDriveSummon {
         pos = pos.add(VectorHelper.getVectorForRotation(-90.0F, playerIn.getViewYRot(0)).scale(centerOffset.y))
                 .add(VectorHelper.getVectorForRotation(0, playerIn.getViewYRot(0) + 90).scale(centerOffset.z))
                 .add(lookAngle.scale(centerOffset.z));
-        BigDriveEnity drive = new BigDriveEnity(YAEntitiesRegistry.BigDrive, playerIn.level());
+        BigDriveEntity drive = new BigDriveEntity(YAEntitiesRegistry.BigDrive, playerIn.level());
         drive.setPos(pos.x, pos.y, pos.z);
         drive.setDamage(damage);
         drive.setSpeed(speed);

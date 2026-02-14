@@ -3,7 +3,7 @@ package com.yakumosakura.yakumoblade.client.renderer;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
 import com.yakumosakura.yakumoblade.Yakumoblade;
-import com.yakumosakura.yakumoblade.entity.drive.StarDriveEnity;
+import com.yakumosakura.yakumoblade.entity.drive.StarDriveEntity;
 import mods.flammpfeil.slashblade.SlashBlade;
 import mods.flammpfeil.slashblade.client.renderer.entity.DriveRenderer;
 import mods.flammpfeil.slashblade.client.renderer.model.BladeModelManager;
@@ -18,7 +18,7 @@ import net.minecraft.world.item.ItemStack;
 
 import javax.annotation.Nullable;
 
-public class StarDriveRender<T extends StarDriveEnity> extends DriveRenderer<T> {
+public class StarDriveRender<T extends StarDriveEntity> extends DriveRenderer<T> {
     public StarDriveRender(EntityRendererProvider.Context p_174008_) {
         super(p_174008_);
     }
