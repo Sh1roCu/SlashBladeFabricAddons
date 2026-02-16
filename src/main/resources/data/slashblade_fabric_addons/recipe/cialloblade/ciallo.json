@@ -4,8 +4,8 @@
   "category": "equipment",
   "key": {
     "E": {
-      "type": "slashblade:blade",
-      "item": "slashblade:slashblade",
+      "fabric:type": "slashblade:blade",
+      "items": "slashblade:slashblade",
       "request": {
         "kill": 10,
         "name": "slashblade:doutanuki",
