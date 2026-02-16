@@ -4,7 +4,7 @@
   "category": "equipment",
   "key": {
     "E": {
-      "type": "slashblade:blade",
+      "fabric:type": "slashblade:blade",
       "item": "slashblade:slashblade",
       "request": {
         "kill": 10,

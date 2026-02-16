@@ -4,7 +4,7 @@
   "category": "equipment",
   "key": {
     "B": {
-      "type": "slashblade:blade",
+      "fabric:type": "slashblade:blade",
       "item": "slashblade:slashblade",
       "request": {
         "name": "slashblade_fabric_addons:yakumoblade/star"
