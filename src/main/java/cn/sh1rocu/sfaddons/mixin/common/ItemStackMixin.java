@@ -17,6 +17,6 @@ public abstract class ItemStackMixin {
     @Inject(method = "isDamageableItem", at = @At("HEAD"), cancellable = true)
     private void sf$isDamageable(CallbackInfoReturnable<Boolean> cir) {
         if (this.getItem() instanceof IDamageable damageable)
-            cir.setReturnValue(damageable.isDamageable((ItemStack) (Object) this));
+            cir.setReturnValue(damageable.sb$isDamageable((ItemStack) (Object) this));
     }
 }

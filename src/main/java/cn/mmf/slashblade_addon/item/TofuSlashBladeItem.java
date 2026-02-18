@@ -89,13 +89,13 @@ public class TofuSlashBladeItem extends ItemSlashBladeDetune /*implements IEnerg
     }
 
     @Override
-    public <T extends LivingEntity> int damageItem(ItemStack stack, int amount, T entity, Consumer<Item> onBroken) {
+    public <T extends LivingEntity> int sb$damageItem(ItemStack stack, int amount, T entity, Consumer<Item> onBroken) {
         if (this.getEnergy(stack) > 0 && amount > 0) {
             int damage = amount - this.drain(stack, amount, false);
-            return super.damageItem(stack, damage, entity, onBroken);
+            return super.sb$damageItem(stack, damage, entity, onBroken);
         }
 
-        return super.damageItem(stack, amount, entity, onBroken);
+        return super.sb$damageItem(stack, amount, entity, onBroken);
     }
 
     // TODO
