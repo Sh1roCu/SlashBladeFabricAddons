@@ -4,7 +4,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 
 public interface IDamageable {
-    default boolean isDamageable(ItemStack stack) {
+    default boolean sfa$isDamageable(ItemStack stack) {
         return ((Item) this).canBeDepleted();
     }
 }
