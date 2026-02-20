@@ -2,8 +2,8 @@ package com.yakumosakura.yakumoblade.specialattacks.v2;
 
 import com.exfantasycode.mclib.Utils.EntityPointer;
 import com.yakumosakura.yakumoblade.entity.hexgram.old.SwordRainEntityDragon2;
-import com.yakumosakura.yakumoblade.registry.slashblade.YAEntitiesRegistry;
 import com.yakumosakura.yakumoblade.utils.SlashBladeUtils;
+import mods.flammpfeil.slashblade.init.SBEntityTypes;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -43,7 +43,7 @@ public class DragonSummonSword {
         try {
             // 创建剑雨实体
             SwordRainEntityDragon2 swordRain = new SwordRainEntityDragon2(
-                    YAEntitiesRegistry.swordRainEntityDragon,
+                    SBEntityTypes.HEAVY_RAIN_SWORDS,
                     worldIn
             );
 
