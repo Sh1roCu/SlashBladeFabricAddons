@@ -31,6 +31,7 @@ public class EntityStormSwords extends absNeoSummonSword {
         this.setPierce((byte) 1);
     }
 
+    @Override
     protected void defineSynchedData(SynchedEntityData.Builder builder) {
         super.defineSynchedData(builder);
         builder.define(IT_FIRED, false);
@@ -146,6 +147,6 @@ public class EntityStormSwords extends absNeoSummonSword {
     }
 
     static {
-        IT_FIRED = SynchedEntityData.defineId(mods.flammpfeil.slashblade.entity.EntityStormSwords.class, EntityDataSerializers.BOOLEAN);
+        IT_FIRED = SynchedEntityData.defineId(EntityStormSwords.class, EntityDataSerializers.BOOLEAN);
     }
 }
