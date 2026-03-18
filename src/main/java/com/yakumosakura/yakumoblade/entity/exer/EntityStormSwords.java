@@ -146,6 +146,6 @@ public class EntityStormSwords extends absNeoSummonSword {
     }
 
     static {
-        IT_FIRED = SynchedEntityData.defineId(mods.flammpfeil.slashblade.entity.EntityStormSwords.class, EntityDataSerializers.BOOLEAN);
+        IT_FIRED = SynchedEntityData.defineId(EntityStormSwords.class, EntityDataSerializers.BOOLEAN);
     }
 }
