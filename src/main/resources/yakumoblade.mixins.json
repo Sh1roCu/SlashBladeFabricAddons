@@ -3,7 +3,7 @@
   "minVersion": "0.8",
   "package": "com.yakumosakura.yakumoblade.mixin",
   "compatibilityLevel": "JAVA_21",
-  "refmap": "yakumoblade.refmap.json",
+  "refmap": "slashblade_fabric_addons.refmap.json",
   "mixins": [
   ],
   "client": [
