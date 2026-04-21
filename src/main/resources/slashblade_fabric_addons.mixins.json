@@ -12,7 +12,8 @@
   ],
   "client": [
     "client.ClientLevelMixin",
-    "client.ClientLevelMixin$EntityCallbacksMixin"
+    "client.ClientLevelMixin$EntityCallbacksMixin",
+    "client.KeyboardHandlerMixin"
   ],
   "injectors": {
     "defaultRequire": 1
