@@ -131,6 +131,7 @@ dependencies {
     modImplementation("io.github.fabricators_of_create.Porting-Lib:model_loader:3.1.0-beta.79-fix+1.21.1-fix")
     modImplementation("io.github.fabricators_of_create.Porting-Lib:render_types:3.1.0-beta.79-fix+1.21.1-fix")
     modImplementation("io.github.fabricators_of_create.Porting-Lib:entity:3.1.0-beta.79-fix+1.21.1-fix")
+    modImplementation("io.github.fabricators_of_create.Porting-Lib:mixin_extensions:3.1.0-beta.79-fix+1.21.1-fix")
 
     modImplementation "org.ladysnake.cardinal-components-api:cardinal-components-base:${project.cca_version}"
     modImplementation "org.ladysnake.cardinal-components-api:cardinal-components-entity:${project.cca_version}"
