@@ -40,7 +40,11 @@ public class SelfNoAll {
                 ss.setColor(state.getColorCode());
                 ss.setDamage(3);
                 // force riding
-                ss.startRiding(livingEntity, true);
+                 ss.startRiding(livingEntity, true);
+                //  ss.setBoundingBox(ss.getBoundingBox().inflate(2.0));
+
+                //测试是否是riding方法导致的坐标计算错误
+                //ss.setPos(livingEntity.getX(), livingEntity.getY() + 1.5, livingEntity.getZ());
 
                 ss.setDelay(360 / count * i);
             }
