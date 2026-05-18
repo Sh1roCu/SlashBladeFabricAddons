@@ -65,19 +65,16 @@ public class BlueFoxSoul extends SeEX {
                 EntitySpiralSwords2 ss = new EntitySpiralSwords2(
                         YAEntitiesRegistry.BlueFox, worldIn);
 
-                // 坐标修正，拉出虚空，定位到玩家当前的安全区块
-                ss.setPos(livingEntity.getX(), livingEntity.getY() + 1.0, livingEntity.getZ());
-
-
-                ss.setOwner(livingEntity);
-                ss.setColor(state.getColorCode());
-                ss.setDelay(360 / count * i);
-
-
                 worldIn.addFreshEntity(ss);
 
-                // 骑乘部分
+                ss.setPos(livingEntity.position());
+                ss.setOwner(livingEntity);
+                ss.setColor(state.getColorCode());
+
+                // force riding
                 ss.startRiding(livingEntity, true);
+
+                ss.setDelay(360 / count * i);
             }
         });
     }

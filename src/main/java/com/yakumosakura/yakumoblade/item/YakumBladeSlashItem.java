@@ -12,6 +12,7 @@ import mods.flammpfeil.slashblade.registry.SpecialEffectsRegistry;
 import mods.flammpfeil.slashblade.registry.specialeffects.SpecialEffect;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
+import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.Screen;
@@ -34,7 +35,7 @@ import static com.yakumosakura.yakumoblade.Yakumoblade.MODID;
 public class YakumBladeSlashItem extends ItemSlashBlade {
 
 
-    public YakumBladeSlashItem(Tier tier, int attackDamageIn, float attackSpeedIn, Properties builder) {
+    public YakumBladeSlashItem(Tier tier, int attackDamageIn, float attackSpeedIn, FabricItemSettings builder) {
         super(tier, attackDamageIn, attackSpeedIn, builder);
     }
 

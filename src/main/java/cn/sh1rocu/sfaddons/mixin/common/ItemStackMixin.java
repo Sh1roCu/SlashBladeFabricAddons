@@ -28,7 +28,7 @@ public abstract class ItemStackMixin {
         if (this.getItem() instanceof IDamageable damageable) {
             if (this.isEmpty())
                 return;
-            if (damageable.sfa$isDamageable((ItemStack) (Object) this)) {
+            if (damageable.isDamageable((ItemStack) (Object) this)) {
                 CompoundTag compoundtag = this.getTag();
                 cir.setReturnValue(compoundtag == null || !compoundtag.getBoolean("Unbreakable"));
             } else {

@@ -3,6 +3,7 @@ package com.yakumosakura.yakumoblade.item;
 import mods.flammpfeil.slashblade.capability.slashblade.ISlashBladeState;
 import mods.flammpfeil.slashblade.item.ItemSlashBlade;
 import mods.flammpfeil.slashblade.item.SwordType;
+import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
@@ -16,7 +17,7 @@ import java.util.EnumSet;
 import java.util.List;
 
 public class TouHouMaid extends ItemSlashBlade {
-    public TouHouMaid(Tier tier, int attackDamageIn, float attackSpeedIn, Properties builder) {
+    public TouHouMaid(Tier tier, int attackDamageIn, float attackSpeedIn, FabricItemSettings builder) {
         super(tier, attackDamageIn, attackSpeedIn, builder);
     }
 

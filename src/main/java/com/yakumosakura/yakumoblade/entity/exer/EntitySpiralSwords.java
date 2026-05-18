@@ -34,6 +34,7 @@ public class EntitySpiralSwords extends absNeoSummonSword {
     }
 
     // 定义同步数据字段
+    @Override
     protected void defineSynchedData() {
         super.defineSynchedData();
         this.entityData.define(IT_FIRED, false);
@@ -54,8 +55,9 @@ public class EntitySpiralSwords extends absNeoSummonSword {
     }
 
     // 实体每帧更新逻辑
+    @Override
     public void tick() {
-        if (!this.itFired() && this.level().isClientSide() && this.getVehicle() == null) {
+        if (!this.itFired() && this.getVehicle() == null && this.getOwner() != null) {
             this.startRiding(this.getOwner(), true);
         }
 
@@ -73,6 +75,7 @@ public class EntitySpiralSwords extends absNeoSummonSword {
     }
 
     // 骑乘状态下的更新逻辑
+    @Override
     public void rideTick() {
         if (this.itFired()) {
             this.faceEntityStandby();
@@ -187,10 +190,12 @@ public class EntitySpiralSwords extends absNeoSummonSword {
     }
 
     // 碰撞处理逻辑
+    @Override
     protected void onHitBlock(BlockHitResult blockraytraceresult) {
         this.burst();
     }
 
+    @Override
     protected void onHitEntity(EntityHitResult entityHitResult) {
         Entity targetEntity = entityHitResult.getEntity();
         if (targetEntity instanceof LivingEntity) {

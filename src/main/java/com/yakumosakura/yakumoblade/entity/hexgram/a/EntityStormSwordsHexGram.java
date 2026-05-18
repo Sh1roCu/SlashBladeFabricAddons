@@ -32,6 +32,7 @@ public class EntityStormSwordsHexGram extends absNeoSummonSword {
         this.setPierce((byte) 1);
     }
 
+    @Override
     protected void defineSynchedData() {
         super.defineSynchedData();
         this.entityData.define(IT_FIRED, false);
@@ -45,6 +46,7 @@ public class EntityStormSwordsHexGram extends absNeoSummonSword {
         return this.getEntityData().get(IT_FIRED);
     }
 
+    @Override
     public void rideTick() {
         if (this.itFired()) {
             this.faceEntityStandby();
@@ -134,7 +136,7 @@ public class EntityStormSwordsHexGram extends absNeoSummonSword {
         this.setRot((float) (-degYaw) - 180.0F, 0.0F);
     }
 
-
+    @Override
     protected void onHitEntity(EntityHitResult entityHitResult) {
         Entity targetEntity = entityHitResult.getEntity();
         if (targetEntity instanceof LivingEntity) {
@@ -145,11 +147,12 @@ public class EntityStormSwordsHexGram extends absNeoSummonSword {
         super.onHitEntity(entityHitResult);
     }
 
+    @Override
     protected void onHitBlock(BlockHitResult blockraytraceresult) {
         this.burst();
     }
 
     static {
-        IT_FIRED = SynchedEntityData.defineId(mods.flammpfeil.slashblade.entity.EntityStormSwords.class, EntityDataSerializers.BOOLEAN);
+        IT_FIRED = SynchedEntityData.defineId(EntityStormSwordsHexGram.class, EntityDataSerializers.BOOLEAN);
     }
 }

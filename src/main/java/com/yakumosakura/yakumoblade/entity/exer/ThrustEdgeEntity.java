@@ -61,7 +61,7 @@ public class ThrustEdgeEntity extends absNeoSummonSword {
 
     @Override
     public void tick() {
-        if (!itFired() && level().isClientSide() && getVehicle() == null && getOwner() != null) {
+        if (!itFired() && getVehicle() == null && getOwner() != null) {
             startRiding(this.getOwner(), true);
         }
 

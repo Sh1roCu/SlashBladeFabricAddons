@@ -4,6 +4,7 @@ import com.yakumosakura.yakumoblade.Yakumoblade;
 import com.yakumosakura.yakumoblade.item.TouHouMaid;
 import com.yakumosakura.yakumoblade.registry.YakumoBladeItemTier;
 import mods.flammpfeil.slashblade.SlashBladeCreativeGroup;
+import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -27,7 +28,7 @@ public class YATouHouMaidItem {
                         ya(() -> BuiltInRegistries.ITEM.get(YELLOW_FOX)),
                         25,
                         -2.4F,
-                        new Item.Properties())
+                        new FabricItemSettings())
         );
     }
 

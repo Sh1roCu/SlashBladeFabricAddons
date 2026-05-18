@@ -35,6 +35,7 @@ public class StarDriveEntity extends EntityDrive {
 
     }
 
+    @Override
     protected void onHitEntity(EntityHitResult entityHitResult) {
         Entity targetEntity = entityHitResult.getEntity();
         double i = this.getDamage();

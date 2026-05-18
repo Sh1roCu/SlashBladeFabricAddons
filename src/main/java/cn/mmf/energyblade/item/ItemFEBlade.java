@@ -13,6 +13,7 @@ import mods.flammpfeil.slashblade.item.ItemSlashBlade;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
+import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.transfer.v1.transaction.Transaction;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.KeyMapping;
@@ -35,7 +36,7 @@ import java.util.function.Consumer;
 // 拓展子类拔刀剑(extends ItemSlashBlade)
 public class ItemFEBlade extends ItemSlashBlade implements IDamageable {
 
-    public ItemFEBlade(Tier tier, int attackDamageIn, float attackSpeedIn, Properties builder) {
+    public ItemFEBlade(Tier tier, int attackDamageIn, float attackSpeedIn, FabricItemSettings builder) {
         super(tier, attackDamageIn, attackSpeedIn, builder);
         EnergyStorage.ITEM.registerForItems((stack, context) -> {
             var bladeState = stack.getOrCreateTagElement("bladeState");
@@ -75,11 +76,11 @@ public class ItemFEBlade extends ItemSlashBlade implements IDamageable {
     }
 
     @Override
-    public boolean sfa$isDamageable(ItemStack stack) {
+    public boolean isDamageable(ItemStack stack) {
         return ItemEnergyStorageHelper.fromStack(stack).filter(FEBladeStorage.class::isInstance)
                 .map(FEBladeStorage.class::cast).filter(FEBladeStorage::isEnergyDurability) // 当启用能量代替耐久时
                 .map(energy -> false) // 禁用原版耐久机制
-                .orElseGet(() -> IDamageable.super.sfa$isDamageable(stack)); // 否则继承默认逻辑
+                .orElseGet(() -> stack.getItem().canBeDepleted()); // 否则继承默认逻辑
     }
 
     @Override
@@ -150,9 +151,9 @@ public class ItemFEBlade extends ItemSlashBlade implements IDamageable {
     }
 
     @Override
-    public <T extends LivingEntity> int sb$damageItem(ItemStack arg0, int arg1, T arg2, Consumer<T> arg3) {
+    public <T extends LivingEntity> int damageItem(ItemStack arg0, int arg1, T arg2, Consumer<T> arg3) {
         // TODO 电量耐久适配消耗
-        return super.sb$damageItem(arg0, arg1, arg2, arg3);
+        return super.damageItem(arg0, arg1, arg2, arg3);
     }
 
     @Environment(EnvType.CLIENT)

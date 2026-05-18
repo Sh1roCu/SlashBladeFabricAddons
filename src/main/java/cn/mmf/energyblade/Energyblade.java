@@ -4,6 +4,7 @@ import cn.mmf.energyblade.item.ItemFEBlade;
 import cn.sh1rocu.sfaddons.SFAddons;
 import com.mojang.logging.LogUtils;
 import mods.flammpfeil.slashblade.item.ItemTierSlashBlade;
+import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
@@ -21,7 +22,7 @@ public class Energyblade {
     // FE能量拔刀剑
     // Fabric使用TechReborn的EnergyAPI 单位为E
     public static final Item FORGE_ENERGY_BLADE = Registry.register(BuiltInRegistries.ITEM, prefix("forge_energy_blade"),
-            new ItemFEBlade(new ItemTierSlashBlade(40, 4F), 4, -2.4F, (new Item.Properties())));
+            new ItemFEBlade(new ItemTierSlashBlade(40, 4F), 4, -2.4F, (new FabricItemSettings())));
 
     public static void init() {
         NetworkPacketHandler.registerMessage();

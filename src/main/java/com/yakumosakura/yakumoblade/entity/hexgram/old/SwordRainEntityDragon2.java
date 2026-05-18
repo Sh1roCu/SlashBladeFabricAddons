@@ -46,7 +46,7 @@ public class SwordRainEntityDragon2 extends EntityHeavyRainSwords {
 
     }
 
-
+    @Override
     public void tick() {
         Level level = this.level();
         float radius = 30F;

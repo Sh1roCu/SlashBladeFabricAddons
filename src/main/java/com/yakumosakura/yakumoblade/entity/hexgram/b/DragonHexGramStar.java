@@ -54,6 +54,7 @@ public class DragonHexGramStar extends Projectile implements IEntityListener {
     // 恢复初始化方法设置初始朝下方向
     @Override
     public void onAddedToWorld() {
+        this.isAddedToWorld = true;
         this.setYRot(-90f); // 初始面朝正下方
         this.setXRot(90f);  // 新增初始俯仰角设置
     }

@@ -59,10 +59,10 @@ public class SoulEdgeEntity extends absNeoSummonSword {
     public Vec3 getOffset() {
         return new Vec3(this.getEntityData().get(OFFSET));
     }
-    
+
     @Override
     public void tick() {
-        if (!itFired() && level().isClientSide() && getVehicle() == null && getOwner() != null) {
+        if (!itFired() && getVehicle() == null && getOwner() != null) {
             startRiding(this.getOwner(), true);
         }
 

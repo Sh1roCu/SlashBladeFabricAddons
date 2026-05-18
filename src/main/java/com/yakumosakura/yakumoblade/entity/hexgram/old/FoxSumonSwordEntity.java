@@ -78,7 +78,7 @@ public class FoxSumonSwordEntity extends absNeoSummonSword {
 
     @Override
     public void tick() {
-        if (!itFired() && level().isClientSide() && getVehicle() == null && getOwner() != null) {
+        if (!itFired() && getVehicle() == null && getOwner() != null) {
             startRiding(this.getOwner(), true);
         }
 
@@ -192,6 +192,7 @@ public class FoxSumonSwordEntity extends absNeoSummonSword {
         setRot(-this.getVehicle().getYRot(), -this.getVehicle().getXRot());
     }
 
+    @Override
     protected void onHitEntity(EntityHitResult p_213868_1_) {
         Entity targetEntity = p_213868_1_.getEntity();
         if (targetEntity instanceof LivingEntity a) {

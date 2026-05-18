@@ -31,23 +31,16 @@ public class SelfNoAll {
                 EntitySpiralSwords ss = new EntitySpiralSwords(
                         YAEntitiesRegistry.BlueFox, worldIn);
 
-                // 【坐标前置】
-                // 必须最先执行！把实体从默认的 (0,0,0) 强行拉到玩家身边
-                // 这样它的出生包就会在当前已加载的区块发送，彻底解决跑出 14 个区块就消失的 Bug
-                ss.setPos(livingEntity.getX(), livingEntity.getY() + 1.0, livingEntity.getZ());
+                worldIn.addFreshEntity(ss);
 
-
+                ss.setPos(livingEntity.position());
                 ss.setOwner(livingEntity);
                 ss.setColor(state.getColorCode());
                 ss.setDamage(3);
-                ss.setDelay(360 / count * i);
-
-
-                // 强制在生成前优先绑定坐标
-                worldIn.addFreshEntity(ss);
-
-                // 骑乘部分必须在实体生成后执行，否则会因为坐标未绑定而导致骑乘失败
+                // force riding
                 ss.startRiding(livingEntity, true);
+
+                ss.setDelay(360 / count * i);
             }
         });
     }

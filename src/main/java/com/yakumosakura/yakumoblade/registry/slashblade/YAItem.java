@@ -4,6 +4,7 @@ import com.yakumosakura.yakumoblade.Yakumoblade;
 import com.yakumosakura.yakumoblade.item.YakumBladeSlashItem;
 import com.yakumosakura.yakumoblade.registry.YakumoBladeItemTier;
 import mods.flammpfeil.slashblade.SlashBladeCreativeGroup;
+import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.core.Registry;
@@ -28,7 +29,7 @@ public class YAItem {
                         ya(() -> BuiltInRegistries.ITEM.get(SlashBladeOfYakumoBlade)),
                         25,
                         -2.4F,
-                        new Item.Properties())
+                        new FabricItemSettings())
         );
 
     }

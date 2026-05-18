@@ -40,6 +40,7 @@ public class HexGramSumonSwordEntitySeven extends absNeoSummonSword {
         this.setPierce((byte) 5);
     }
 
+    @Override
     protected void defineSynchedData() {
         super.defineSynchedData();
         this.entityData.define(IT_FIRED, false);
@@ -71,14 +72,16 @@ public class HexGramSumonSwordEntitySeven extends absNeoSummonSword {
         return new Vec3(this.getEntityData().get(OFFSET));
     }
 
+    @Override
     public void tick() {
-        if (!this.itFired() && this.level().isClientSide() && this.getVehicle() == null) {
+        if (!this.itFired() && this.getVehicle() == null && this.getOwner() != null) {
             this.startRiding(this.getOwner(), true);
         }
 
         super.tick();
     }
 
+    @Override
     public void rideTick() {
         if (this.itFired() && this.fireTime <= (long) this.tickCount) {
             this.faceEntityStandby();
@@ -156,6 +159,7 @@ public class HexGramSumonSwordEntitySeven extends absNeoSummonSword {
         }
     }
 
+    @Override
     protected void onHitEntity(EntityHitResult p_213868_1_) {
         Entity targetEntity = p_213868_1_.getEntity();
         if (targetEntity instanceof LivingEntity a) {

@@ -86,6 +86,7 @@ public class BigDriveEntity extends absNeoSummonSword {
         this.setNoGravity(true);
     }
 
+    @Override
     protected void defineSynchedData() {
         super.defineSynchedData();
         this.entityData.define(COLOR, 3355647);
@@ -98,11 +99,13 @@ public class BigDriveEntity extends absNeoSummonSword {
         this.entityData.define(SPEED, 0.5F);
     }
 
+    @Override
     public void addAdditionalSaveData(CompoundTag compound) {
         super.addAdditionalSaveData(compound);
         NBTHelper.getNBTCoupler(compound).put("RotationOffset", new Float[]{this.getRotationOffset()}).put("RotationRoll", new Float[]{this.getRotationRoll()}).put("BaseSize", new Float[]{this.getBaseSize()}).put("Speed", new Float[]{this.getSpeed()}).put("Color", new Integer[]{this.getColor()}).put("Rank", new Float[]{this.getRank()}).put("damage", new Double[]{this.damage}).put("crit", new Boolean[]{this.getIsCritical()}).put("clip", new Boolean[]{this.isNoClip()}).put("Lifetime", new Float[]{this.getLifetime()}).put("Knockback", this.getKnockBack().ordinal());
     }
 
+    @Override
     public void readAdditionalSaveData(CompoundTag compound) {
         super.readAdditionalSaveData(compound);
         NBTHelper.getNBTCoupler(compound).get("RotationOffset", this::setRotationOffset, new Float[0]).get("RotationRoll", this::setRotationRoll, new Float[0]).get("BaseSize", this::setBaseSize, new Float[0]).get("Speed", this::setSpeed, new Float[0]).get("Color", this::setColor, new Integer[0]).get("Rank", this::setRank, new Float[0]).get("damage", (v) -> {
@@ -110,11 +113,13 @@ public class BigDriveEntity extends absNeoSummonSword {
         }, new Double[]{this.damage}).get("crit", this::setIsCritical, new Boolean[0]).get("clip", this::setNoClip, new Boolean[0]).get("Lifetime", this::setLifetime, new Float[0]).get("Knockback", this::setKnockBackOrdinal);
     }
 
+    @Override
     public Packet<ClientGamePacketListener> getAddEntityPacket() {
         return IEntityAdditionalSpawnData.getEntitySpawningPacket(this);
     }
 
     @Environment(EnvType.CLIENT)
+    @Override
     public boolean shouldRenderAtSqrDistance(double distance) {
         double d0 = this.getBoundingBox().getSize() * 10.0;
         if (Double.isNaN(d0)) {
@@ -144,6 +149,7 @@ public class BigDriveEntity extends absNeoSummonSword {
 
     }
 
+    @Override
     public void tick() {
         super.tick();
         if (this.getShooter() != null && this.tickCount % 2 == 0) {
@@ -192,6 +198,7 @@ public class BigDriveEntity extends absNeoSummonSword {
         return this.alreadyHits;
     }
 
+    @Override
     protected void tryDespawn() {
         if (!this.level().isClientSide() && this.getLifetime() < (float) this.tickCount) {
             this.remove(RemovalReason.DISCARDED);
@@ -199,10 +206,12 @@ public class BigDriveEntity extends absNeoSummonSword {
 
     }
 
+    @Override
     public int getColor() {
         return this.getEntityData().get(COLOR);
     }
 
+    @Override
     public void setColor(int value) {
         this.getEntityData().set(COLOR, value);
     }
@@ -260,14 +269,17 @@ public class BigDriveEntity extends absNeoSummonSword {
     }
 
     @Nullable
+    @Override
     public Entity getShooter() {
         return this.getOwner();
     }
 
+    @Override
     public void setShooter(Entity shooter) {
         this.setOwner(shooter);
     }
 
+    @Override
     public List<MobEffectInstance> getPotionEffects() {
         List<MobEffectInstance> effects = PotionUtils.getAllEffects(this.sb$getPersistentData());
         if (effects.isEmpty()) {
@@ -277,7 +289,7 @@ public class BigDriveEntity extends absNeoSummonSword {
         return effects;
     }
 
-
+    @Override
     protected void onHitEntity(EntityHitResult p_213868_1_) {
         Entity targetEntity = p_213868_1_.getEntity();
         int i = Mth.ceil(this.getDamage());
@@ -366,11 +378,13 @@ public class BigDriveEntity extends absNeoSummonSword {
 
     }
 
+    @Override
     protected void onHitBlock(BlockHitResult blockraytraceresult) {
         this.setRemoved(RemovalReason.DISCARDED);
     }
 
     @Nullable
+    @Override
     public EntityHitResult getRayTrace(Vec3 p_213866_1_, Vec3 p_213866_2_) {
         return ProjectileUtil.getEntityHitResult(this.level(), this, p_213866_1_, p_213866_2_, this.getBoundingBox().expandTowards(this.getDeltaMovement()).inflate(1.0), (entity) -> {
             return !entity.isSpectator() && entity.isAlive() && entity.isPickable() && entity != this.getShooter();

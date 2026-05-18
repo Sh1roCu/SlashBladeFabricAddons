@@ -8,6 +8,7 @@ import mods.flammpfeil.slashblade.capability.slashblade.ISlashBladeState;
 import mods.flammpfeil.slashblade.init.DefaultResources;
 import mods.flammpfeil.slashblade.item.ItemSlashBladeDetune;
 import mods.flammpfeil.slashblade.item.SwordType;
+import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
@@ -20,6 +21,7 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import team.reborn.energy.api.base.SimpleEnergyItem;
 
 import java.awt.*;
 import java.util.EnumSet;
@@ -28,13 +30,13 @@ import java.util.function.Consumer;
 
 // TODO
 // TofuCraft Fabric移植
-public class TofuSlashBladeItem extends ItemSlashBladeDetune /*implements IEnergyContained, IEnergyExtractable, IEnergyInsertable*/ {
+public class TofuSlashBladeItem extends ItemSlashBladeDetune /*implements SimpleEnergyItem*/ {
     private ResourceLocation model;
     private ResourceLocation texture;
     private final float baseAttack;
     public final int tfMax;
 
-    public TofuSlashBladeItem(Tier tier, int attackDamageIn, float attackSpeedIn, int tfMax, Properties builder) {
+    public TofuSlashBladeItem(Tier tier, int attackDamageIn, float attackSpeedIn, int tfMax, FabricItemSettings builder) {
         super(tier, attackDamageIn, attackSpeedIn, builder);
         this.tfMax = tfMax;
         this.baseAttack = (float) attackDamageIn;
@@ -87,13 +89,13 @@ public class TofuSlashBladeItem extends ItemSlashBladeDetune /*implements IEnerg
     }
 
     @Override
-    public <T extends LivingEntity> int sb$damageItem(ItemStack stack, int amount, T entity, Consumer<T> onBroken) {
+    public <T extends LivingEntity> int damageItem(ItemStack stack, int amount, T entity, Consumer<T> onBroken) {
         if (this.getEnergy(stack) > 0 && amount > 0) {
             int damage = amount - this.drain(stack, amount, false);
-            return super.sb$damageItem(stack, damage, entity, onBroken);
+            return super.damageItem(stack, damage, entity, onBroken);
         }
 
-        return super.sb$damageItem(stack, amount, entity, onBroken);
+        return super.damageItem(stack, amount, entity, onBroken);
     }
 
     // TODO
