@@ -25,11 +25,11 @@ public class SelfNoAll {
             return;
         }
         CapabilitySlashBlade.BLADESTATE.maybeGet(livingEntity.getMainHandItem()).ifPresent((state) -> {
-            Level WorldIn = livingEntity.level();
+            Level worldIn = livingEntity.level();
             int count = 16;
             for (int i = 0; i < count; i++) {
                 EntitySpiralSwords ss = new EntitySpiralSwords(
-                        YAEntitiesRegistry.BlueFox, WorldIn);
+                        YAEntitiesRegistry.BlueFox, worldIn);
 
                 // 【坐标前置】
                 // 必须最先执行！把实体从默认的 (0,0,0) 强行拉到玩家身边
@@ -44,7 +44,7 @@ public class SelfNoAll {
 
 
                 // 强制在生成前优先绑定坐标
-                WorldIn.addFreshEntity(ss);
+                worldIn.addFreshEntity(ss);
 
                 // 骑乘部分必须在实体生成后执行，否则会因为坐标未绑定而导致骑乘失败
                 ss.startRiding(livingEntity, true);
