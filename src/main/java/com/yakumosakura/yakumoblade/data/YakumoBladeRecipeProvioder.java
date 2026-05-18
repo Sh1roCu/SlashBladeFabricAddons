@@ -1,6 +1,7 @@
 package com.yakumosakura.yakumoblade.data;
 
 import cn.mmf.slashblade_addon.data.SlashBladeAddonBuiltInRegistry;
+import com.github.tartaricacid.touhoulittlemaid.init.InitItems;
 import com.yakumosakura.yakumoblade.Yakumoblade;
 import com.yakumosakura.yakumoblade.registry.ItemRegistry;
 import com.yakumosakura.yakumoblade.registry.slashblade.YAItem;
@@ -415,7 +416,7 @@ public class YakumoBladeRecipeProvioder extends FabricRecipeProvider {
                 .pattern("SEF")
                 .pattern("GDE")
                 .pattern("IAS")
-                .define('D', getOptionalItem("touhou_little_maid", "wireless_io", Items.REDSTONE))
+                .define('D', InitItems.WIRELESS_IO)
                 .define('E', Items.NETHER_STAR)
                 .define('G', Items.MUSIC_DISC_MALL)
                 .define('A', Items.PURPLE_BED)
@@ -984,11 +985,6 @@ public class YakumoBladeRecipeProvioder extends FabricRecipeProvider {
 
 
     }
-
-        private static Item getOptionalItem(String namespace, String path, Item fallback) {
-                ResourceLocation id = ResourceLocation.fromNamespaceAndPath(namespace, path);
-                return BuiltInRegistries.ITEM.containsKey(id) ? BuiltInRegistries.ITEM.get(id) : fallback;
-        }
 
     public Item getItem(ResourceLocation item) {
         return BuiltInRegistries.ITEM.get(item);
