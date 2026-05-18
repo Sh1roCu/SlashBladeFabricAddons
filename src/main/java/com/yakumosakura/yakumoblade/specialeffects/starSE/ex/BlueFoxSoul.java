@@ -26,7 +26,7 @@ public class BlueFoxSoul extends SeEX {
         // 主手检查
         checkAndTrigger(event.getSlashBladeState(), event.getUser(), 6);
 
-        // 副手检查（新增逻辑）
+        // 副手检查
         if (event.getUser() instanceof Player player) {
             SlashBladeUtil.getState(player.getOffhandItem()).ifPresent(offhandState -> {
                 checkAndTrigger(offhandState, player, 2);
@@ -45,11 +45,9 @@ public class BlueFoxSoul extends SeEX {
         }
     }
 
-
     public static void doslash(LivingEntity livingEntity, int count) {
         boolean alreadySummoned = livingEntity.getPassengers().stream()
                 .anyMatch(e -> e instanceof EntitySpiralSwords2);
-
 
         if (alreadySummoned) {
             List<Entity> list = livingEntity.getPassengers().stream()
@@ -60,6 +58,7 @@ public class BlueFoxSoul extends SeEX {
             });
             return;
         }
+        
         CapabilitySlashBlade.getBladeState(livingEntity.getMainHandItem()).ifPresent((state) -> {
             Level WorldIn = livingEntity.level();
 
@@ -67,15 +66,19 @@ public class BlueFoxSoul extends SeEX {
                 EntitySpiralSwords2 ss = new EntitySpiralSwords2(
                         YAEntitiesRegistry.BlueFox, WorldIn);
 
-                WorldIn.addFreshEntity(ss);
+                // 坐标修正，拉出虚空，定位到玩家当前的安全区块
+                ss.setPos(livingEntity.getX(), livingEntity.getY() + 1.0, livingEntity.getZ());
 
+                
                 ss.setOwner(livingEntity);
                 ss.setColor(state.getColorCode());
-
-                // force riding
-                ss.startRiding(livingEntity, true);
-
                 ss.setDelay(360 / count * i);
+
+              
+                WorldIn.addFreshEntity(ss);
+
+                // 骑乘部分
+                ss.startRiding(livingEntity, true);
             }
         });
     }
