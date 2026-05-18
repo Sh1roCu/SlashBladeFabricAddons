@@ -65,7 +65,7 @@ public class EntityDriveNeo extends EntityDrive {
         int fireDuration = targetEntity.getRemainingFireTicks();
         // 如果此实体着火且目标不是末影人，点燃目标
         if (this.isOnFire() && !(targetEntity instanceof EnderMan)) {
-            targetEntity.setRemainingFireTicks(5 * 20);
+            targetEntity.igniteForSeconds(5);
         }
 
         // 重置目标实体的无敌时间

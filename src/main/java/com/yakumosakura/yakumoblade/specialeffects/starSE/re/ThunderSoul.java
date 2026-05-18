@@ -134,18 +134,12 @@ public class ThunderSoul extends SeEX {
             Level worldIn = livingEntity.level();
             SwordRainEntityLightning ss = new SwordRainEntityLightning(YAEntitiesRegistry.swordRainFire, worldIn);
 
-            worldIn.addFreshEntity(ss);
-
-
             ss.setIsCritical(false);
             ss.setOwner(livingEntity);
             ss.setColor(CapabilitySlashBlade.getBladeState(livingEntity.getMainHandItem())
                     .map(ISlashBladeState::getColorCode).get());
             ss.setRoll(0);
             ss.setForward(true);
-            // force riding
-            ss.startRiding(livingEntity, true);
-
             ss.doFire();
 
             // 计算圆周坐标
@@ -159,6 +153,12 @@ public class ThunderSoul extends SeEX {
                     baseY, // 统一高度
                     target.position().z + zOffset
             );
+
+            worldIn.addFreshEntity(ss);
+
+            // force riding
+            ss.startRiding(livingEntity, true);
+
             livingEntity.playSound(SoundEvents.CHORUS_FRUIT_TELEPORT, 0.2F, 1.45F);
 
 

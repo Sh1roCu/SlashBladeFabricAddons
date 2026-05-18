@@ -22,7 +22,6 @@ public class StarRiderEntity extends MagicCircleEntity {
         }
     }
 
-
     public static EntityDrive doSlash(LivingEntity playerIn, StarRiderEntity starRiderEntity) {
         if (playerIn.level().isClientSide()) {
             return null;

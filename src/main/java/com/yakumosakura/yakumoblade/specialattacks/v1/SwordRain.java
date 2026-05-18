@@ -82,20 +82,20 @@ public class SwordRain {
                 SwordRainEntityFox ss = new SwordRainEntityFox(
                         YAEntitiesRegistry.swordRainEntity, worldIn);
 
-                worldIn.addFreshEntity(ss);
-
                 ss.setOwner(playerIn);
                 ss.setColor(state.getColorCode());
                 ss.setRoll(0);
                 ss.setDamage(powerLevel);
-                // force riding
-                ss.startRiding(playerIn, true);
-
                 ss.setDelay(10);
 
                 ss.setPos(basePos);
 
                 ss.setXRot(-90);
+
+                worldIn.addFreshEntity(ss);
+
+                // force riding
+                ss.startRiding(playerIn, true);
             }
 
 
@@ -112,9 +112,6 @@ public class SwordRain {
                     ss.setColor(state.getColorCode());
                     ss.setRoll(0);
                     ss.setDamage((5 * (powerLevel + 1) * 2));
-                    // force riding
-                    ss.startRiding(playerIn, true);
-
                     ss.setDelay(i);
                     ss.setBoundingBox(new AABB(
                             new Vec3(16, 16, 16),
@@ -133,6 +130,8 @@ public class SwordRain {
                     Vec3 spreadPos = basePos.add(xOffset, yOffsetRandom, zOffset);
                     ss.setSpread(spreadPos);  // 或 ss.setPos(spreadPos)
                     worldIn.addFreshEntity(ss);
+                    // force riding
+                    ss.startRiding(playerIn, true);
                 }
             }
         });

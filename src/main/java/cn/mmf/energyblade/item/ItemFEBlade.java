@@ -19,10 +19,10 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.TooltipFlag;
@@ -31,7 +31,6 @@ import org.lwjgl.glfw.GLFW;
 import team.reborn.energy.api.EnergyStorage;
 
 import java.util.List;
-import java.util.function.Consumer;
 
 // 拓展子类拔刀剑(extends ItemSlashBlade)
 public class ItemFEBlade extends ItemSlashBlade implements IDamageable {
@@ -82,11 +81,11 @@ public class ItemFEBlade extends ItemSlashBlade implements IDamageable {
     }
 
     @Override
-    public boolean sb$isDamageable(ItemStack stack) {
+    public boolean isDamageable(ItemStack stack) {
         return ItemEnergyStorageHelper.fromStack(stack).filter(FEBladeStorage.class::isInstance)
                 .map(FEBladeStorage.class::cast).filter(FEBladeStorage::isEnergyDurability) // 当启用能量代替耐久时
                 .map(energy -> false) // 禁用原版耐久机制
-                .orElseGet(() -> IDamageable.super.sb$isDamageable(stack)); // 否则继承默认逻辑
+                .orElseGet(() -> stack.has(DataComponents.MAX_DAMAGE) && !stack.has(DataComponents.UNBREAKABLE) && stack.has(DataComponents.DAMAGE)); // 否则继承默认逻辑
     }
 
     @Override
@@ -157,9 +156,9 @@ public class ItemFEBlade extends ItemSlashBlade implements IDamageable {
     }
 
     @Override
-    public <T extends LivingEntity> int sb$damageItem(ItemStack arg0, int arg1, T arg2, Consumer<Item> arg3) {
+    public <T extends LivingEntity> int damageItem(ItemStack arg0, int arg1, T arg2, Runnable arg3) {
         // TODO 电量耐久适配消耗
-        return super.sb$damageItem(arg0, arg1, arg2, arg3);
+        return super.damageItem(arg0, arg1, arg2, arg3);
     }
 
     @Environment(EnvType.CLIENT)

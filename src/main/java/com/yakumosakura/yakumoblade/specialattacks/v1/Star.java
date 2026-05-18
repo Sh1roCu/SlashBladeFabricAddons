@@ -32,8 +32,6 @@ public class Star {
                             for (int i = 0; i < count; i++) {
                                 StarEntityFox ss = new StarEntityFox(YAEntitiesRegistry.starEntity, worldIn);
 
-                                worldIn.addFreshEntity(ss);
-
                                 ss.setSpeed(0);
                                 ss.setIsCritical(false);
                                 ss.setOwner(playerIn);
@@ -43,14 +41,18 @@ public class Star {
 
                                 ss.setRoll(0);
                                 ss.setDamage(0);
-                                // force riding
-                                ss.startRiding(playerIn, true);
                                 ss.setDelay(10);
                                 double xOffset = 0;
                                 double yOffset = height;
                                 double zOffset = 0;
                                 ss.setPos(playerIn.position().add(xOffset, yOffset, zOffset));
                                 ss.setOffset(new Vec3(xOffset, yOffset, zOffset));
+
+                                worldIn.addFreshEntity(ss);
+
+                                // force riding
+                                ss.startRiding(playerIn, true);
+
                                 playerIn.playSound(SoundEvents.CHORUS_FRUIT_TELEPORT, 0.2F, 1.45F);
                             }
                         }
@@ -62,8 +64,6 @@ public class Star {
         Level worldIn = playerIn.level();
         StarEntityDragon ss = new StarEntityDragon(YAEntitiesRegistry.starEntityDragon, worldIn);
 
-        worldIn.addFreshEntity(ss);
-
         ss.setSpeed(0);
         ss.setIsCritical(false);
         ss.setOwner(playerIn);
@@ -73,14 +73,18 @@ public class Star {
 
         ss.setRoll(0);
         ss.setDamage(0);
-        // force riding
-        ss.startRiding(playerIn, true);
         ss.setDelay(10);
         double xOffset = 0;
         double yOffset = height;
         double zOffset = 0;
         ss.setPos(playerIn.position().add(xOffset, yOffset, zOffset));
         ss.setOffset(new Vec3(xOffset, yOffset, zOffset));
+
+        worldIn.addFreshEntity(ss);
+
+        // force riding
+        ss.startRiding(playerIn, true);
+
         playerIn.playSound(SoundEvents.CHORUS_FRUIT_TELEPORT, 0.2F, 1.45F);
     }
 }

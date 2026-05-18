@@ -31,8 +31,6 @@ public class SoulGaleSwords {
                             for (int i = 0; i < count; i++) {
                                 SoulEdgeEntity ss = new SoulEdgeEntity(YAEntitiesRegistry.soul_edge, worldIn);
 
-                                worldIn.addFreshEntity(ss);
-
                                 ss.setSpeed(speed);
                                 ss.setIsCritical(critical);
                                 ss.setOwner(playerIn);
@@ -42,8 +40,6 @@ public class SoulGaleSwords {
 
                                 ss.setRoll(0);
                                 ss.setDamage(damage);
-                                // force riding
-                                ss.startRiding(playerIn, true);
                                 ss.setDelay(20 + i);
 
                                 double yOffset = i * 0.005 + 0.5;
@@ -51,6 +47,12 @@ public class SoulGaleSwords {
 
                                 ss.setPos(playerIn.position().add(0, yOffset, zOffset));
                                 ss.setOffset(new Vec3(0, yOffset, zOffset));
+
+                                worldIn.addFreshEntity(ss);
+
+                                // force riding
+                                ss.startRiding(playerIn, true);
+
                                 playerIn.playSound(SoundEvents.CHORUS_FRUIT_TELEPORT, 0.2F, 1.45F);
                             }
                         }

@@ -82,12 +82,14 @@ public class FoxSoulEX extends SpecialEffect {
                 EntityStormSwords ss = new EntityStormSwords(SBEntityTypes.STORM_SWORDS,
                         worldIn);
 
-                worldIn.addFreshEntity(ss);
-
+                ss.setPos(playerIn.position());
                 ss.setOwner(playerIn);
                 ss.setColor(state.getColorCode());
                 ss.setRoll(0);
                 ss.setDamage(1);
+
+                worldIn.addFreshEntity(ss);
+
                 // force riding
                 ss.startRiding(target, true);
 

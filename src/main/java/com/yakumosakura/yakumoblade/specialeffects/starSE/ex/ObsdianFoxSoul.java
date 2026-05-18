@@ -119,17 +119,14 @@ public class ObsdianFoxSoul extends SpecialEffect {
             for (int i = 0; i < count; i++) {
                 EntitySpiralSwords2 spiralSword = new EntitySpiralSwords2(YAEntitiesRegistry.BlueFox, world);
 
-                // 坐标修正，拉出虚空，定位到玩家当前的安全区块
-                spiralSword.setPos(livingEntity.getX(), livingEntity.getY() + 1.0, livingEntity.getZ());
-               
-
+                spiralSword.setPos(livingEntity.position());
                 spiralSword.setOwner(livingEntity);
                 spiralSword.setColor(state.getColorCode());
-                spiralSword.setDelay(angleIncrement * i);
 
                 world.addFreshEntity(spiralSword);
+
                 spiralSword.startRiding(livingEntity, true); // force riding
-                
+                spiralSword.setDelay(angleIncrement * i);
             }
         });
     }
@@ -143,12 +140,15 @@ public class ObsdianFoxSoul extends SpecialEffect {
             for (int i = 0; i < count; i++) {
                 EntityStormSwords stormSword = new EntityStormSwords(
                         SBEntityTypes.STORM_SWORDS, world);
-                world.addFreshEntity(stormSword);
 
+                stormSword.setPos(player.position());
                 stormSword.setOwner(player);
                 stormSword.setColor(state.getColorCode());
                 stormSword.setRoll(0);
                 stormSword.setDamage(1);
+
+                world.addFreshEntity(stormSword);
+
                 stormSword.startRiding(target, true); // force riding
                 stormSword.setDelay(angleIncrement * i);
             }

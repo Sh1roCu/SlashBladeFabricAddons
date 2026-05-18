@@ -29,17 +29,12 @@ public class RapidBlisteringSwords {
             for (int i = 0; i < count; i++) {
                 BlisteringSwordsEntity ss = new BlisteringSwordsEntity(SBAEntitiesRegistry.BlisteringSwords, worldIn);
 
-                worldIn.addFreshEntity(ss);
-
                 ss.setSpeed(speed);
                 ss.setIsCritical(critical);
                 ss.setOwner(playerIn);
                 ss.setColor(colorCode);
                 ss.setRoll(0);
                 ss.setDamage(damage);
-                // force riding
-                ss.startRiding(playerIn, true);
-
                 ss.setDelay(20 + i);
 
                 boolean isRight = ss.getDelay() % 2 == 0;
@@ -51,6 +46,11 @@ public class RapidBlisteringSwords {
 
                 ss.setPos(playerIn.position().add(xOffset, yOffset, zOffset));
                 ss.setOffset(new Vec3(xOffset, yOffset, zOffset));
+
+                worldIn.addFreshEntity(ss);
+
+                // force riding
+                ss.startRiding(playerIn, true);
 
                 playerIn.playSound(SoundEvents.CHORUS_FRUIT_TELEPORT, 0.2F, 1.45F);
             }

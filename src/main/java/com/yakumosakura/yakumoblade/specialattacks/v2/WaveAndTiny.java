@@ -27,12 +27,14 @@ public class WaveAndTiny {
             EntitySpiralSwords2 ss = new EntitySpiralSwords2(
                     YAEntitiesRegistry.BlueFox, playerIn.level());
 
-            playerIn.level().addFreshEntity(ss);
-
+            ss.setPos(playerIn.position());
             ss.setOwner(playerIn);
             ss.setColor(SlashBladeUtil.getColorCode(playerIn));
             ss.setRoll(0);
             ss.setDamage(12);
+
+            playerIn.level().addFreshEntity(ss);
+
             // force riding
             ss.startRiding(playerIn, true);
 
@@ -85,12 +87,14 @@ public class WaveAndTiny {
                     EntitySpiralSwords ss = new EntitySpiralSwords(
                             SBEntityTypes.SPIRAL_SWORDS, worldIn);
 
-                    worldIn.addFreshEntity(ss);
-
+                    ss.setPos(sender.position());
                     ss.setOwner(sender);
                     ss.setColor(colorcode);
                     ss.setRoll(0);
                     ss.setDamage(5);
+
+                    worldIn.addFreshEntity(ss);
+
                     // force riding
                     ss.startRiding(sender, true);
 
@@ -120,11 +124,12 @@ public class WaveAndTiny {
                 for (int i = 0; i < count; i++) {
                     EntitySpiralSwords ss = new EntitySpiralSwords(
                             SBEntityTypes.SPIRAL_SWORDS, worldIn);
-                    worldIn.addFreshEntity(ss);
+                    ss.setPos(sender.position());
                     ss.setOwner(sender);
                     ss.setColor(colorcode);
                     ss.setRoll(0);
                     ss.setDamage(5);
+                    worldIn.addFreshEntity(ss);
                     ss.startRiding(sender, true);
                     ss.setDelay(360 / count * i);
                 }

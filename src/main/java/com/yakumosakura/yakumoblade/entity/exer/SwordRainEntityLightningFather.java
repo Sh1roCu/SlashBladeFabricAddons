@@ -36,17 +36,12 @@ public class SwordRainEntityLightningFather extends SwordRainEntity {
                     Level worldIn = getOwner().level();
                     SwordRainEntityLightning ss = new SwordRainEntityLightning(YAEntitiesRegistry.swordRainFire, worldIn);
                     double radius = 5.0 + i;
-                    worldIn.addFreshEntity(ss);
-
 
                     ss.setIsCritical(false);
                     ss.setOwner(this.getOwner());
                     ss.setColor(16776960);
                     ss.setRoll(0);
                     ss.setForward(true);
-                    // force riding
-                    ss.startRiding(getOwner(), true);
-
                     ss.doFire();
 
                     // 计算圆周坐标
@@ -60,6 +55,12 @@ public class SwordRainEntityLightningFather extends SwordRainEntity {
                             baseY, // 统一高度
                             getOwner().position().z + zOffset
                     );
+
+                    worldIn.addFreshEntity(ss);
+
+                    // force riding
+                    ss.startRiding(getOwner(), true);
+
                     getOwner().playSound(SoundEvents.CHORUS_FRUIT_TELEPORT, 0.2F, 1.45F);
 
 

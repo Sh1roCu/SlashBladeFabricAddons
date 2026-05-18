@@ -28,15 +28,11 @@ public class RetreatFlyingKnife {
             SwordRainEntityEnder ss = new SwordRainEntityEnder(YAEntitiesRegistry.swordRainFire, worldIn);
             ss.setColor(CapabilitySlashBlade.getBladeState(playerIn.getMainHandItem())
                     .map(ISlashBladeState::getColorCode).get());
-            worldIn.addFreshEntity(ss);
             ss.setIsCritical(false);
             ss.setOwner(playerIn);
             ss.setRoll(0);
             ss.setForward(true);
             ss.setDamage(2);
-            // force riding
-            ss.startRiding(playerIn, true);
-
             ss.doFire();
 
             // 计算圆周坐标
@@ -50,6 +46,12 @@ public class RetreatFlyingKnife {
                     baseY, // 统一高度
                     playerIn.position().z + zOffset
             );
+
+            worldIn.addFreshEntity(ss);
+
+            // force riding
+            ss.startRiding(playerIn, true);
+
             playerIn.playSound(SoundEvents.CHORUS_FRUIT_TELEPORT, 0.2F, 1.45F);
 
 

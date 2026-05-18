@@ -39,14 +39,12 @@ public class YellowFoxBoost {
             } else {
                 for (int i = 0; i < 3; i++) {
                     SummonSwordEntity ss = new SummonSwordEntity(YAEntitiesRegistry.SummonSword, user.level());
-                    user.level().addFreshEntity(ss);
                     ss.setSpeed(4F);
                     ss.setIsCritical(false);
                     ss.setOwner(user);
                     ss.setColor(16754944);
                     ss.setRoll(0);
                     ss.setDamage(5);
-                    ss.startRiding(user, true);
                     ss.setDelay(10 + i);
                     boolean isRight = ss.getDelay() % 2 == 0;
                     RandomSource random = user.level().getRandom();
@@ -55,6 +53,8 @@ public class YellowFoxBoost {
                     double yOffset = random.nextFloat() * 2;
                     ss.setPos(user.position().add(xOffset, yOffset, zOffset));
                     ss.setOffset(new Vec3(xOffset, yOffset, zOffset));
+                    user.level().addFreshEntity(ss);
+                    ss.startRiding(user, true);
                 }
             }
 

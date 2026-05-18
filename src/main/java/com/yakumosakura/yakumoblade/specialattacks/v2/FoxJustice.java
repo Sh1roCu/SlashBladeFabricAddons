@@ -25,17 +25,12 @@ public class FoxJustice {
             for (int i = 0; i < count; i++) {
                 FoxSumonSwordEntity ss = new FoxSumonSwordEntity(YAEntitiesRegistry.SumonSwordentityFox, worldIn);
 
-                worldIn.addFreshEntity(ss);
-
                 ss.setSpeed(4F);
                 ss.setIsCritical(false);
                 ss.setOwner(playerIn);
                 ss.setColor(colorCode);
                 ss.setRoll(0);
                 ss.setDamage(5);
-                // force riding
-                ss.startRiding(playerIn, true);
-
                 ss.setDelay(10 + i);
 
                 boolean isRight = ss.getDelay() % 2 == 0;
@@ -47,6 +42,11 @@ public class FoxJustice {
 
                 ss.setPos(playerIn.position().add(xOffset, yOffset, zOffset));
                 ss.setOffset(new Vec3(xOffset, yOffset, zOffset));
+
+                worldIn.addFreshEntity(ss);
+
+                // force riding
+                ss.startRiding(playerIn, true);
 
                 playerIn.playSound(SoundEvents.CHORUS_FRUIT_TELEPORT, 0.2F, 1.45F);
             }

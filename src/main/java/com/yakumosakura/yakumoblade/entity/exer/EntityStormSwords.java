@@ -45,6 +45,7 @@ public class EntityStormSwords extends absNeoSummonSword {
         return this.getEntityData().get(IT_FIRED);
     }
 
+    @Override
     public void rideTick() {
         if (this.itFired()) {
             this.faceEntityStandby();
@@ -131,7 +132,7 @@ public class EntityStormSwords extends absNeoSummonSword {
         this.setRot((float) (-degYaw) - 180.0F, 0.0F);
     }
 
-
+    @Override
     protected void onHitEntity(EntityHitResult entityHitResult) {
         Entity targetEntity = entityHitResult.getEntity();
         if (targetEntity instanceof LivingEntity) {
@@ -142,6 +143,7 @@ public class EntityStormSwords extends absNeoSummonSword {
         super.onHitEntity(entityHitResult);
     }
 
+    @Override
     protected void onHitBlock(BlockHitResult blockraytraceresult) {
         this.burst();
     }

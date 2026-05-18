@@ -30,14 +30,12 @@ public class WitherAttack {
 
                 for (int i = 0; i < count; ++i) {
                     WitherAttackEntity ss = new WitherAttackEntity(YAEntitiesRegistry.wither_attack, worldIn);
-                    worldIn.addFreshEntity(ss);
                     ss.setSpeed(speed);
                     ss.setIsCritical(critical);
                     ss.setOwner(playerIn);
                     ss.setColor(colorCode);
                     ss.setRoll(0.0F);
                     ss.setDamage(damage);
-                    ss.startRiding(playerIn, true);
                     ss.setDelay(20 + i);
                     boolean isRight = ss.getDelay() % 2 == 0;
                     RandomSource random = worldIn.getRandom();
@@ -46,6 +44,8 @@ public class WitherAttack {
                     double zOffset = (double) random.nextFloat() * 0.5;
                     ss.setPos(playerIn.position().add(xOffset, yOffset, zOffset));
                     ss.setOffset(new Vec3(xOffset, yOffset, zOffset));
+                    worldIn.addFreshEntity(ss);
+                    ss.startRiding(playerIn, true);
                     playerIn.playSound(SoundEvents.CHORUS_FRUIT_TELEPORT, 0.2F, 1.45F);
                 }
 

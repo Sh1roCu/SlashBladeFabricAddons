@@ -47,18 +47,22 @@ public class GigantjudgementCut extends EntityJudgementCut implements IShootable
     EnumSet<FlagsState> flags;
     int intFlags;
 
+    @Override
     public int getSeed() {
         return this.seed;
     }
 
+    @Override
     public boolean doCycleHit() {
         return this.cycleHit;
     }
 
+    @Override
     public void setCycleHit(boolean cycleHit) {
         this.cycleHit = cycleHit;
     }
 
+    @Override
     protected SoundEvent getHitEntitySound() {
         return this.livingEntitySound;
     }
@@ -73,6 +77,7 @@ public class GigantjudgementCut extends EntityJudgementCut implements IShootable
 
     }
 
+    @Override
     protected void defineSynchedData(SynchedEntityData.Builder builder) {
         super.defineSynchedData(builder);
         builder.define(COLOR, 3355647);
@@ -80,11 +85,13 @@ public class GigantjudgementCut extends EntityJudgementCut implements IShootable
         builder.define(RANK, 0.0F);
     }
 
+    @Override
     protected void addAdditionalSaveData(CompoundTag compound) {
         super.addAdditionalSaveData(compound);
         NBTHelper.getNBTCoupler(compound).put("Color", new Integer[]{this.getColor()}).put("Rank", new Float[]{this.getRank()}).put("damage", new Double[]{this.damage}).put("crit", new Boolean[]{this.getIsCritical()}).put("clip", new Boolean[]{this.isNoClip()}).put("Lifetime", this.getLifetime());
     }
 
+    @Override
     protected void readAdditionalSaveData(CompoundTag compound) {
         super.readAdditionalSaveData(compound);
         NBTHelper.getNBTCoupler(compound).get("Color", this::setColor, new Integer[0]).get("Rank", this::setRank, new Float[0]).get("damage", (v) -> {
@@ -97,6 +104,7 @@ public class GigantjudgementCut extends EntityJudgementCut implements IShootable
     }
 
     @Environment(EnvType.CLIENT)
+    @Override
     public boolean shouldRenderAtSqrDistance(double distance) {
         double d0 = this.getBoundingBox().getSize() * 10.0;
         if (Double.isNaN(d0)) {
@@ -108,12 +116,14 @@ public class GigantjudgementCut extends EntityJudgementCut implements IShootable
     }
 
     @Environment(EnvType.CLIENT)
-    public void lerpTo(double x, double y, double z, float yaw, float pitch, int posRotationIncrements, boolean teleport) {
+    @Override
+    public void lerpTo(double x, double y, double z, float yaw, float pitch, int posRotationIncrements) {
         this.setPos(x, y, z);
         this.setRot(yaw, pitch);
     }
 
     @Environment(EnvType.CLIENT)
+    @Override
     public void lerpMotion(double x, double y, double z) {
         this.setDeltaMovement(0.0, 0.0, 0.0);
     }
@@ -146,6 +156,7 @@ public class GigantjudgementCut extends EntityJudgementCut implements IShootable
 
     }
 
+    @Override
     public void setIsCritical(boolean value) {
         if (value) {
             this.setFlags(FlagsState.Critical);
@@ -155,11 +166,13 @@ public class GigantjudgementCut extends EntityJudgementCut implements IShootable
 
     }
 
+    @Override
     public boolean getIsCritical() {
         this.refreshFlags();
         return this.flags.contains(FlagsState.Critical);
     }
 
+    @Override
     public void setNoClip(boolean value) {
         this.noPhysics = value;
         if (value) {
@@ -170,6 +183,7 @@ public class GigantjudgementCut extends EntityJudgementCut implements IShootable
 
     }
 
+    @Override
     public boolean isNoClip() {
         if (!this.level().isClientSide()) {
             return this.noPhysics;
@@ -189,6 +203,7 @@ public class GigantjudgementCut extends EntityJudgementCut implements IShootable
         super.onHitEntity(result);
     }
 
+    @Override
     public void tick() {
         super.tick();
         if (this.tickCount < 8 && this.tickCount % 2 == 0) {
@@ -222,6 +237,7 @@ public class GigantjudgementCut extends EntityJudgementCut implements IShootable
         this.tryDespawn();
     }
 
+    @Override
     protected void tryDespawn() {
         if (!this.level().isClientSide() && this.getLifetime() < this.tickCount) {
             this.burst();
@@ -229,26 +245,32 @@ public class GigantjudgementCut extends EntityJudgementCut implements IShootable
 
     }
 
+    @Override
     public int getColor() {
         return this.getEntityData().get(COLOR);
     }
 
+    @Override
     public void setColor(int value) {
         this.getEntityData().set(COLOR, value);
     }
 
+    @Override
     public float getRank() {
         return this.getEntityData().get(RANK);
     }
 
+    @Override
     public void setRank(float value) {
         this.getEntityData().set(RANK, value);
     }
 
+    @Override
     public int getLifetime() {
         return Math.min(this.lifetime, 1000);
     }
 
+    @Override
     public void setLifetime(int value) {
         this.lifetime = value;
     }
@@ -258,10 +280,12 @@ public class GigantjudgementCut extends EntityJudgementCut implements IShootable
         return this.getOwner();
     }
 
+    @Override
     public void setShooter(Entity shooter) {
         this.setOwner(shooter);
     }
 
+    @Override
     public List<MobEffectInstance> getPotionEffects() {
         List<MobEffectInstance> effects = PotionUtils.getAllEffects(((EntityExtension) this).sb$getPersistentData());
         if (effects.isEmpty()) {
@@ -271,6 +295,7 @@ public class GigantjudgementCut extends EntityJudgementCut implements IShootable
         return effects;
     }
 
+    @Override
     public void burst() {
         if (!this.level().isClientSide()) {
             if (this.level() instanceof ServerLevel) {
@@ -283,6 +308,7 @@ public class GigantjudgementCut extends EntityJudgementCut implements IShootable
         super.remove(RemovalReason.DISCARDED);
     }
 
+    @Override
     public void burst(List<MobEffectInstance> effects, @Nullable Entity focusEntity) {
         List<Entity> list = TargetSelector.getTargettableEntitiesWithinAABB(this.level(), 2.0, this);
         list.stream().filter((e) -> {
@@ -303,6 +329,7 @@ public class GigantjudgementCut extends EntityJudgementCut implements IShootable
         });
     }
 
+    @Override
     public void affectEntity(LivingEntity focusEntity, List<MobEffectInstance> effects, double factor) {
         Iterator var5 = this.getPotionEffects().iterator();
 
@@ -321,15 +348,18 @@ public class GigantjudgementCut extends EntityJudgementCut implements IShootable
 
     }
 
+    @Override
     public void setDamage(double damageIn) {
         this.damage = damageIn;
     }
 
+    @Override
     public double getDamage() {
         return this.damage;
     }
 
     @Nullable
+    @Override
     public EntityHitResult getRayTrace(Vec3 p_213866_1_, Vec3 p_213866_2_) {
         return ProjectileUtil.getEntityHitResult(this.level(), this, p_213866_1_, p_213866_2_, this.getBoundingBox().expandTowards(this.getDeltaMovement()).inflate(1.0), (p_213871_1_) -> {
             return !p_213871_1_.isSpectator() && p_213871_1_.isAlive() && p_213871_1_.isPickable() && p_213871_1_ != this.getShooter();

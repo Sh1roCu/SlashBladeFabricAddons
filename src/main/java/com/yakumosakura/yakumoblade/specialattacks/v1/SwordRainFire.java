@@ -57,9 +57,6 @@ public class SwordRainFire {
             Level worldIn = livingEntity.level();
             SwordRainEntityFire ss = new SwordRainEntityFire(YAEntitiesRegistry.swordRainFire, worldIn);
 
-            worldIn.addFreshEntity(ss);
-
-
             ss.setIsCritical(false);
             ss.setOwner(livingEntity);
             ss.setColor(CapabilitySlashBlade.getBladeState(livingEntity.getMainHandItem())
@@ -67,9 +64,6 @@ public class SwordRainFire {
             ss.setRoll(0);
             ss.setForward(true);
             ss.setDamage(2);
-            // force riding
-            ss.startRiding(livingEntity, true);
-
             ss.doFire();
 
             // 计算圆周坐标
@@ -83,6 +77,12 @@ public class SwordRainFire {
                     baseY, // 统一高度
                     target.position().z + zOffset
             );
+
+            worldIn.addFreshEntity(ss);
+
+            // force riding
+            ss.startRiding(livingEntity, true);
+
             livingEntity.playSound(SoundEvents.CHORUS_FRUIT_TELEPORT, 0.2F, 1.45F);
 
 
@@ -103,18 +103,12 @@ public class SwordRainFire {
             Level worldIn = livingEntity.level();
             SwordRainEntityFire ss = new SwordRainEntityFire(YAEntitiesRegistry.swordRainFire, worldIn);
 
-            worldIn.addFreshEntity(ss);
-
-
             ss.setIsCritical(false);
             ss.setOwner(livingEntity);
             ss.setColor(CapabilitySlashBlade.getBladeState(livingEntity.getMainHandItem())
                     .map(ISlashBladeState::getColorCode).get());
             ss.setRoll(0);
             ss.setForward(true);
-
-            // force riding
-            ss.startRiding(livingEntity, true);
 
             ss.doFire();
 
@@ -129,6 +123,12 @@ public class SwordRainFire {
                     baseY, // 统一高度
                     target.position().z + zOffset
             );
+
+            worldIn.addFreshEntity(ss);
+
+            // force riding
+            ss.startRiding(livingEntity, true);
+
             livingEntity.playSound(SoundEvents.CHORUS_FRUIT_TELEPORT, 0.2F, 1.45F);
 
 
@@ -149,18 +149,12 @@ public class SwordRainFire {
             Level worldIn = livingEntity.level();
             SwordRainEntityFire ss = new SwordRainEntityFire(YAEntitiesRegistry.swordRainFire, worldIn);
 
-            worldIn.addFreshEntity(ss);
-
-
             ss.setIsCritical(false);
             ss.setOwner(livingEntity);
             ss.setColor(CapabilitySlashBlade.getBladeState(livingEntity.getMainHandItem())
                     .map(ISlashBladeState::getColorCode).get());
             ss.setRoll(0);
             ss.setForward(true);
-
-            // force riding
-            ss.startRiding(livingEntity, true);
 
             ss.doFire();
 
@@ -175,6 +169,12 @@ public class SwordRainFire {
                     baseY, // 统一高度
                     target.position().z + zOffset
             );
+
+            worldIn.addFreshEntity(ss);
+
+            // force riding
+            ss.startRiding(livingEntity, true);
+
             livingEntity.playSound(SoundEvents.CHORUS_FRUIT_TELEPORT, 0.2F, 1.45F);
 
 
@@ -195,18 +195,12 @@ public class SwordRainFire {
             Level worldIn = livingEntity.level();
             SwordRainEntityFire ss = new SwordRainEntityFire(YAEntitiesRegistry.swordRainFire, worldIn);
 
-            worldIn.addFreshEntity(ss);
-
-
             ss.setIsCritical(false);
             ss.setOwner(livingEntity);
             ss.setColor(CapabilitySlashBlade.getBladeState(livingEntity.getMainHandItem())
                     .map(ISlashBladeState::getColorCode).get());
             ss.setRoll(0);
             ss.setForward(true);
-
-            // force riding
-            ss.startRiding(livingEntity, true);
 
             ss.doFire();
 
@@ -221,6 +215,12 @@ public class SwordRainFire {
                     baseY, // 统一高度
                     target.position().z + zOffset
             );
+
+            worldIn.addFreshEntity(ss);
+
+            // force riding
+            ss.startRiding(livingEntity, true);
+
             livingEntity.playSound(SoundEvents.CHORUS_FRUIT_TELEPORT, 0.2F, 1.45F);
 
 
@@ -246,9 +246,6 @@ public class SwordRainFire {
             Level worldIn = livingEntity.level();
             SwordRainEntityFire ss = new SwordRainEntityFire(YAEntitiesRegistry.swordRainFire, worldIn);
 
-            worldIn.addFreshEntity(ss);
-
-
             ss.setIsCritical(false);
             ss.setOwner(livingEntity);
             ss.setColor(CapabilitySlashBlade.getBladeState(livingEntity.getMainHandItem())
@@ -257,8 +254,6 @@ public class SwordRainFire {
             ss.setForward(true);
 
             ss.setFireCount(1);
-            // force riding
-            ss.startRiding(livingEntity, true);
 
             ss.doFire();
 
@@ -273,6 +268,12 @@ public class SwordRainFire {
                     baseY, // 统一高度
                     target.position().z + zOffset
             );
+
+            worldIn.addFreshEntity(ss);
+
+            // force riding
+            ss.startRiding(livingEntity, true);
+
             livingEntity.playSound(SoundEvents.CHORUS_FRUIT_TELEPORT, 0.2F, 1.45F);
 
 

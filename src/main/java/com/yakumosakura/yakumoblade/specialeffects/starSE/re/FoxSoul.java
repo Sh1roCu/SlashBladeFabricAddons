@@ -97,7 +97,7 @@ public class FoxSoul extends SeEX {
     }
 
     private static void applyFireEffect(Entity target, float damage) {
-        target.setRemainingFireTicks(Config.FIRE_DURATION * 20);
+        target.igniteForSeconds(Config.FIRE_DURATION);
         target.hurt(target.damageSources().onFire(), damage);
 
         if (target.level() instanceof ServerLevel serverLevel) {

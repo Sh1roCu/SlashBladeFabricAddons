@@ -70,15 +70,11 @@ public class DreamSE extends SpecialEffect {
             Level worldIn = playerIn.level();
             SwordRainEntityEnder ss = new SwordRainEntityEnder(YAEntitiesRegistry.swordRainFire, worldIn);
             ss.setColor(48895);
-            worldIn.addFreshEntity(ss);
             ss.setIsCritical(false);
             ss.setOwner(playerIn);
             ss.setRoll(0);
             ss.setForward(true);
             ss.setDamage(10);
-            // force riding
-            ss.startRiding(playerIn, true);
-
             ss.doFire();
 
             // 计算圆周坐标
@@ -92,6 +88,12 @@ public class DreamSE extends SpecialEffect {
                     baseY, // 统一高度
                     playerIn.position().z + zOffset
             );
+
+            worldIn.addFreshEntity(ss);
+
+            // force riding
+            ss.startRiding(playerIn, true);
+
             playerIn.playSound(SoundEvents.CHORUS_FRUIT_TELEPORT, 0.2F, 1.45F);
 
 

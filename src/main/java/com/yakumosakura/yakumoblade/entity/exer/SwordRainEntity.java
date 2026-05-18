@@ -73,6 +73,7 @@ public class SwordRainEntity extends absNeoSummonSword {
         this.sb$getPersistentData().put("CustomPotionEffects", listtag);
     }
 
+    @Override
     protected void defineSynchedData(SynchedEntityData.Builder builder) {
         super.defineSynchedData(builder);
         builder.define(IT_FIRED, false);
@@ -89,14 +90,14 @@ public class SwordRainEntity extends absNeoSummonSword {
         return this.getEntityData().get(IT_FIRED);
     }
 
+    @Override
     public void tick() {
-        if (!this.itFired() && this.level().isClientSide() && this.getVehicle() == null) {
+        if (!this.itFired() && this.getVehicle() == null && this.getOwner() != null) {
             this.startRiding(this.getOwner(), true);
         }
 
         super.tick();
     }
-
 
     public void doride() {
 
@@ -154,7 +155,7 @@ public class SwordRainEntity extends absNeoSummonSword {
         }
     }
 
-
+    @Override
     public void rideTick() {
 
 
@@ -175,6 +176,7 @@ public class SwordRainEntity extends absNeoSummonSword {
         this.setPos(basePos.x + offsetX, basePos.y, basePos.z + offsetZ);
     }
 
+    @Override
     protected void onHitEntity(EntityHitResult p_213868_1_) {
         Entity targetEntity = p_213868_1_.getEntity();
         if (targetEntity instanceof LivingEntity a) {
@@ -186,6 +188,7 @@ public class SwordRainEntity extends absNeoSummonSword {
         super.onHitEntity(p_213868_1_);
     }
 
+    @Override
     protected void tryDespawn() {
         ++this.ticksInGround;
         if (this.ON_GROUND_LIFE_TIME <= this.ticksInGround) {

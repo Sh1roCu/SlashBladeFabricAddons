@@ -420,6 +420,7 @@ public class EntityNRBlisteringSword extends absNeoSummonSword {
         this.onHitEntity(hitResult);
     }
 
+    @Override
     protected void onHitEntity(EntityHitResult result) {
         Entity target = result.getEntity();
         if (target instanceof LivingEntity) {
@@ -430,6 +431,7 @@ public class EntityNRBlisteringSword extends absNeoSummonSword {
     }
 
     // 方块命中处理（完全继承父类逻辑）
+    @Override
     protected void onHitBlock(BlockHitResult result) {
         // 调用父类处理（播放音效、清除状态、销毁飞剑）
         super.onHitBlock(result);

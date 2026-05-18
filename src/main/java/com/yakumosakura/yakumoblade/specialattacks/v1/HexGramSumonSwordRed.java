@@ -25,14 +25,12 @@ public class HexGramSumonSwordRed {
             Level worldIn = playerIn.level();
             for (int i = 0; i < count; i++) {
                 HexGramSumonSwordEntitySeven ss = new HexGramSumonSwordEntitySeven(YAEntitiesRegistry.HexGramSumonSword, worldIn);
-                worldIn.addFreshEntity(ss);
                 ss.setSpeed(4F);
                 ss.setIsCritical(true);
                 ss.setOwner(playerIn);
                 ss.setColor(colorCode);
                 ss.setRoll(90F);
                 ss.setDamage(2);
-                ss.startRiding(playerIn, true);
                 ss.setDelay(20 + i);
                 boolean isRight = ss.getDelay() % 2 == 0;
                 RandomSource random = worldIn.getRandom();
@@ -41,6 +39,11 @@ public class HexGramSumonSwordRed {
                 double zOffset = (double) random.nextFloat() * (double) 0.5F;
                 ss.setPos(playerIn.position().add(xOffset, yOffset, zOffset));
                 ss.setOffset(new Vec3(xOffset, yOffset, zOffset));
+
+                worldIn.addFreshEntity(ss);
+
+                ss.startRiding(playerIn, true);
+
                 playerIn.playSound(SoundEvents.CHORUS_FRUIT_TELEPORT, 0.2F, 1.45F);
             }
         });

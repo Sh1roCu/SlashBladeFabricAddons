@@ -12,6 +12,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.crafting.Ingredient;
 
 import java.util.function.Supplier;
 
@@ -19,14 +20,14 @@ public class YAItem {
 
     public static final ResourceLocation SlashBladeOfYakumoBlade = Yakumoblade.prefix("slashblade");
 
-    public final static YakumoBladeItemTier ya(Supplier repairIngredient) {
+    public static YakumoBladeItemTier ya(Supplier<Ingredient> repairIngredient) {
         return new YakumoBladeItemTier(BlockTags.INCORRECT_FOR_STONE_TOOL, 200, 0, 0, 30, repairIngredient);
     }
 
     private static void register() {
         Registry.register(BuiltInRegistries.ITEM, SlashBladeOfYakumoBlade,
                 new YakumBladeSlashItem(
-                        ya(() -> BuiltInRegistries.ITEM.get(SlashBladeOfYakumoBlade)),
+                        ya(() -> Ingredient.of(BuiltInRegistries.ITEM.get(SlashBladeOfYakumoBlade))),
                         25,
                         -2.4F,
                         new Item.Properties())

@@ -27,12 +27,14 @@ public class SpiralSwordEx {
                 EntitySpiralSwords ss = new EntitySpiralSwords(
                         SBEntityTypes.SPIRAL_SWORDS, worldIn);
 
-                worldIn.addFreshEntity(ss);
-
+                ss.setPos(sender.position());
                 ss.setOwner(sender);
                 ss.setColor(state.getColorCode());
                 ss.setRoll(0);
                 ss.setDamage(5);
+
+                worldIn.addFreshEntity(ss);
+
                 // force riding
                 ss.startRiding(sender, true);
 
@@ -44,12 +46,14 @@ public class SpiralSwordEx {
                 EntitySpiralSwordsSon ss = new EntitySpiralSwordsSon(
                         SBEntityTypes.SPIRAL_SWORDS, worldIn);
 
-                worldIn.addFreshEntity(ss);
-
+                ss.setPos(sender.position());
                 ss.setOwner(sender);
                 ss.setColor(state.getColorCode());
                 ss.setRoll(0);
                 ss.setDamage(5);
+
+                worldIn.addFreshEntity(ss);
+
                 // force riding
                 ss.startRiding(sender, true);
 

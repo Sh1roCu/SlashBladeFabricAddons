@@ -1,5 +1,6 @@
 package com.yakumosakura.yakumoblade.registry;
 
+import com.google.common.base.Suppliers;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -13,6 +14,7 @@ public class YakumoBladeItemTier implements Tier {
     private final float speed;
     private final float damage;
     private final int enchantmentValue;
+    private final Supplier<Ingredient> ingredientSupplier;
 
     public YakumoBladeItemTier(TagKey<Block> incorrectBlockForDrops, int uses, float speed, float damage, int enchantmentValue, Supplier<Ingredient> repairIngredient) {
         this.incorrectBlockForDrops = incorrectBlockForDrops;
@@ -20,6 +22,7 @@ public class YakumoBladeItemTier implements Tier {
         this.speed = speed;
         this.damage = damage;
         this.enchantmentValue = enchantmentValue;
+        this.ingredientSupplier = Suppliers.memoize(repairIngredient::get);
     }
 
     @Override
@@ -49,7 +52,7 @@ public class YakumoBladeItemTier implements Tier {
 
     @Override
     public Ingredient getRepairIngredient() {
-        return Ingredient.of();
+        return ingredientSupplier.get();
     }
 
 }

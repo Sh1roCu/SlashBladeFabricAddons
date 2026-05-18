@@ -31,7 +31,6 @@ public class YuYuKo {
                         (state) -> {
                             for (int i = 0; i < count / 2; i++) {
                                 SoulEdgeEntityButerfly ss = new SoulEdgeEntityButerfly(YAEntitiesRegistry.SoulEdgeB, worldIn);
-                                worldIn.addFreshEntity(ss);
 
                                 ss.setSpeed(speed);
                                 ss.setIsCritical(critical);
@@ -39,7 +38,6 @@ public class YuYuKo {
                                 ss.setColor(colorCode);
                                 ss.setRoll(0);
                                 ss.setDamage(damage);
-                                ss.startRiding(playerIn, true);
                                 ss.setDelay(0);
 
                                 // Calculate angle for clockwise and counterclockwise distribution
@@ -54,12 +52,13 @@ public class YuYuKo {
                                 // Set the position for clockwise entities
                                 ss.setPos(playerIn.position().add(xClockwise, yOffset, zClockwise));
                                 ss.setOffset(new Vec3(xClockwise, yOffset, zClockwise));
+                                worldIn.addFreshEntity(ss);
+                                ss.startRiding(playerIn, true);
                                 playerIn.playSound(SoundEvents.CHORUS_FRUIT_TELEPORT, 0.2F, 1.45F);
                             }
 
                             for (int i = 0; i < count / 2; i++) {
                                 SoulEdgeEntityButerfly ss = new SoulEdgeEntityButerfly(YAEntitiesRegistry.SoulEdgeB, worldIn);
-                                worldIn.addFreshEntity(ss);
 
                                 ss.setSpeed((float) (speed * 1.2));
                                 ss.setIsCritical(critical);
@@ -67,7 +66,6 @@ public class YuYuKo {
                                 ss.setColor(colorCode3);
                                 ss.setRoll(0);
                                 ss.setDamage(damage);
-                                ss.startRiding(playerIn, true);
                                 ss.setDelay(1);
 
                                 // Calculate positions using angles for the second half
@@ -80,6 +78,8 @@ public class YuYuKo {
                                 // Set position for counterclockwise entities
                                 ss.setPos(playerIn.position().add(xCounterclockwise, yOffset, -zCounterclockwise)); // Negative Z for the opposite direction
                                 ss.setOffset(new Vec3(xCounterclockwise, yOffset, -zCounterclockwise));
+                                worldIn.addFreshEntity(ss);
+                                ss.startRiding(playerIn, true);
                                 playerIn.playSound(SoundEvents.CHORUS_FRUIT_TELEPORT, 0.2F, 1.45F);
                             }
                         }

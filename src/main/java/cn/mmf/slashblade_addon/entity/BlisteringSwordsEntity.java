@@ -78,7 +78,7 @@ public class BlisteringSwordsEntity extends EntityAbstractSummonedSword {
 
     @Override
     public void tick() {
-        if (!itFired() && getVehicle() == null) {
+        if (!itFired() && getVehicle() == null && this.getOwner() != null) {
             startRiding(this.getOwner(), true);
         }
 

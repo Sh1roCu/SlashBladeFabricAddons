@@ -29,8 +29,6 @@ public class ThrustSwords {
                             for (int i = 0; i < count; i++) {
                                 ThrustEdgeEntity ss = new ThrustEdgeEntity(YAEntitiesRegistry.soul_edge, worldIn);
 
-                                worldIn.addFreshEntity(ss);
-
                                 ss.setSpeed(speed);
                                 ss.setIsCritical(critical);
                                 ss.setOwner(playerIn);
@@ -40,8 +38,6 @@ public class ThrustSwords {
 
                                 ss.setRoll(0);
                                 ss.setDamage(damage);
-                                // force riding
-                                ss.startRiding(playerIn, true);
                                 ss.setDelay(20 + i);
 
                                 double yOffset = i * 0.005 + 0.5;
@@ -49,6 +45,12 @@ public class ThrustSwords {
 
                                 ss.setPos(playerIn.position().add(0, yOffset, zOffset));
                                 ss.setOffset(new Vec3(0, yOffset, zOffset));
+
+                                worldIn.addFreshEntity(ss);
+
+                                // force riding
+                                ss.startRiding(playerIn, true);
+
                                 playerIn.playSound(SoundEvents.CHORUS_FRUIT_TELEPORT, 0.2F, 1.45F);
                             }
                         }
@@ -111,9 +113,9 @@ public class ThrustSwords {
                 ss.setXRot((float) Math.toDegrees(Math.asin(randomDirection.y)));
                 ss.yRotO = ss.getYRot();
                 ss.xRotO = ss.getXRot();
-                ss.startRiding(playerIn, true);
 
                 worldIn.addFreshEntity(ss);
+                ss.startRiding(playerIn, true);
                 playerIn.playSound(SoundEvents.CHORUS_FRUIT_TELEPORT, 0.2F, 1.0F + (float) Math.random() * 0.5F);
             }
         });

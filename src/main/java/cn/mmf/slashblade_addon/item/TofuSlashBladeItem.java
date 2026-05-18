@@ -14,7 +14,6 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.TooltipFlag;
@@ -25,7 +24,6 @@ import org.jetbrains.annotations.Nullable;
 import java.awt.*;
 import java.util.EnumSet;
 import java.util.List;
-import java.util.function.Consumer;
 
 // TODO
 // TofuCraft Fabric移植
@@ -52,7 +50,7 @@ public class TofuSlashBladeItem extends ItemSlashBladeDetune /*implements IEnerg
     // @Override
     public int getEnergy(ItemStack inst) {
         return 0;
-       // return inst.getTag() != null && inst.getTag().contains("tf_energy") ? inst.getTag().getInt("tf_energy") : 0;
+        // return inst.getTag() != null && inst.getTag().contains("tf_energy") ? inst.getTag().getInt("tf_energy") : 0;
     }
 
     public int getEnergyMax(ItemStack inst) {
@@ -60,7 +58,7 @@ public class TofuSlashBladeItem extends ItemSlashBladeDetune /*implements IEnerg
     }
 
     public void setEnergy(ItemStack inst, int amount) {
-       // inst.getOrCreateTag().putInt("tf_energy", amount);
+        // inst.getOrCreateTag().putInt("tf_energy", amount);
     }
 
     public void setEnergyMax(ItemStack inst, int amount) {
@@ -83,19 +81,20 @@ public class TofuSlashBladeItem extends ItemSlashBladeDetune /*implements IEnerg
         return this.getShowState(p_150901_) ? Color.white.getRGB() : super.getBarColor(p_150901_);
     }
 
+    @Override
     public void appendHoverText(ItemStack p_41421_, TooltipContext context, List<Component> p_41423_, TooltipFlag p_41424_) {
         super.appendHoverText(p_41421_, context, p_41423_, p_41424_);
         p_41423_.add(Component.translatable("tooltip.tofucraft.energy", this.getEnergy(p_41421_), this.getEnergyMax(p_41421_)));
     }
 
     @Override
-    public <T extends LivingEntity> int sb$damageItem(ItemStack stack, int amount, T entity, Consumer<Item> onBroken) {
+    public <T extends LivingEntity> int damageItem(ItemStack stack, int amount, T entity, Runnable onBroken) {
         if (this.getEnergy(stack) > 0 && amount > 0) {
             int damage = amount - this.drain(stack, amount, false);
-            return super.sb$damageItem(stack, damage, entity, onBroken);
+            return super.damageItem(stack, damage, entity, onBroken);
         }
 
-        return super.sb$damageItem(stack, amount, entity, onBroken);
+        return super.damageItem(stack, amount, entity, onBroken);
     }
 
     // TODO

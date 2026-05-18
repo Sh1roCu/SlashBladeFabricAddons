@@ -35,6 +35,7 @@ public class StarDriveEntitySon extends StarDriveEntity {
 
     }
 
+    @Override
     protected void onHitEntity(EntityHitResult entityHitResult) {
         Entity targetEntity = entityHitResult.getEntity();
         double i = this.getDamage();
@@ -64,7 +65,7 @@ public class StarDriveEntitySon extends StarDriveEntity {
 
         int fireTime = targetEntity.getRemainingFireTicks();
         if (this.isOnFire() && !(targetEntity instanceof EnderMan)) {
-            targetEntity.setRemainingFireTicks(5 * 20);
+            targetEntity.igniteForSeconds(5);
         }
 
         targetEntity.invulnerableTime = 0;

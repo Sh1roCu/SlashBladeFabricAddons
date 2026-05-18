@@ -33,7 +33,6 @@ public class SoulEdge {
                                 int finalI = i;
                                 Yakumoblade.queueServerWork(i, () -> {
                                     SoulEdgeEntity ss = new SoulEdgeEntity(YAEntitiesRegistry.soul_edge, worldIn);
-                                    worldIn.addFreshEntity(ss);
 
                                     ss.setSpeed(speed);
                                     ss.setIsCritical(critical);
@@ -41,7 +40,6 @@ public class SoulEdge {
                                     ss.setColor(finalI < (count / 2) + 1 ? colorCode : 3825);
                                     ss.setRoll(0);
                                     ss.setDamage(damage);
-                                    ss.startRiding(playerIn, true);
                                     ss.setDelay(10 + finalI);
 
                                     // Calculate angle for clockwise and counterclockwise distribution
@@ -58,6 +56,11 @@ public class SoulEdge {
                                     // Set the position for clockwise entities
                                     ss.setPos(playerIn.position().add(xClockwise, yOffset, zClockwise));
                                     ss.setOffset(new Vec3(xClockwise, yOffset, zClockwise));
+
+                                    worldIn.addFreshEntity(ss);
+
+                                    ss.startRiding(playerIn, true);
+
                                     playerIn.playSound(SoundEvents.CHORUS_FRUIT_TELEPORT, 0.2F, 1.45F);
                                 });
 

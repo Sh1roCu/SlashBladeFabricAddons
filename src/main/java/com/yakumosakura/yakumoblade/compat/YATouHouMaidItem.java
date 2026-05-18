@@ -11,6 +11,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.crafting.Ingredient;
 
 import java.util.function.Supplier;
 
@@ -18,14 +19,14 @@ public class YATouHouMaidItem {
 
     public static final ResourceLocation YELLOW_FOX = Yakumoblade.prefix("slashblade_yellowfox");
 
-    public final static YakumoBladeItemTier ya(Supplier repairIngredient) {
+    public static YakumoBladeItemTier ya(Supplier<Ingredient> repairIngredient) {
         return new YakumoBladeItemTier(BlockTags.INCORRECT_FOR_STONE_TOOL, 200, 0, 0, 30, repairIngredient);
     }
 
     private static void register() {
         Registry.register(BuiltInRegistries.ITEM, YELLOW_FOX,
                 new TouHouMaid(
-                        ya(() -> BuiltInRegistries.ITEM.get(YELLOW_FOX)),
+                        ya(() -> Ingredient.of(BuiltInRegistries.ITEM.get(YELLOW_FOX))),
                         25,
                         -2.4F,
                         new Item.Properties())
