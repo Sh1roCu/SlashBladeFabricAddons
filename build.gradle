@@ -124,7 +124,7 @@ dependencies {
     modCompileOnly 'com.google.code.findbugs:jsr305:3.0.2'
     annotationProcessor 'com.google.code.findbugs:jsr305:3.0.2'
 
-    modImplementation("cn.sh1rocu:slashblade-refabricated:1.21.1-1.4.0-Resharped-1.9.65")
+    modImplementation("cn.sh1rocu:slashblade-refabricated:1.21.1-1.4.1-Resharped-1.9.65")
     modImplementation("io.github.fabricators_of_create.Porting-Lib:core:3.1.0-beta.79-fix+1.21.1-fix")
     modImplementation("io.github.fabricators_of_create.Porting-Lib:gametest:3.1.0-beta.79-fix+1.21.1-fix")
     modImplementation("io.github.fabricators_of_create.Porting-Lib:obj_loader:3.1.0-beta.79-fix+1.21.1-fix")
