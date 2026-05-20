@@ -14,6 +14,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.TooltipFlag;
@@ -24,6 +25,7 @@ import org.jetbrains.annotations.Nullable;
 import java.awt.*;
 import java.util.EnumSet;
 import java.util.List;
+import java.util.function.Consumer;
 
 // TODO
 // TofuCraft Fabric移植
@@ -88,7 +90,7 @@ public class TofuSlashBladeItem extends ItemSlashBladeDetune /*implements IEnerg
     }
 
     @Override
-    public <T extends LivingEntity> int damageItem(ItemStack stack, int amount, T entity, Runnable onBroken) {
+    public <T extends LivingEntity> int damageItem(ItemStack stack, int amount, T entity, Consumer<Item> onBroken) {
         if (this.getEnergy(stack) > 0 && amount > 0) {
             int damage = amount - this.drain(stack, amount, false);
             return super.damageItem(stack, damage, entity, onBroken);

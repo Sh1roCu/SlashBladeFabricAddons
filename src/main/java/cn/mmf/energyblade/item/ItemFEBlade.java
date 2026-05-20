@@ -23,6 +23,7 @@ import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.TooltipFlag;
@@ -31,6 +32,7 @@ import org.lwjgl.glfw.GLFW;
 import team.reborn.energy.api.EnergyStorage;
 
 import java.util.List;
+import java.util.function.Consumer;
 
 // 拓展子类拔刀剑(extends ItemSlashBlade)
 public class ItemFEBlade extends ItemSlashBlade implements IDamageable {
@@ -156,9 +158,9 @@ public class ItemFEBlade extends ItemSlashBlade implements IDamageable {
     }
 
     @Override
-    public <T extends LivingEntity> int damageItem(ItemStack arg0, int arg1, T arg2, Runnable arg3) {
+    public <T extends LivingEntity> int damageItem(ItemStack stack, int amount, T entity, Consumer<Item> onBroken) {
         // TODO 电量耐久适配消耗
-        return super.damageItem(arg0, arg1, arg2, arg3);
+        return super.damageItem(stack, amount, entity, onBroken);
     }
 
     @Environment(EnvType.CLIENT)
