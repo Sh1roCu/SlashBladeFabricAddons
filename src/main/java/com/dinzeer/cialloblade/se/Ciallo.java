@@ -58,13 +58,13 @@ public class Ciallo extends SpecialEffect {
             if (SpecialEffect.isEffective(SERegsitry.CIALLO, player.experienceLevel)) {
                 Level world = player.level();
 
-                if (state.getComboSeq() == (ComboStateRegistry.getId(ComboStateRegistry.WAVE_EDGE_VERTICAL))) {
+                if (state.getComboSeq().equals(ComboStateRegistry.getId(ComboStateRegistry.WAVE_EDGE_VERTICAL))) {
 
                     world.playSound(null, player.getX(), player.getY(), player.getZ(), SoundRegsitry.DOSLASH, SoundSource.PLAYERS,
                             player.getRandom().nextFloat(), 1.0F);
 
                 }
-                if (state.getComboSeq() == (ComboStateRegistry.getId(ComboStateRegistry.AERIAL_RAVE_A1))) {
+                if (state.getComboSeq().equals(ComboStateRegistry.getId(ComboStateRegistry.AERIAL_RAVE_A1))) {
 
                     world.playSound(null, player.getX(), player.getY(), player.getZ(), SoundRegsitry.SENPAI, SoundSource.PLAYERS,
                             player.getRandom().nextFloat(), 1.0F);
