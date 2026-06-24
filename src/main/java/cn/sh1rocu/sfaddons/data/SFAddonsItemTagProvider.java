@@ -1,6 +1,7 @@
 package cn.sh1rocu.sfaddons.data;
 
 import cn.mmf.energyblade.Energyblade;
+import cn.mmf.slashblade_addon.compat.SBATofuCraftItems;
 import com.yakumosakura.yakumoblade.compat.YATouHouMaidItem;
 import com.yakumosakura.yakumoblade.registry.slashblade.YAItem;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
@@ -19,9 +20,11 @@ public class SFAddonsItemTagProvider extends FabricTagProvider.ItemTagProvider {
     @Override
     protected void addTags(HolderLookup.Provider provider) {
         this.getOrCreateTagBuilder(ItemTags.SWORDS).add(
-                BuiltInRegistries.ITEM.getKey(Energyblade.FORGE_ENERGY_BLADE),
-                YAItem.SlashBladeOfYakumoBlade,
-                YATouHouMaidItem.YELLOW_FOX
-        );
+                        BuiltInRegistries.ITEM.getKey(Energyblade.FORGE_ENERGY_BLADE),
+                        YAItem.SlashBladeOfYakumoBlade)
+                .addOptional(SBATofuCraftItems.TOFUISHI_SLASHBLADE)
+                .addOptional(SBATofuCraftItems.TOFUMETAL_SLASHBLADE)
+                .addOptional(SBATofuCraftItems.TOFUDIAMOND_SLASHBLADE)
+                .addOptional(YATouHouMaidItem.YELLOW_FOX);
     }
 }

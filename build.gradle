@@ -1,5 +1,5 @@
 plugins {
-    id 'fabric-loom' version '1.11.8'
+    id 'fabric-loom' version '1.15.5'
     id 'maven-publish'
 }
 
@@ -98,12 +98,16 @@ repositories {
     maven { url = "https://maven.architectury.dev/" }
     maven { url = "https://maven.latvian.dev/releases" }
     maven {
-        name = "CottonMC"
-        url = "https://server.bbkr.space/artifactory/libs-release"
+        name = "AlexIIL"
+        url = "https://staging.alexiil.uk/maven/"
     }
     maven {
         name "reposiliteRepositoryArtifacts"
         url "https://maven.conczin.net/Artifacts"
+    }
+    maven {
+        name = "Greenhouse Maven"
+        url = 'https://maven.greenhouse.lgbt/releases/'
     }
     flatDir {
         dir "libs"
@@ -135,10 +139,10 @@ dependencies {
 
     modImplementation "org.ladysnake.cardinal-components-api:cardinal-components-base:${project.cca_version}"
     modImplementation "org.ladysnake.cardinal-components-api:cardinal-components-entity:${project.cca_version}"
-    modImplementation("cn.sh1rocu:touhoulittlemaid-fabric-1.21.1:0.5.1-neo1.4.6") {
-        exclude(group: "libs")
-        exclude(group: "net.conczin")
+    modImplementation("cn.sh1rocu:touhoulittlemaid-fabric:0.8.2-neo1.5.3+mc1.21.1") {
+        transitive = false
     }
+    runtimeOnly("org.openjdk.nashorn:nashorn-core:15.4")
 
     modCompileOnlyApi("mezz.jei:jei-${minecraft_version}-common-api:${jei_version}")
     modCompileOnlyApi("mezz.jei:jei-${minecraft_version}-fabric-api:${jei_version}")
@@ -146,10 +150,7 @@ dependencies {
 
     modRuntimeOnly("dev.kosmx.player-anim:player-animation-lib-fabric:2.0.1+1.21.1")
 
-    // TODO: 暂无1.21，先使用1.20通过编译
-    modCompileOnly('vazkii.botania:Botania:1.20.1-446-FABRIC') {
-        exclude(group: "dev.onyxstudios.cardinal-components-api")
-    }
+    modImplementation('vazkii.botania:botania-fabric-1.21.1:454-SNAPSHOT')
 
     modImplementation('vazkii.patchouli:Patchouli:1.21-87-FABRIC')
 

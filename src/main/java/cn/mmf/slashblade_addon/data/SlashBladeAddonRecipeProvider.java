@@ -10,6 +10,7 @@ import mods.flammpfeil.slashblade.recipe.SlashBladeShapedRecipeBuilder;
 import mods.flammpfeil.slashblade.registry.slashblade.EnchantmentDefinition;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
+import net.fabricmc.fabric.api.resource.conditions.v1.ResourceConditions;
 import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -21,6 +22,7 @@ import net.minecraft.world.item.alchemy.PotionContents;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.enchantment.Enchantments;
+import vazkii.botania.common.item.BotaniaItems;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -87,14 +89,13 @@ public class SlashBladeAddonRecipeProvider extends FabricRecipeProvider {
 //                .unlockedBy(getHasName(SBItems.SLASHBLADE_WOOD), has(SBItems.SLASHBLADE_WOOD))
 //                .save(withConditions(consumer, DefaultResourceConditions.allModsLoaded("tofucraft"), SBATofuCraftItems.TOFUISHI_SLASHBLADE));
 
-        // TODO: wait Botania 1.21
-//        SlashBladeShapedRecipeBuilder
-//                .shaped(SlashBladeAddonBuiltInRegistry.TERRA_BLADE.location()).pattern("ZCO").pattern(" BG")
-//                .pattern("Q X").define('G', SBItems.PROUDSOUL).define('X', SBItems.PROUDSOUL_SPHERE)
-//                .define('Q', BotaniaItems.terraSword).define('Z', BotaniaItems.vineBall)
-//                .define('C', BotaniaItems.thornChakram).define('O', BotaniaItems.gaiaIngot)
-//                .define('B', SBItems.SLASHBLADE).unlockedBy(getHasName(SBItems.SLASHBLADE), has(SBItems.SLASHBLADE))
-//                .save(withConditions(consumer, ResourceConditions.allModsLoaded("botania")), SlashBladeAddonBuiltInRegistry.TERRA_BLADE.location());
+        SlashBladeShapedRecipeBuilder
+                .shaped(SlashBladeAddonBuiltInRegistry.TERRA_BLADE.location()).pattern("ZCO").pattern(" BG")
+                .pattern("Q X").define('G', SBItems.PROUDSOUL).define('X', SBItems.PROUDSOUL_SPHERE)
+                .define('Q', BotaniaItems.TERRA_BLADE).define('Z', BotaniaItems.VINE_BALL)
+                .define('C', BotaniaItems.THORN_CHAKRAM).define('O', BotaniaItems.GAIA_INGOT)
+                .define('B', SBItems.SLASHBLADE).unlockedBy(getHasName(SBItems.SLASHBLADE), has(SBItems.SLASHBLADE))
+                .save(withConditions(consumer, ResourceConditions.allModsLoaded("botania")), SlashBladeAddonBuiltInRegistry.TERRA_BLADE.location());
 
         SlashBladeShapedRecipeBuilder.shaped(SlashBladeAddonBuiltInRegistry.KAMUY_NONE.location()).pattern("SNS")
                 .pattern("IBI").pattern("SDS").define('S', SBItems.PROUDSOUL_SPHERE)

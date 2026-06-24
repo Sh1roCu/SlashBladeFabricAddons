@@ -30,10 +30,10 @@ public class ManaBurst extends SpecialEffect {
             int level = player.experienceLevel;
 
             if (SpecialEffect.isEffective(SpecialEffectsRegistry.SPECIAL_EFFECT.getKey(SBABotaniaCompat.MANA_BURST), level)) {
-                if (!ManaItemHandler.instance().requestManaExactForTool(BotaniaItems.terraSword.getDefaultInstance(),
+                if (!ManaItemHandler.instance().requestManaExactForTool(BotaniaItems.TERRA_BLADE.getDefaultInstance(),
                         player, 100, true))
                     return;
-                ManaBurstEntity burst = TerraBladeItem.getBurst(player, BotaniaItems.terraSword.getDefaultInstance());
+                ManaBurstEntity burst = TerraBladeItem.getBurst(player, BotaniaItems.TERRA_BLADE.getDefaultInstance());
                 player.level().addFreshEntity(burst);
                 player.onEquippedItemBroken(player.getMainHandItem().getItem(), EquipmentSlot.MAINHAND);
                 player.level().playSound(null, player.getX(), player.getY(), player.getZ(), BotaniaSounds.terraBlade, SoundSource.PLAYERS, 1F, 1F);

@@ -61,7 +61,7 @@ public class BlisteringTerraSwords {
 
                 playerIn.playSound(SoundEvents.CHORUS_FRUIT_TELEPORT, 0.2F, 1.45F);
 
-                if (!ManaItemHandler.instance().requestManaExactForTool(BotaniaItems.terraSword.getDefaultInstance(),
+                if (!ManaItemHandler.instance().requestManaExactForTool(BotaniaItems.TERRA_BLADE.getDefaultInstance(),
                         (Player) playerIn, 100, true))
                     return;
 

@@ -25,7 +25,7 @@ public class ManaRapair extends SpecialEffect {
             if (!event.isSelected())
                 return;
 
-            if (!ManaItemHandler.instance().requestManaExactForTool(BotaniaItems.terraSword.getDefaultInstance(),
+            if (!ManaItemHandler.instance().requestManaExactForTool(BotaniaItems.TERRA_BLADE.getDefaultInstance(),
                     player, 100, true))
                 return;
 

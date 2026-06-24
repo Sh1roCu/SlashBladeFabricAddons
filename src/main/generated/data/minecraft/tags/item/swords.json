@@ -2,6 +2,21 @@
   "values": [
     "slashblade_fabric_addons:energyblade/forge_energy_blade",
     "slashblade_fabric_addons:yakumoblade/slashblade",
-    "slashblade_fabric_addons:yakumoblade/slashblade_yellowfox"
+    {
+      "id": "slashblade_fabric_addons:slashblade_addon/slashblade_tofu_ishi",
+      "required": false
+    },
+    {
+      "id": "slashblade_fabric_addons:slashblade_addon/slashblade_tofu_metal",
+      "required": false
+    },
+    {
+      "id": "slashblade_fabric_addons:slashblade_addon/slashblade_tofu_diamond",
+      "required": false
+    },
+    {
+      "id": "slashblade_fabric_addons:yakumoblade/slashblade_yellowfox",
+      "required": false
+    }
   ]
 }
